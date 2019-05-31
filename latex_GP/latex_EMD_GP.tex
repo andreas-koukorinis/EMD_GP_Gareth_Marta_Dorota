@@ -1,0 +1,241 @@
+\documentclass[article,moreauthors,pdftex,10pt,a4paper]{ssrn} 
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{multicol}
+\usepackage{placeins}
+\usepackage[title]{appendix}
+\usepackage{bm}
+\usepackage{subcaption}
+\usepackage{lscape}
+\usepackage{longtable,hhline}
+\usepackage{pifont}
+\allowdisplaybreaks
+
+\newcommand{\chighlight}[1]{%
+\colorbox{red!50}{$\displaystyle#1$}}
+\DeclareMathSizes{10}{9}{7}{6}
+\DeclareMathOperator*{\tr}{\text{Tr}}
+\DeclareMathOperator*{\myvec}{\text{vec}}
+\DeclareMathOperator*{\diag}{diag}
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\argmax}{argmax}
+\usepackage{colortbl}%
+\newcommand{\myrowcolour}{\rowcolor[gray]{0.925}}
+
+
+\graphicspath{{figs/} }
+
+%=================================================================
+\firstpage{1} 
+\makeatletter 
+\setcounter{page}{\@firstpage} 
+\makeatother 
+
+%% TODO: add date, make smaller names of authors, fix correspondence with cross and corresponding aurthor.
+%------------------------------------------------------------------
+% The following line should be uncommented if the LaTeX file is uploaded to arXiv.org
+%\pdfoutput=1
+
+%=================================================================
+% Add packages and commands here. The following packages are loaded in our class file: fontenc, calc, indentfirst, fancyhdr, graphicx, lastpage, ifthen, lineno, float, amsmath, setspace, enumitem, mathpazo, booktabs, titlesec, etoolbox, amsthm, hyphenat, natbib, hyperref, footmisc, geometry, caption, url, mdframed, tabto, soul, multirow, microtype, tikz
+
+%=================================================================
+%% Please use the following mathematics environments: Theorem, Lemma, Corollary, Proposition, Characterization, Property, Problem, Example, ExamplesandDefinitions, Hypomanuscript, Remark, Definition
+%% For proofs, please use the proof environment (the amsthm package is loaded by the MDPI class).
+\graphicspath{{figs/} }
+%=================================================================
+% Full title of the paper (Capitalized)
+\Title{Notes: Empirical Mode Decomposition \& Gaussian Processes}
+
+% Author Orchid ID: enter ID or remove command
+%\newcommand{\orcidauthorA}{0000-0000-000-000X} % Add \orcidA{} behind the author's name
+%\newcommand{\orcidauthorB}{0000-0000-000-000X} % Add \orcidB{} behind the author's name
+
+% Authors, for the paper (add full first names)
+\Author{}
+
+% Authors, for metadata in PDF
+\AuthorNames{}
+
+\address{% 
+}
+
+% Contact information of the corresponding author
+\corres{}
+
+
+
+\begin{document}
+
+\begin{abstract}
+Extension 1, Estimation: Treat each IMF as a separate Gaussian process and then represent the signal using multi-kernel representation of the Gaussian Process. \\
+Extension 2, Forecasting: GP representation does not ensures itself that the predicted function from a given Gaussian process is IMF , that is, it satisfies (I1)-(I2). Therefore, we  explore the formulation of IMFs as an analogue of Brownian Bridge.
+\end{abstract}
+%\tableofcontents
+
+
+
+\section{Gaussian Processes and EMD: IMFs as Gaussian Processes with non-stationary kernels}
+We treat each IMF as a separate Gaussian process and then represent the signal using multi-kernel representation of the Gaussian Process.
+
+\subsection{IMFs as Gaussian Processes}
+Let $x(t)$ be a continuous real-valued signal and let us define its EMD decomposition into $K$ intrinsic mode functions (IMFs) given by 
+\begin{equation}\label{eq:model_x_EMD}
+x(t) = \sum_{k = 1}^K c_k(t) + r_K(t) = \sum_{k = 1}^K \text{Re}\Big\{ A_k(t)  e^{i \theta_k(t)} \Big\} + r_K(t).
+\end{equation}
+We assume that each $c_k(t)$ is a Gaussian process such that 
+\begin{equation}\label{eq:model_IMF_GP_k}
+c_k(t) \sim \mathcal{GP} \Big( \mu_k(t), K_k(t,t')\Big), 
+\end{equation}
+where $\mu_k(t)$ is a mean function of the process and $K_k(t,t')$ is a positive definite covariance kernel which are parametrized with a set of parameters $\varphi_{k}$ and $\Psi_{k}$, respectively. Therefore, the moments of $c_k(t)$ are given in the form of the following one dimensional and two dimensional mappings
+\begin{align*}
+&\mathbb{E}_{ c_k(t)| \varphi_{k}} \big[ c_k(t)\big] = \mu_k(t), \\
+& \mathbb{E}_{ c_k(t)| \Psi_{k}} \Big[ \big(c_k(t) - \mu_k(t) \big)\big(c_k(t') - \mu_k(t') \big) \Big] = K_k(t,t')
+\end{align*}
+
+In order to specify the distribution of each $c_k(t)$, we collect $M$ paths of $x(t)$ . Therefore, we have $M$ collections of of points $\mathbf{t}^{(1)} , \ldots, \mathbf{t}^{(M)}$, each $N_i$ dimensional for $i \in \Big\{1,\ldots,M\Big\}$ and by  by $\mathbf{x}^{(i)}$ we denote the values of $x(t)$ collected in the trail $i$ on the points $t \in \mathbf{t}^{(i)}$.  The sets $\mathbf{t}^{(i)}$ can be the same.
+The EMD decomposition on each of the $M$ replications  $x^{(i)}$ gives the following representations
+\begin{equation}
+\mathbf{x}^{(i)} = \sum_{k = 1}^K \mathbf{c}_k^{(i)}+ \mathbf{r}^{(i)}_K 
+\end{equation}
+where $\mathbf{c}_k^{(i)}$ is an $N_i$ dimensional vector which represents the observed values of the function $c_k(t)$ with arguments in $\mathbf{t}^{(i)}$. The same logic applies to the definition of vectors $\mathbf{r}^{(i)}_K $ and  $\bm{\mu}_k^{(i)}$  corresponding to the functions $r_K(t)$ and $\mu_k(t)$.
+
+{\color{red}
+REMARK: Each element of $\mathbf{c}_k^{(i)}$ or $\mathbf{x}^{(i)}$, that is, some $c_{k,j}^{(i)}$ or $x_{j}^{(i)}$ is a combination of a spline coefficients fitted for the batch $i$ and being an output of a function $c_k^{(i)}(t)$ and $x^{(i)}(t)$ (the fitted spline in trial $i$) to the argument point $t^{(i)}_j$.
+}
+
+\subsubsection{MLE Estimation of the Static Parameters in Gaussian Processes Models}
+In the following subsection we derive the MLE estimator of the vectors of parameters $\varphi_k$ and $\Psi_k$. The log likelihood of the model is obtained for two cases
+\begin{enumerate}
+\item when we assume that the observations of $c_k(t)$ are noise free;
+\item when we assume that the observations of $c_k(t)$ are contaminated with  a small noise;
+\end{enumerate}
+In order for the first assumption to hold, the $M$ paths of $c_k(t)$ at the same point $t_0$ should have the same values.  The second case relaxes this assumption allowing for a degree of perturbation and unequal values at the same argument. 
+
+Let us introduce the notation.  Let $N = \sum_{i=1}^M N_i$ is an overall number of  observed pairs of points $\big\{x_j^{(i)}, t^{(i)}_j \big\}$  for $j = 1,\dots,N_i$ and $i = 1,\ldots	, M$ . We denote by $\mathbf{t} = \big[ \mathbf{t}^{(1)} ,\ldots,\mathbf{t}^{(M)} \big]$ an $N$-dimensional vector which is a collection of all sets of arguments. Let  $\mathbf{v}_k = \big[ \mathbf{v}^{(1)} ,\ldots,\mathbf{v}^{(M)} \big]$ be an $N$-dimensional vector where $\mathbf{v}^{(i)}= \mathbf{c}_k^{(i)} - \bm{\mu}_k^{(i)}$.
+
+We define $K_k( \cdot, \cdot)$ as a vector operator such that 
+\begin{align*}
+K_k (\mathbf{t}^{(i)},\mathbf{t}^{(j)}  ) := \begin{bmatrix}
+K_k(t_1^{(i)},t_1^{(j)}) & K_k(t_1^{(i)},t_2^{(j)})& \cdots & K_k(t_1^{(i)},t_{N_j}^{(j)}) \\
+K_k(t_2^{(i)},t_1^{(j)}) & K_k(t_2^{(i)},t_2^{(j)})& \cdots & K_k(t_2^{(i)},t_{N_j}^{(j)}) \\
+\vdots & \vdots & \ddots & \vdots  \\
+K_k(t_{N_i}^{(i)},t_1^{(j)}) & K_k(t_{N_i}^{(i)},t_2^{(j)})& \cdots & K_k(t_{N_i}^{(i)},t_{N_j}^{(j)}) 
+\end{bmatrix}_{ N_i \times	N_j}. 
+\end{align*}
+which is used to  define the $N \times N$ Gram matrix $\mathbf{K}_k$ given by
+\begin{align*}
+\mathbf{K}_{k} = \begin{bmatrix}
+K_k (\mathbf{t}^{(1)},\mathbf{t}^{(1)}  )& K_k (\mathbf{t}^{(1)},\mathbf{t}^{(2)}  ) & \cdots & K_k (\mathbf{t}^{(1)},\mathbf{t}^{(M-1)}  ) & K_k (\mathbf{t}^{(1)},\mathbf{t}^{(M)}  ) \\
+K_k (\mathbf{t}^{(2)},\mathbf{t}^{(1)}  )& K_k (\mathbf{t}^{(2)},\mathbf{t}^{(2)}  ) & \cdots & K_k (\mathbf{t}^{(2)},\mathbf{t}^{(M-1)}  ) & K_k (\mathbf{t}^{(2)},\mathbf{t}^{(M)}  ) \\
+\vdots & \vdots & \ddots & \vdots & \vdots  \\
+K_k (\mathbf{t}^{(M-1)},\mathbf{t}^{(1)}  )& K_k (\mathbf{t}^{(M-1)},\mathbf{t}^{(2)}  ) & \cdots & K_k (\mathbf{t}^{(M-1)},\mathbf{t}^{(M-1)}  ) & K_k (\mathbf{t}^{(M-1)},\mathbf{t}^{(M)}  ) \\
+K_k (\mathbf{t}^{(M)},\mathbf{t}^{(1)}  )& K_k (\mathbf{t}^{(M)},\mathbf{t}^{(2)}  ) & \cdots & K_k (\mathbf{t}^{(M)},\mathbf{t}^{(M-1)}  ) & K_k (\mathbf{t}^{(M)},\mathbf{t}^{(M)}  ) 
+\end{bmatrix}_{N \times N}, 
+\end{align*}
+
+\paragraph{Noise-Free observations}
+Under the noise free assumption and given the model in Equation \eqref{eq:model_IMF_GP_k}, the loglikelihood of the model of $c_k(t)$ is given by
+\begin{equation}
+l_k\Big( \mathbf{c}_k, \mathbf{t}, \varphi_k, \Psi_k \Big) = - \frac{N}{2} \log 2 \pi - \frac{1}{2} \log |\mathbf{K_k} | - \frac{1}{2}\mathbf{v}_k^T \mathbf{K_k}^{-1} \mathbf{v}_k
+\end{equation}
+and result in the following gradient with respect to the static parameters 
+\begin{align*}
+& \frac{\partial l_k\Big( \mathbf{c}_k, \mathbf{t}, \varphi_k, \Psi_k \Big)}{\partial \varphi_k} = \frac{1}{2} \mathbf{c}_k \mathbf{K}_k^{-1} \mathbf{v}_k \frac{\partial \mu_k(\mathbf{t})}{\partial \varphi_k} \\
+& \frac{\partial l_k\Big( \mathbf{c}_k, \mathbf{t}, \varphi_k, \Psi_k \Big)}{\partial \Psi_k} = \frac{1}{2} \tr \bigg\{\Big( \mathbf{K}_k^{-1}  \mathbf{v}_k \mathbf{v}_k^T\mathbf{K}_k^{-1} -\mathbf{K}_k^{-1}  \Big) \frac{\partial \mathbf{K}_k }{ \partial \Psi_k} \bigg\}
+\end{align*}
+If the point sets $\mathbf{t}^{(i)}$ all the same and equal to $\mathbf{t}^*$, the vector $\mathbf{t}$ is constructed by stacking the vector $\mathbf{t}^*$ by $M$ times. Then the formulation of the log-likelihood simplifies to 
+\begin{equation}
+l_k\Big( \mathbf{c}_k, \mathbf{t}, \varphi_k, \Psi_K \Big) = - \frac{N}{2} \log 2 \pi - \frac{M}{2} \log |K_k (\mathbf{t}^*,\mathbf{t}^*  ) | - \frac{1}{2}\sum_{i = 1}^M \mathbf{v}^{(i) \ T} K_k (\mathbf{t}^*,\mathbf{t} ^*) ^{-1} \mathbf{v}^{(i)} \big) 
+\end{equation}
+
+
+\paragraph{Noisy Observations}
+If we suspect that the realisations of $c_k(t)$ are perturbed by a zero mean Gaussian noise with the variance $\sigma^2_k$, then the loglikelihood of the model for $c_k(t)$ is adjusted to accommodate this information as following 
+\begin{equation}
+l_k\Big( \mathbf{c}_k, \mathbf{t} , \varphi_k, \Psi_k \Big) = - \frac{N}{2} \log 2 \pi - \frac{1}{2} \log |\mathbf{K}_k + \sigma^2_k \mathbb{I}_N | - \frac{1}{2}\mathbf{v}_k^T \Big(\mathbf{K}_k   + \sigma^2_k \mathbb{I}_N \Big)^{-1} \mathbf{v}_k
+\end{equation}
+what applies as well to its simplified version, which is reformulated as
+\begin{equation}
+l_k\Big( \mathbf{c}_k, \mathbf{t}^* , \varphi_k, \Psi_k \Big) = - \frac{N}{2} \log 2 \pi - \frac{M}{2} \log |K_k (\mathbf{t}^*,\mathbf{t}^*  ) + \sigma^2_k \mathbb{I}_{N_*} | - \frac{1}{2}\sum_{i = 1}^M \mathbf{v}^{(i) \ T} \Big( K_k (\mathbf{t}^*,\mathbf{t}^*  ) +  + \sigma^2_k \mathbb{I}_{N_*} \Big)^{-1}\mathbf{v}^{(i)} \big) 
+\end{equation}
+The gradient of the loglikelihood with respect to the static parameters of the model is given by 
+\begin{align*}
+& \frac{\partial l_k\Big( \mathbf{c}_k, \mathbf{t} , \varphi_k, \Psi_k \Big)}{\partial \varphi_k} = \frac{1}{2} = \mathbf{c}_k \Big(\mathbf{K}_k + \sigma^2_k \mathbb{I}_N\Big)^{-1} \mathbf{v}_k \frac{\partial \mu_k(\mathbf{t})}{\partial \varphi_k} \\
+& \frac{\partial l_k\Big( \mathbf{c}_k, \mathbf{t} , \varphi_k, \Psi_k \Big)}{\partial \Psi_k} = \frac{1}{2} \tr \bigg\{\bigg(\Big(\mathbf{K}_k + \sigma^2_k \mathbb{I}_N\Big)^{-1}  \mathbf{v}_k \mathbf{v}_k^T\Big(\mathbf{K}_k + \sigma^2_k \mathbb{I}_N\Big)^{-1} -\Big(\mathbf{K}_k + \sigma^2_k \mathbb{I}_N\Big)^{-1}  \bigg) \frac{\partial \mathbf{K}_k }{ \partial \Psi_k} \bigg\} \\
+& \frac{\partial l_k\Big( \mathbf{c}_k , \mathbf{t} , \varphi_k, \Psi_k \Big)}{\partial \sigma^2_k} = \frac{1}{2} \tr \bigg\{\bigg(\mathbf{K}_k + \sigma^2_k \mathbb{I}_N\Big)^{-1}  \mathbf{v}_k \mathbf{v}_k^T\Big(\mathbf{K}_k + \sigma^2_k \mathbb{I}_N\Big)^{-1} -\Big(\mathbf{K}_k + \sigma^2_k \mathbb{I}_N\Big)^{-1}  \bigg\} \\
+\end{align*}
+
+
+\subsubsection{Predictive Distribution of IMFs}
+Let $\mathbf{s}$ represent a set of points where we want to predict IMFs given the models estimated in the previous subsection.  The predictive distribution of $c_k$ on a new set of points denoted by $\mathbf{s}$, which is conditioned on the observed information and assuming that there is an observation error, is Gaussian with the conditional mean
+\begin{equation*}
+\mathbb{E}_{c_k(t)|\mathbf{t}} \big[c_k(\mathbf{s})] = \mu_k(\mathbf{s}) -  K_k \big(\mathbf{s},\mathbf{t}\big)\Big( K_k \big(\mathbf{t},\mathbf{t}\big) + \sigma^2_k \mathbf{I}_N \Big) ^{-1} \big( c_k(\mathbf{t}) - \mu_k(\mathbf{t})\big) 
+\end{equation*}
+and the conditional covariance matrix given by
+\begin{equation*}
+\mathbf{Cov}_{c_k(t)|\mathbf{t}} \big[c_k(\mathbf{s})] = K_k \big(\mathbf{s},\mathbf{s}\big) - K_k\big(\mathbf{s},\mathbf{t}\big) K_k \big(\mathbf{s},\mathbf{t}\big)\Big( K_k \big(\mathbf{t},\mathbf{t}\big) + \sigma^2_k \mathbf{I}_N \Big)^{-1} K_k \big(\mathbf{t},\mathbf{s}\big) 
+\end{equation*}
+TODO: explain this concept by using a priori sample and a posteriori sample plots on a simple Gaussian kernel with zero as a mean. 
+
+
+\subsubsection{Kernel Choice}
+TODO: produce some plots about the kernel choice for IMFS, plots like from the Turners presentation - elipsoids, a priori generated sample, a posteriori distribution given a few points
+
+\subsection{Multikernel Representation of the Signal}
+
+
+\subsubsection{Assuming Independence of IMFS }
+Given the Gaussian Process model of the $c_k(t)$, the distribution of $x(t)$ can be formulated as a uniform mixture of Gaussian Processes with different kernels.  Again, we can either assume that the observed values are or are not perturbed by a noise. In the following derivation we assume that the model of the $x(t)$ includes additional  term corresponding to the zero mean Gaussian noise with variance $\sigma^2$, that is
+\begin{equation}
+x(t) = \sum_{k = 1}^K c_k(t) + r_K(t) + \epsilon
+\end{equation}
+and results in the following distribution of $x(t)$ 
+\begin{equation}
+x(t) \sim ~   GP \bigg(r_K(t) + \sum_{k=1}^K \mu_k(t); \sum_{k=1}^K K_k(t,t') + \sigma^2 \bigg) 
+\end{equation}
+The scalar $\sigma^2$ can be estimated by MLE of $x(t)$, given its $M$ realization, $\mathbf{x}^{(i)}$, formed into a vector $\mathbf{x} = \big[\mathbf{x}^{(1)},\ldots, \mathbf{x}^{(M)} \big]$. If we denote by $K(t,t') := \sum_{k=1}^K K_k(t,t')$ a vector operator similarly defined as $K_k(t,t')$  and by $\mu(t) = r_K(t) + \sum_{k=1}^K \mu_k(t)$, then the log-likelihood of the model 
+\begin{equation}
+l\big( \mathbf{x}, \mathbf{t} , \sigma^2 \big) = - \frac{N}{2} \log 2 \pi - \frac{1}{2} \log |K(\mathbf{t},\mathbf{t}) + \sigma^2 \mathbb{I}_N | - \frac{1}{2}(\mathbf{x} - \mu(\mathbf{t}))^T \Big(K(\mathbf{t},\mathbf{t})   + \sigma^2 \mathbb{I}_N \Big)^{-1} (\mathbf{x} - \mu(\mathbf{t}))
+\end{equation}
+with corresponding gradient
+\begin{equation*}
+\frac{\partial l\big( \mathbf{x} , \mathbf{t} , \sigma^2 \big)}{\partial \sigma^2} = \frac{1}{2} \tr \bigg\{\Big(K(\mathbf{t},\mathbf{t}) + \sigma^2 \mathbb{I}_N\Big)^{-1}  (\mathbf{x} - \mu(\mathbf{t}))(\mathbf{x} - \mu(\mathbf{t}))^T\Big(K(\mathbf{t},\mathbf{t})  + \sigma^2 \mathbb{I}_N\Big)^{-1} -\Big(K(\mathbf{t},\mathbf{t})+ \sigma^2 \mathbb{I}_N\Big)^{-1}  \bigg\} 
+\end{equation*}
+The predictive distribution of $x(t)$ is given by 
+\begin{equation*}
+\mathbb{E}_{x(t)| \mathbf{t}} \big[x(\mathbf{s})] = \sum_{k = 1}^K \mathbb{E}_{c_k(t)|\mathbf{t}} \big[c_k(\mathbf{s})] 
+\end{equation*}
+and the covariance matrix given by
+\begin{equation*}
+\mathbf{Cov}_{x(t)|\mathbf{t}} \big[x(\mathbf{s})]  = \sum_{k = 1}^K\mathbf{Cov}_{c_k(t)|\mathbf{t}} \big[c_k(\mathbf{s})]  + \sigma^2
+\end{equation*}
+
+
+\subsubsection{Correlation of IMFS }
+If the GP of $c_k$ are not independent, the Gram matrix of the model for $x(t)$ would contain additional elements which provide the correlation structure between different IMFs
+\begin{equation}
+x(t) \sim ~   GP \bigg(r_K(t) + \sum_{k=1}^K m_k(t); \sum_{k=1}^K K_k(t,t') + 2\sum_{k_1,k_2=1, k_1<k_2}^K K_{k1,k2}(t,t') + \sigma^2 \bigg) 
+\end{equation}
+where $K_{k1,k2}(t,t')$ defines the dependence structure between $c_{k_1}(t)$ and $c_{k_2}(t)$
+
+
+\section{Brownian Bridge Analogue to  construct IMFs}
+GP representation does not ensures itself that the predicted function from a given Gaussian process is IMF , that is, it satisfies (I1)-(I2). Therefore, we explire the following approches
+
+
+
+\subsection{Symmetric Local Extremas of IMFs} 
+On every time internal there is a Brownian bridge or constrained Brownian bridge which starts and end from local extrema which are $x^{min} (t)= -x^{max}(t)$ for $t \in [\tau_i,\tau_{i+1}$
+\subsection{Nonsymmetric}
+
+\subsection{Bayesian EMD}
+1. Construct a set of functions in Bayesian setting to have a IMF representation with restricted posterior (what needs to be satisfied on maxima and minima and how to ensure it)
+2. Analogous of Brownian Bridge IMFs in Bayesian setting
+
+Berger's optimal theory. Books on smoothing
+
+
+
+
+\end{document}
