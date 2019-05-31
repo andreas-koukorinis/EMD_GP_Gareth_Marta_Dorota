@@ -1,0 +1,13 @@
+# folders to exclude
+# /logs/*
+# files to exclude
+*.log
+*.csv
+*.RData
+*.RHistory
+*.png
+*.jpeg
+*.xlsx
+*.xls
+*.rds
+*.Rds
