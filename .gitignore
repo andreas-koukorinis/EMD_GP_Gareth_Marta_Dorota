@@ -1,3 +1,11 @@
 *.RData
 *.Rhistory
+<<<<<<< HEAD
 *.Rproj.user
+=======
+*.xlsx
+*.eps
+*.log
+*.jpg
+.Rproj.user
+>>>>>>> 28979bf0b1d2b73264b8f6dd1453d00b1b41c503
