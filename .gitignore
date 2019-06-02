@@ -1,12 +1,3 @@
-*.csv
-*.png
-*.pdf
-*.rds
 *.RData
 *.Rhistory
-*.xlsx
-*.eps
-*.log
-*.txt
-*.jpg
 .Rproj.user
