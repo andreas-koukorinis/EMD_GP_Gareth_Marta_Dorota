@@ -74,13 +74,52 @@ ggsave(paste(dir,'/y_sim_stationary.png',sep = ''),width =10,height = 8)
 
 
 id_obs = sample(1:n,4,replace= F)
+nobs = length(id_obs)
+npred = n - nobs
 t_obs = t[id_obs]
 t_pred = t[-id_obs]
 y_obs = subset(toplot_y_st, toplot_y_st$s == 1 & toplot_y_st$label=='RQ' & toplot_y_st$parm == 1 & toplot_y_st$t %in% t_obs)[,'y']
 
-mu_pred_SE = 
-mu_pred_RQ = 
-mu_pred_PR = 
+mu_pred_SE = do.call('rbind',lapply(1:nl, function(i){df = data.frame(t = c(t_obs,t_pred),
+                                                                      y = c(y_obs,Sigma_SE[[i]][-id_obs,id_obs] %*% solve(Sigma_SE[[i]][id_obs,id_obs]) %*% matrix(y_obs,ncol = 1)),
+                                                                      conf_spread = c(rep(0,nobs), diag(Sigma_SE[[i]][-id_obs,-id_obs] - Sigma_SE[[i]][-id_obs,id_obs] %*% solve( Sigma_SE[[i]][id_obs,id_obs]) %*% Sigma_SE[[i]][id_obs,-id_obs]) ),
+                                                                      isObs = c(rep(1,nobs),rep(0,npred) ),    
+                                                                      parm =  i, 
+                                                                      label ='SE');return(df) } ))
+
+mu_pred_RQ = do.call('rbind',lapply(1:nla, function(i){df = data.frame(t = c(t_obs,t_pred),
+                                                                      y = c(y_obs,Sigma_RQ[[i]][-id_obs,id_obs] %*% solve(Sigma_RQ[[i]][id_obs,id_obs]) %*% matrix(y_obs,ncol = 1)),
+                                                                      conf_spread = c(rep(0,nobs), diag(Sigma_RQ[[i]][-id_obs,-id_obs] - Sigma_RQ[[i]][-id_obs,id_obs] %*% solve( Sigma_RQ[[i]][id_obs,id_obs]) %*% Sigma_RQ[[i]][id_obs,-id_obs]) ),
+                                                                      isObs = c(rep(1,nobs),rep(0,npred) ),    
+                                                                      parm =  i, 
+                                                                      label ='RQ');return(df) } ))
+
+
+
+mu_pred_PR = do.call('rbind',lapply(1:nl, function(i){df = data.frame(t = c(t_obs,t_pred),
+                                                                      y = c(y_obs,Sigma_PR[[i]][-id_obs,id_obs] %*% solve(Sigma_PR[[i]][id_obs,id_obs]) %*% matrix(y_obs,ncol = 1)),
+                                                                      conf_spread = c(rep(0,nobs), diag(Sigma_PR[[i]][-id_obs,-id_obs] - Sigma_PR[[i]][-id_obs,id_obs] %*% solve( Sigma_PR[[i]][id_obs,id_obs]) %*% Sigma_PR[[i]][id_obs,-id_obs]) ),
+                                                                      isObs = c(rep(1,nobs),rep(0,npred) ),    
+                                                                      parm =  i, 
+                                                                      label ='PR');return(df) } ))
+
+toplot_y_pred_st =  do.call('rbind',list(mu_pred_SE,mu_pred_RQ,mu_pred_PR))
+toplot_y_pred_st$conf_up = toplot_y_pred_st$y + 1.96 * toplot_y_pred_st$conf_spread
+toplot_y_pred_st$conf_down = toplot_y_pred_st$y - 1.96 * toplot_y_pred_st$conf_spread
+gg = ggplot(data = toplot_y_pred_st)
+gg = gg + facet_grid(parm~label, scales = 'fixed' )
+gg = gg + geom_line(aes(x = t, y = y ) )
+gg = gg + geom_ribbon(aes(x = t, ymin = conf_down,ymax = conf_up),alpha = 0.5)
+gg = gg + geom_point(data = data.frame(y_obs = y_obs, t_obs = t_obs), aes(y = y_obs, x = t_obs) ,color ='red', size = 3)
+gg = gg + theme_minimal()
+gg = gg + theme(panel.border = element_rect(color = 'grey20', fill= NA), panel.grid	= element_blank())
+#gg = gg + theme(axis.text.x = element_blank(), axis.text.y = element_blank())
+gg = gg + theme(legend.position = 'none')
+gg = gg + labs(x = NULL, y = NULL)
+ggsave(paste(dir,'/y_pred_stationary.png',sep = ''),width =10,height = 8)
+
+
+
   
 confidence_interval = sigma * 1.96
 q_80 = qmvnorm(p = 0.95, tail = c("upper.tail"), sigma = function_Sigma_SE(1)[1:2,1:2])
