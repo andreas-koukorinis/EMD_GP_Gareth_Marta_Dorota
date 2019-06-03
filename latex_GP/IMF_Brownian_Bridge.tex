@@ -1,0 +1,48 @@
+\section{Brownian Bridge Analogue to  construct IMFs}
+GP representation does not ensures itself that the predicted function from a given Gaussian process is IMF , that is, it satisfies (I1)-(I2). Therefore, we explire the following approches
+
+Weiner process is a zero mean non-stationary Gaussian Process with the kernel $K(t,t') = min(t,t')$, that is
+\begin{equation}
+W(t) \sim \text{GP}(0,K(t,t'))
+\end{equation}
+The Brownian Bridge for $t \in [0,T]$ is defined as
+\begin{equation}
+B(t) = W(t) - \frac{t}{T} W(T)
+\end{equation}
+Therefore, it is also the Gaussian Process which is zero mean and has the covariance kernel equals to
+\begin{align*}
+\mathbf{Cov}(B(t),B(s)) & = \mathbf{Cov}(W(t),W(s)) - \frac{s}{T} \mathbf{Cov}(W(t),W(T)) - \frac{t}{T} \mathbf{Cov}(W(s),W(T)) + \frac{st}{T^2} \mathbf{Cov}(W(T),W(T))\\
+& = K(t,s) - \frac{s}{T} K(t,T) - \frac{t}{T} K(T,s) + \frac{ts}{T^2} K(T,T)\\
+&  = min(t,t') - \frac{ts}{T}
+\end{align*}
+The described process $B(t)$ satisfies that $B(0) = B(T) = 0$. The Brownian bridge which statisfied 
+$B(0) = a$ and $B(T) = b$ is a solution to the following SDE system of equations
+\begin{equation}
+\begin{cases}
+& dB(t) = dW(t) \\
+& B(0) = a \\
+& B(T) = b
+\end{cases},  \text{ for } 0 \leq t \leq T
+\end{equation}
+and after calculations results in the form
+\begin{equation}
+B(t) = a + (b-a)\frac{t}{T} + W(t) - \frac{t}{T} W(T)
+\end{equation} 
+and therefore it is a Gaussian Process 
+\begin{equation}
+B(t) \sim \text{GP}\Big( a + (b-a)\frac{t}{T} ,K(t,t') - \frac{tt'}{T} \Big)
+\end{equation}
+for $0 \leq t \leq T$
+%%%  https://math.aalto.fi/reports/a481.pdf
+%% https://www.diva-portal.org/smash/get/diva2:233650/FULLTEXT01.pdf
+
+
+\subsection{Symmetric Local Extremas of IMFs} 
+On every time internal there is a Brownian bridge or constrained Brownian bridge which starts and end from local extrema which are $x^{min} (t)= -x^{max}(t)$ for $t \in [\tau_i,\tau_{i+1}$
+\subsection{Nonsymmetric}
+
+\subsection{Bayesian EMD}
+1. Construct a set of functions in Bayesian setting to have a IMF representation with restricted posterior (what needs to be satisfied on maxima and minima and how to ensure it)
+2. Analogous of Brownian Bridge IMFs in Bayesian setting
+
+Berger's optimal theory. Books on smoothing

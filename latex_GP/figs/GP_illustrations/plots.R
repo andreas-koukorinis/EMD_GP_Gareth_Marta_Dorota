@@ -51,6 +51,7 @@ gg = gg + theme(axis.text.x = element_blank(), axis.text.y = element_blank())
 gg = gg + theme(legend.position = 'bottom')
 gg = gg + labs(x = NULL, y = NULL)
 ggsave(paste(dir,'/kernel_stationary.png',sep = ''),width =10,height = 8)
+ggsave(paste(dir,'/kernel_stationary.eps',sep = ''),width =10,height = 8)
 
 toplot_y_st_list = list()
 for(s in 1:3){
@@ -71,6 +72,7 @@ gg = gg + theme(axis.text.x = element_blank(), axis.text.y = element_blank())
 gg = gg + theme(legend.position = 'none')
 gg = gg + labs(x = NULL, y = NULL)
 ggsave(paste(dir,'/y_sim_stationary.png',sep = ''),width =10,height = 8)
+ggsave(paste(dir,'/y_sim_stationary.eps',sep = ''),width =10,height = 8)
 
 
 id_obs = sample(1:n,4,replace= F)
@@ -117,6 +119,7 @@ gg = gg + theme(panel.border = element_rect(color = 'grey20', fill= NA), panel.g
 gg = gg + theme(legend.position = 'none')
 gg = gg + labs(x = NULL, y = NULL)
 ggsave(paste(dir,'/y_pred_stationary.png',sep = ''),width =10,height = 8)
+ggsave(paste(dir,'/y_pred_stationary.eps',sep = ''),width =10,height = 8)
 
 
 

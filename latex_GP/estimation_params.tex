@@ -1,0 +1,35 @@
+\subsection{Estimation of the Static Parameters}
+\subsubsection{MLE Estimation of the Static Parameters in Gaussian Processes Models}
+In the following subsection we derive the MLE estimator of the vectors of parameters $\varphi_k$ and $\Psi_k$.  Given the model in Equation \eqref{eq:model_IMF_GP_k_noisy}, the loglikelihood of the the observation set $\big\{\mathbf{c}_k, \mathbf{t}\big\}$ is the following 
+\begin{equation}\label{eq:IMF_loglik_noisy}
+l_k\Big( \mathbf{c}_k, \mathbf{t} , \varphi_k, \Psi_k \Big) = - \frac{N}{2} \log 2 \pi - \frac{1}{2} \log |\mathbf{K}_k + \sigma^2_k \mathbb{I}_N | - \frac{1}{2}\mathbf{v}_k^T \Big(\mathbf{K}_k   + \sigma^2_k \mathbb{I}_N \Big)^{-1} \mathbf{v}_k
+\end{equation}
+where $\mathbf{v}_k = \mathbf{c}_k - \bm{\mu}_k$ and $\mathbf{K}_k$ denotes a $N \times N$ Gram matrix defined as
+\begin{align*}
+\mathbf{K}_{k}  := K_{k} (\mathbf{t},\mathbf{t}) = \begin{bmatrix}
+K_k (\mathbf{t}^{(1)},\mathbf{t}^{(1)}  )& K_k (\mathbf{t}^{(1)},\mathbf{t}^{(2)}  ) & \cdots & K_k (\mathbf{t}^{(1)},\mathbf{t}^{(M-1)}  ) & K_k (\mathbf{t}^{(1)},\mathbf{t}^{(M)}  ) \\
+K_k (\mathbf{t}^{(2)},\mathbf{t}^{(1)}  )& K_k (\mathbf{t}^{(2)},\mathbf{t}^{(2)}  ) & \cdots & K_k (\mathbf{t}^{(2)},\mathbf{t}^{(M-1)}  ) & K_k (\mathbf{t}^{(2)},\mathbf{t}^{(M)}  ) \\
+\vdots & \vdots & \ddots & \vdots & \vdots  \\
+K_k (\mathbf{t}^{(M-1)},\mathbf{t}^{(1)}  )& K_k (\mathbf{t}^{(M-1)},\mathbf{t}^{(2)}  ) & \cdots & K_k (\mathbf{t}^{(M-1)},\mathbf{t}^{(M-1)}  ) & K_k (\mathbf{t}^{(M-1)},\mathbf{t}^{(M)}  ) \\
+K_k (\mathbf{t}^{(M)},\mathbf{t}^{(1)}  )& K_k (\mathbf{t}^{(M)},\mathbf{t}^{(2)}  ) & \cdots & K_k (\mathbf{t}^{(M)},\mathbf{t}^{(M-1)}  ) & K_k (\mathbf{t}^{(M)},\mathbf{t}^{(M)}  ) 
+\end{bmatrix}_{N \times N}, 
+\end{align*}
+If the sets of points $\mathbf{t}^{(i)}$ are the same and equal to $\mathbf{t}^*$, the vector $\mathbf{t}$ is constructed by stacking $\mathbf{t}^*$ by $M$ times. Then the formulation of the likelihood simplifies to 
+\begin{equation}
+l_k\Big( \mathbf{c}_k, \mathbf{t}^* , \varphi_k, \Psi_k \Big) = - \frac{N}{2} \log 2 \pi - \frac{M}{2} \log |K_k (\mathbf{t}^*,\mathbf{t}^*  ) + \sigma^2_k \mathbb{I}_{N_*} | - \frac{1}{2}\sum_{i = 1}^M \mathbf{v}^{(i) \ T} \Big( K_k (\mathbf{t}^*,\mathbf{t}^*  ) +  + \sigma^2_k \mathbb{I}_{N_*} \Big)^{-1}\mathbf{v}^{(i)} \big) 
+\end{equation}
+Under the formulation of the loglikelihood in Equation \eqref{eq:IMF_loglik_noisy}, the static parameters of the model in Equation \eqref{eq:model_IMF_GP_k_noisy} can be estimated by solving the system of equations given by
+\begin{equation}
+\nabla l_k\Big( \mathbf{c}_k, \mathbf{t} , \varphi_k, \Psi_k \Big)  = \mathbf{0}
+\end{equation}
+where $\nabla l_k\Big( \mathbf{c}_k, \mathbf{t} , \varphi_k, \Psi_k \Big) $ denotes the gradient of the loglikelihood with respect to the vector of static parameters given by
+\begin{align*}
+& \frac{\partial l_k\Big( \mathbf{c}_k, \mathbf{t} , \varphi_k, \Psi_k \Big)}{\partial \varphi_k} = \frac{1}{2} = \mathbf{c}_k \Big(\mathbf{K}_k + \sigma^2_k \mathbb{I}_N\Big)^{-1} \mathbf{v}_k \frac{\partial \mu_k(\mathbf{t})}{\partial \varphi_k} \\
+& \frac{\partial l_k\Big( \mathbf{c}_k, \mathbf{t} , \varphi_k, \Psi_k \Big)}{\partial \Psi_k} = \frac{1}{2} \tr \bigg\{\bigg(\Big(\mathbf{K}_k + \sigma^2_k \mathbb{I}_N\Big)^{-1}  \mathbf{v}_k \mathbf{v}_k^T\Big(\mathbf{K}_k + \sigma^2_k \mathbb{I}_N\Big)^{-1} -\Big(\mathbf{K}_k + \sigma^2_k \mathbb{I}_N\Big)^{-1}  \bigg) \frac{\partial \mathbf{K}_k }{ \partial \Psi_k} \bigg\} \\
+& \frac{\partial l_k\Big( \mathbf{c}_k , \mathbf{t} , \varphi_k, \Psi_k \Big)}{\partial \sigma^2_k} = \frac{1}{2} \tr \bigg\{\bigg(\mathbf{K}_k + \sigma^2_k \mathbb{I}_N\Big)^{-1}  \mathbf{v}_k \mathbf{v}_k^T\Big(\mathbf{K}_k + \sigma^2_k \mathbb{I}_N\Big)^{-1} -\Big(\mathbf{K}_k + \sigma^2_k \mathbb{I}_N\Big)^{-1}  \bigg\} \\
+\end{align*}
+
+\subsubsection{Kernel Alignment}
+
+
+\subsubsection{Estimators of the Static Parameters given Splines Formulation of $x(t)$}

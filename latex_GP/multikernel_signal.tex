@@ -1,0 +1,35 @@
+\subsection{Multikernel Representation of the Signal}
+
+\subsubsection{Assuming Independence of IMFS }
+Given the Gaussian Process model of the $c_k(t)$, the distribution of $x(t)$ can be formulated as a uniform mixture of Gaussian Processes with different kernels.  Again, we can either assume that the observed values are or are not perturbed by a noise. In the following derivation we assume that the model of the $x(t)$ includes additional  term corresponding to the zero mean Gaussian noise with variance $\sigma^2$, that is
+\begin{equation}
+x(t) = \sum_{k = 1}^K c_k(t) + r_K(t) + \epsilon
+\end{equation}
+and results in the following distribution of $x(t)$ 
+\begin{equation}
+x(t) \sim ~   GP \bigg(r_K(t) + \sum_{k=1}^K \mu_k(t); \sum_{k=1}^K K_k(t,t') + \sigma^2 \bigg) 
+\end{equation}
+The scalar $\sigma^2$ can be estimated by MLE of $x(t)$, given its $M$ realization, $\mathbf{x}^{(i)}$, formed into a vector $\mathbf{x} = \big[\mathbf{x}^{(1)},\ldots, \mathbf{x}^{(M)} \big]$. If we denote by $K(t,t') := \sum_{k=1}^K K_k(t,t')$ a vector operator similarly defined as $K_k(t,t')$  and by $\mu(t) = r_K(t) + \sum_{k=1}^K \mu_k(t)$, then the log-likelihood of the model 
+\begin{equation}
+l\big( \mathbf{x}, \mathbf{t} , \sigma^2 \big) = - \frac{N}{2} \log 2 \pi - \frac{1}{2} \log |K(\mathbf{t},\mathbf{t}) + \sigma^2 \mathbb{I}_N | - \frac{1}{2}(\mathbf{x} - \mu(\mathbf{t}))^T \Big(K(\mathbf{t},\mathbf{t})   + \sigma^2 \mathbb{I}_N \Big)^{-1} (\mathbf{x} - \mu(\mathbf{t}))
+\end{equation}
+with corresponding gradient
+\begin{equation*}
+\frac{\partial l\big( \mathbf{x} , \mathbf{t} , \sigma^2 \big)}{\partial \sigma^2} = \frac{1}{2} \tr \bigg\{\Big(K(\mathbf{t},\mathbf{t}) + \sigma^2 \mathbb{I}_N\Big)^{-1}  (\mathbf{x} - \mu(\mathbf{t}))(\mathbf{x} - \mu(\mathbf{t}))^T\Big(K(\mathbf{t},\mathbf{t})  + \sigma^2 \mathbb{I}_N\Big)^{-1} -\Big(K(\mathbf{t},\mathbf{t})+ \sigma^2 \mathbb{I}_N\Big)^{-1}  \bigg\} 
+\end{equation*}
+The predictive distribution of $x(t)$ is given by 
+\begin{equation*}
+\mathbb{E}_{x(t)| \mathbf{t}} \big[x(\mathbf{s})] = \sum_{k = 1}^K \mathbb{E}_{c_k(t)|\mathbf{t}} \big[c_k(\mathbf{s})] 
+\end{equation*}
+and the covariance matrix given by
+\begin{equation*}
+\mathbf{Cov}_{x(t)|\mathbf{t}} \big[x(\mathbf{s})]  = \sum_{k = 1}^K\mathbf{Cov}_{c_k(t)|\mathbf{t}} \big[c_k(\mathbf{s})]  + \sigma^2
+\end{equation*}
+
+
+\subsubsection{Correlation of IMFS }
+If the GP of $c_k$ are not independent, the Gram matrix of the model for $x(t)$ would contain additional elements which provide the correlation structure between different IMFs
+\begin{equation}
+x(t) \sim ~   GP \bigg(r_K(t) + \sum_{k=1}^K m_k(t); \sum_{k=1}^K K_k(t,t') + 2\sum_{k_1,k_2=1, k_1<k_2}^K K_{k1,k2}(t,t') + \sigma^2 \bigg) 
+\end{equation}
+where $K_{k1,k2}(t,t')$ defines the dependence structure between $c_{k_1}(t)$ and $c_{k_2}(t)$

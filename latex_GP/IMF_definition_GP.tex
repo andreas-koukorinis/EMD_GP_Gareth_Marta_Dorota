@@ -1,0 +1,95 @@
+\subsection{IMFs as Gaussian Processes}
+Let $x(t)$ be a continuous real-valued signal and let us define its EMD decomposition into $K$ intrinsic mode functions (IMFs) given by 
+\begin{equation}\label{eq:model_x_EMD}
+x(t) = \sum_{k = 1}^K c_k(t) + r_K(t) = \sum_{k = 1}^K \text{Re}\Big\{ A_k(t)  e^{i \theta_k(t)} \Big\} + r_K(t).
+\end{equation}
+We assume that each $c_k(t)$ is a Gaussian process such that 
+\begin{equation}\label{eq:model_IMF_GP_k}
+c_k(t) \sim \mathcal{GP} \Big( \mu_k(t), K_k(t,t')\Big), 
+\end{equation}
+where $\mu_k(t)$ is a mean function of the process and $K_k(t,t')$ is a positive definite covariance kernel which are parametrized with a set of parameters $\varphi_{k}$ and $\Psi_{k}$, respectively. Therefore, the moments of $c_k(t)$ are given in the form of the following one dimensional and two dimensional mappings
+\begin{align*}
+&\mathbb{E}_{ c_k(t)| \varphi_{k}} \big[ c_k(t)\big] = \mu_k(t), \\
+& \mathbb{E}_{ c_k(t)| \Psi_{k}} \Big[ \big(c_k(t) - \mu_k(t) \big)\big(c_k(t') - \mu_k(t') \big) \Big] = K_k(t,t')
+\end{align*}
+
+In order to specify the distribution of each $c_k(t)$, we collect $M$ paths of $x(t)$ . Therefore, we have $M$ collections of of points $\mathbf{t}^{(1)} , \ldots, \mathbf{t}^{(M)}$, each $N_i$ dimensional for $i \in \Big\{1,\ldots,M\Big\}$ and by  by $\mathbf{x}^{(i)}$ we denote the values of $x(t)$ collected in the trail $i$ on the points $t \in \mathbf{t}^{(i)}$.  The sets $\mathbf{t}^{(i)}$ can be the same.
+The EMD decomposition on each of the $M$ replications  $x^{(i)}$ gives the following representations
+\begin{equation}
+\mathbf{x}^{(i)} = \sum_{k = 1}^K \mathbf{c}_k^{(i)}+ \mathbf{r}^{(i)}_K 
+\end{equation}
+where $\mathbf{c}_k^{(i)}$ is an $N_i$ dimensional vector which represents the observed values of the function $c_k(t)$ at the arguments in $\mathbf{t}^{(i)}$. The same logic applies to the definition of vectors $\mathbf{r}^{(i)}_K $. The vector $\bm{\mu}_k^{(i)}$  corresponds to the values of the functions $\mu_k(t)$ at the arguments in $\mathbf{t}^{(i)}$, that is, $\bm{\mu}_k^{(i)} = \mu_k(\mathbf{\mathbf{t}^{(i)}})$.
+
+\subsubsection{Gaussian Process of IMFs given Splines Formulation of $x(t)$}
+
+{\color{red}
+REMARK: Each element of $\mathbf{c}_k^{(i)}$ or $\mathbf{x}^{(i)}$, that is, some $c_{k,j}^{(i)}$ or $x_{j}^{(i)}$ is a combination of a spline coefficients fitted for the batch $i$ and being an output of a function $c_k^{(i)}(t)$ and $x^{(i)}(t)$ (the fitted spline in trial $i$) to the argument point $t^{(i)}_j$.
+}
+
+\subsubsection{Predictive Distribution of IMFs}
+Let $N = \sum_{i=1}^M N_i$ is an overall number of  observed pairs of points $\big\{x_j^{(i)}, t^{(i)}_j \big\}$  for $j = 1,\dots,N_i$ and $i = 1,\ldots	, M$. We denote by $\mathbf{t} = \big[ \mathbf{t}^{(1)} ,\ldots,\mathbf{t}^{(M)} \big]$ an $N$-dimensional vector which is a collection of all sets of arguments. Let $\mathbf{c}_k  = \big[ \mathbf{c}_k^{(1)} ,\ldots,\mathbf{c}_k^{(M)} \big]$ and $\bm{\mu}_k = \mu_k(\mathbf{t})$  be  $N$-dimensional vectors. 
+
+We define $K_k( \cdot, \cdot)$ as a vector operator such that for two vector $\mathbf{t}^{(i)}$ and $\mathbf{t}^{(j)}$,  $N_i$ and $N_j$-dimensional respectively, it constructs an $N_i\times N_j$ matrix as follows
+\begin{align*}
+K_k (\mathbf{t}^{(i)},\mathbf{t}^{(j)}  ) := \begin{bmatrix}
+K_k(t_1^{(i)},t_1^{(j)}) & K_k(t_1^{(i)},t_2^{(j)})& \cdots & K_k(t_1^{(i)},t_{N_j}^{(j)}) \\
+K_k(t_2^{(i)},t_1^{(j)}) & K_k(t_2^{(i)},t_2^{(j)})& \cdots & K_k(t_2^{(i)},t_{N_j}^{(j)}) \\
+\vdots & \vdots & \ddots & \vdots  \\
+K_k(t_{N_i}^{(i)},t_1^{(j)}) & K_k(t_{N_i}^{(i)},t_2^{(j)})& \cdots & K_k(t_{N_i}^{(i)},t_{N_j}^{(j)}) 
+\end{bmatrix}_{ N_i \times	N_j}. 
+\end{align*}
+The distribution of $c_k(t)$ on the observation set $\big\{ \mathbf{c}_k, \mathbf{t} \big\}$ can be specified under two different assumptions.  We may assume  the observed values of $c_k(t)$ are noise-free and therefore, the distribution in Equation \eqref{eq:model_IMF_GP_k} is valid for this case. In order for this assumption to hold, the $M$ paths of $c_k(t)$ at the same point $t_0$ should have the same values. 
+
+In order to relax this assumption, we may introduce a zero-mean Gaussian noise $\epsilon_t$ with variance $\sigma_k$ which adds  a degree of perturbation to the observed values of $c_k(t)$. This assumption allows unequal values of $c_k(t)$ at the same argument but results is  
+\begin{equation}\label{eq:model_IMF_GP_k_noisy}
+c_k(t) \sim \mathcal{GP} \Big( \mu_k(t), K_k(t,t')+ \sigma_k\Big), 
+\end{equation}
+We may chose a different distribution for the error term but for the convenience of the notation and derivations, we will assume $\epsilon_t$ to be Gaussian.  In the reminder of this manuscript we assume that the observed values of $c_k(t)$ are noisy, if not otherwise specified. The derivations for the noise-free case are analogous but committing the additional variance component.
+
+
+Therefore, given the observation set $\big\{ \mathbf{c}_k, \mathbf{t} \big\}$, we would like to estimate the values of $c_k(t)$ at the arguments in $N_0$-dimensional vector $\mathbf{s}$, that is $c_k(\mathbf{s}$, given the collected information in the observation set. Given the model in Equation \eqref{eq:model_IMF_GP_k_noisy}, the random pair $\big(c_k(\mathbf{t}), c_k(\mathbf{s})\big)$ has the following distribution
+\begin{equation}
+\begin{bmatrix}
+c_k(\mathbf{t})\\
+c_k(\mathbf{s})
+\end{bmatrix} \sim \mathcal{N}\bigg( \begin{bmatrix}
+\mu_k(\mathbf{t}) \\
+\mu_k(\mathbf{s}
+\end{bmatrix} , \begin{bmatrix}
+K_k(\mathbf{t},\mathbf{t})+ \sigma_k \mathbb{I}_N & K_k(\mathbf{t},\mathbf{s}) \\
+K_k(\mathbf{s},\mathbf{t}) & K_k(\mathbf{s},\mathbf{s})
+\end{bmatrix}  \bigg)
+\end{equation}
+Given the formulation of the formulation of the conditional distribution of two Gaussian random variables,  the predictive distribution of $c_k(t)$ on a new set of points $\mathbf{s}$, which is conditioned on the observed information and assuming that there is an observation error, is Gaussian with the conditional mean
+\begin{equation*}
+\mathbb{E}_{c_k(t)|\mathbf{c}_k, \mathbf{t}} \big[c_k(\mathbf{s})] = \mu_k(\mathbf{s}) +  K_k \big(\mathbf{s},\mathbf{t}\big)\Big( K_k \big(\mathbf{t},\mathbf{t}\big) + \sigma^2_k \mathbf{I}_N \Big) ^{-1} \big( \mathbf{c}_k - \mu_k(\mathbf{t})\big) 
+\end{equation*}
+and the conditional covariance matrix given by
+\begin{equation*}
+\mathbf{Cov}_{c_k(t)|\mathbf{c}_k,\mathbf{t}} \big[c_k(\mathbf{s})] = K_k \big(\mathbf{s},\mathbf{s}\big) - K_k\big(\mathbf{s},\mathbf{t}\big) \Big( K_k \big(\mathbf{t},\mathbf{t}\big) + \sigma^2_k \mathbf{I}_N \Big)^{-1} K_k \big(\mathbf{t},\mathbf{s}\big) 
+\end{equation*}
+TODO: explain this concept by using a priori sample and a posteriori sample plots on a simple Gaussian kernel with zero as a mean. 
+
+
+
+\subsubsection{Kernel Choice}
+TODO: produce some plots about the kernel choice for IMFS, plots like from the Turners presentation - elipsoids, a priori generated sample, a posteriori distribution given a few points
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.15]{GP_illustrations/kernel_stationary.png}
+\caption{Stationary kernels under 6 different sets of hyper-parameters.}\label{fig:}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.15]{GP_illustrations/y_sim_stationary.png}
+\caption{The 3 path of the signal $c_k$ simulated from the a priori distribution in Equation \eqref{eq:model_IMF_GP_k} under different stationary kernel assumptions (columns wise) and for 6 different sets of hyper-parameters.}\label{fig:}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.15]{GP_illustrations/y_pred_stationary.png}
+\caption{The predictive conditional mean of the IMF with the confidence intervals  under  noise-free assumption for different stationary kernel assumptions (columns wise) given 6 different sets of hyper-parameters. The red dots correspond to the observed values of the signal}\label{fig:}
+\end{figure}

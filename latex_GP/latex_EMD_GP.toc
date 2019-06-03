@@ -1,2 +1,16 @@
-\contentsline {section}{\numberline {1}Introduction \& Related Literature}{1}{section.1}
-\contentsline {section}{Appendix}{2}{section.1}
+\contentsline {section}{\numberline {1}Gaussian Processes and EMD: IMFs as Gaussian Processes with non-stationary kernels}{1}{section.1}
+\contentsline {subsection}{\numberline {1.1}IMFs as Gaussian Processes}{1}{subsection.1.1}
+\contentsline {subsubsection}{\numberline {1.1.1}Gaussian Process of IMFs given Splines Formulation of $x(t)$}{2}{subsubsection.1.1.1}
+\contentsline {subsubsection}{\numberline {1.1.2}Predictive Distribution of IMFs}{2}{subsubsection.1.1.2}
+\contentsline {subsubsection}{\numberline {1.1.3}Kernel Choice}{3}{subsubsection.1.1.3}
+\contentsline {subsection}{\numberline {1.2}Estimation of the Static Parameters}{6}{subsection.1.2}
+\contentsline {subsubsection}{\numberline {1.2.1}MLE Estimation of the Static Parameters in Gaussian Processes Models}{6}{subsubsection.1.2.1}
+\contentsline {subsubsection}{\numberline {1.2.2}Kernel Alignment}{7}{subsubsection.1.2.2}
+\contentsline {subsubsection}{\numberline {1.2.3}Estimators of the Static Parameters given Splines Formulation of $x(t)$}{7}{subsubsection.1.2.3}
+\contentsline {subsection}{\numberline {1.3}Multikernel Representation of the Signal}{7}{subsection.1.3}
+\contentsline {subsubsection}{\numberline {1.3.1}Assuming Independence of IMFS }{7}{subsubsection.1.3.1}
+\contentsline {subsubsection}{\numberline {1.3.2}Correlation of IMFS }{8}{subsubsection.1.3.2}
+\contentsline {section}{\numberline {2}Brownian Bridge Analogue to construct IMFs}{8}{section.2}
+\contentsline {subsection}{\numberline {2.1}Symmetric Local Extremas of IMFs}{9}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Nonsymmetric}{9}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Bayesian EMD}{9}{subsection.2.3}
