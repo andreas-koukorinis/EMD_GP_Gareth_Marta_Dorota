@@ -1,0 +1,145 @@
+%\appendix
+\label{appendix_IMFS-coeff}
+Proofs of the IMFs coefficients\\
+Consider D iteration of the sifting process (i.e. producing D IMFs). The $D-th$ IMF can be represented by a spline whose coefficients are a linear combination of the coefficients of $S(t)$ and the coefficients of the mean envelopes  of the previous extracted IMFs. By taking into account the first sifting process, we show the above statement and then extend it to the $D-th$ case.\\
+
+Consider the spline interpolating the original set of data $x(t)$, i.e. $S(t)$. 
+By being at the initial step of the sifting procedure, i.e. step $0$, we modify such equation:
+
+\begin{equation}
+S(t) = \sum_{i=1}^{n-1} \left(a_i^0 t^3 +b_i^0 t^2 + c_i^0 t +d_i^0 \right) \mathbbm{1} \left( t \in \left[ t_{i-1},t_i \right] \right) 
+\end{equation} 
+
+where the upper indices of the coefficients state the step at which the sifting procedure is. Consider the upper and lower envelope of $S(t)$ defined in \ref{upper_env} and \ref{lower_env}. Such splines are evaluated at times of the original spline $S(t)$, i.e. at $t$, as:
+
+\begin{equation}
+S\left( e_1^S \right) = \sum_{j=1}^{N-1} \left( a_{j,0}^{e_1} t^3 + b_{j,0}^{e_1} t^2 + c_{j,0}^{e_1} t +d_{j,0}^{e_1} \right) \mathbbm{1} \left(t \in \left[t_{j-1}, t_j \right] \right)
+\end{equation}
+
+\begin{equation}
+S\left( e_2^S \right) = \sum_{j=0}^{n-1} \left( a_{j,0}^{e_2} t^3 + b_{j,0}^{e_2} t^2 + c_{j,0}^{e_2} t +d_{j,0}^{e_2} \right) \mathbbm{1} \left(t \in \left[t_{j-1}, t_j \right] \right)
+\end{equation}
+
+Let us put $S(t) = c_0$ and $m_{1,0} = \frac{S(e_1^S) + S(e_2^S)}{2}$ its mean envelope, where the first index corresponds to the number of the IMF that the sifting procedure is extracting (the first one here) and the second one the step of this sifting. Consider a simple example where $n=3$ and the number of steps of the sifting equal to 2.\\
+The above definitions can be represented by:
+\begin{equation}
+\begin{split}
+c_0 = S(t) = \sum_{i=1}^{N-1} \left(a_i^0 t^3 +b_i^0 t^2 + c_i^0 t +d_i^0 \right) \mathbbm{1} \left( t \in \left[ t_{i-1},t_i \right] \right) = \\
+a_1^0 t_1^3 + b_1^0 t_1^2 + c_1^0 t_1 + d_1^0 + a_2^0 t_2^3 + b_2^0 t_2^2 + c_2^0 t_2 + d_2^0 
+\end{split} 
+\end{equation}
+
+\begin{equation}
+\begin{split}
+m_{1,0} =  \frac{S(e_1^S) + S(e_2^S)}{2} = \frac{1}{2} \left[ a_{1,0}^{e_1} t_1^3 + b_{1,0}^{e_1} t_1^2 + c_{1,0}^{e_1} t_1 + d_{1,0}^{e_1} + a_{2,0}^{e_1} t_2^3 + b_{2,0}^{e_1} t_2^2 + c_{2,0}^{e_1} t_2 + d_{2,0}^{e_1} \right] + \\
+\left[ a_{1,0}^{e_2} t_1^3 + b_{1,0}^{e_2} t_1^2 + c_{1,0}^{e_2} t_1 + d_{1,0}^{e_2} + a_{2,0}^{e_2} t_2^3 + b_{2,0}^{e_2} t_2^2 + c_{2,0}^{e_2} t_2 + d_{2,0}^{e_2} \right]
+\end{split}
+\end{equation}
+
+We look at the first step of the first sifting procedure computed by $c_0 - m_{1,0}$. By rearranging and grouping we obtain:
+\begin{equation}
+\label{first_ext}
+\begin{split}
+c_0 - m_{1,0} = \left[ a_{1,0} - \frac{1}{2} \left( a_{1,0}^{e_1} + a_{1,0}^{e_2}  \right) \right] t_1^3 + \left[ a_{2,0} - \frac{1}{2} \left( a_{2,0}^{e_1} + a_{2,0}^{e_2}  \right) \right] t_2^3 + \\
+\left[ b_{1,0} - \frac{1}{2} \left( b_{1,0}^{e_1} + b_{1,0}^{e_2}  \right) \right] t_1^2 + \left[ b_{2,0} - \frac{1}{2} \left( b_{2,0}^{e_1} + b_{2,0}^{e_2}  \right) \right] t_2^2 + \\
+\left[ c_{1,0} - \frac{1}{2} \left( c_{1,0}^{e_1} + c_{1,0}^{e_2}  \right) \right] t_1 + \left[ c_{2,0} - \frac{1}{2} \left( c_{2,0}^{e_1} + c_{2,0}^{e_2}  \right) \right] t_2 + \\
+\left[ d_{1,0} - \frac{1}{2} \left( d_{1,0}^{e_1} + d_{1,0}^{e_2}  \right) \right] + \left[ d_{2,0} - \frac{1}{2} \left( d_{2,0}^{e_1} + d_{2,0}^{e_2}  \right) \right]
+\end{split}
+\end{equation}
+
+To then consider the second (and last in this simple case) step of the sifting extracting the first IMF, consider the following equalities:
+
+\begin{multicols}{2}
+\begin{itemize}
+\item $a_1^1 = a_{1,0} - \frac{1}{2} \left( a_{1,0}^{e_1} + a_{1,0}^{e_2}  \right)$
+\item $a_2^1 = a_{2,0} - \frac{1}{2} \left( a_{2,0}^{e_1} + a_{2,0}^{e_2} \right) $
+\item $b_1^1 = b_{1,0} - \frac{1}{2} \left( b_{1,0}^{e_1} + b_{1,0}^{e_2}  \right)$
+\item $b_2^1 = b_{2,0} - \frac{1}{2} \left( b_{2,0}^{e_1} + b_{2,0}^{e_2}  \right) $
+\item $ c_1^1 = c_{1,0} - \frac{1}{2} \left( c_{1,0}^{e_1} + c_{1,0}^{e_2}  \right)$
+\item $c_2^1 =  c_{2,0} - \frac{1}{2} \left( c_{2,0}^{e_1} + c_{2,0}^{e_2}  \right)  $
+\item $d_1^1 = d_{1,0} - \frac{1}{2} \left( d_{1,0}^{e_1} + d_{1,0}^{e_2}  \right)$
+\item $d_2^1 = d_{2,0} - \frac{1}{2} \left( d_{2,0}^{e_1} + d_{2,0}^{e_2}  \right)$
+\end{itemize}
+\end{multicols}
+
+By substituting the above equalities in \ref{first_ext}, the next result is obtained:
+\begin{equation}
+c_0 - m_{0,0} = a_1^1 t_1^3 + a_2^1 t_2^3 + b_1^1 t_1^2 + b_2^1 t_2^2 + c_1^1 t_1 + c_2^1 t_2 + d_1^1 + d_2^1 
+\end{equation}
+
+Define this intermediate step as $h_{1,1} = c_0 - m_{1,0}$ where the extracted component $h_{1,1}$ is not a final IMF yet. Therefore, the algorithm keeps running. At this stage, the mean envelope is given by $m_{1,1} = \frac{S(e_1^{h_{1,1}})+S(e_2^{h_{1,1}})}{2}$. The second step of the sifting is:
+\begin{equation}
+\label{second_extr}
+\begin{split}
+h_{1,2} = h_{1,1} - m_{1,1} = \left[ a_{1,1} - \frac{1}{2} \left( a_{1,1}^{e_1} + a_{1,1}^{e_2}  \right) \right] t_1^3 + \left[ a_{2,1} - \frac{1}{2} \left( a_{2,1}^{e_1} + a_{2,1}^{e_2}  \right) \right] t_2^3 + \\
+\left[ b_{1,1} - \frac{1}{2} \left( b_{1,1}^{e_1} + b_{1,1}^{e_2}  \right) \right] t_1^2 + \left[ b_{2,1} - \frac{1}{2} \left( b_{2,1}^{e_1} + b_{2,1}^{e_2}  \right) \right] t_2^2 + \\
+\left[ c_{1,1} - \frac{1}{2} \left( c_{1,1}^{e_1} + c_{1,1}^{e_2}  \right) \right] t_1 + \left[ c_{2,1} - \frac{1}{2} \left( c_{2,1}^{e_1} + c_{2,1}^{e_2}  \right) \right] t_2 + \\
+\left[ d_{1,1} - \frac{1}{2} \left( d_{1,1}^{e_1} + d_{1,1}^{e_2}  \right) \right] + \left[ d_{2,1} - \frac{1}{2} \left( d_{2,1}^{e_1} + d_{2,1}^{e_2}  \right) \right]
+\end{split}
+\end{equation}
+
+Define the following equalities:
+
+\begin{multicols}{2}
+\begin{itemize}
+\item $a_1^2 = a_{1,1} - \frac{1}{2} \left( a_{1,1}^{e_1} + a_{1,1}^{e_2}  \right)$
+\item $a_2^2 = a_{2,1} - \frac{1}{2} \left( a_{2,1}^{e_1} + a_{2,1}^{e_2} \right) $
+\item $b_1^2 = b_{1,1} - \frac{1}{2} \left( b_{1,1}^{e_1} + b_{1,1}^{e_2}  \right)$
+\item $b_2^2 = b_{2,1} - \frac{1}{2} \left( b_{2,1}^{e_1} + b_{2,1}^{e_2}  \right) $
+\item $ c_1^2 = c_{1,1} - \frac{1}{2} \left( c_{1,1}^{e_1} + c_{1,1}^{e_2}  \right)$
+\item $c_2^2 =  c_{2,1} - \frac{1}{2} \left( c_{2,1}^{e_1} + c_{2,1}^{e_2}  \right)  $
+\item $d_1^2 = d_{1,1} - \frac{1}{2} \left( d_{1,1}^{e_1} + d_{1,1}^{e_2}  \right)$
+\item $d_2^2 = d_{2,1} - \frac{1}{2} \left( d_{2,1}^{e_1} + d_{2,1}^{e_2}  \right)$
+\end{itemize}
+\end{multicols}
+
+Substituting them within \ref{second_extr} provides the next equation:
+\begin{equation}
+h_{1,2} = h_{1,1} - m_{1,1} = a_1^2 t_1^3 + a_2^2 t_2^3 + b_1^2 t_1^2 + b_2^2 t_2^2 + c_1^2 t_1 + c_2^2 t_2 + d_1^2 + d_2^2 
+\end{equation}
+
+This corresponds to the first extracted IMF, i.e. $c_1 = h_{1,2}$. By considering the above equation and substituting all the equalities that we have taken into account, we get:
+\begin{equation}
+\label{c_1}
+\begin{split}
+c_1 = \left[ a_{1,0} - \frac{1}{2} \left(a_{1,0}^{e_1} + a_{1,0}^{e_2} \right) - \frac{1}{2} \left(a_{1,1}^{e_1} + a_{1,1}^{e_2} \right)  \right] t_1^3 + \left[ a_{2,0} - \frac{1}{2} \left(a_{2,0}^{e_1} + a_{2,0}^{e_2} \right) - \frac{1}{2} \left(a_{2,1}^{e_1} + a_{2,1}^{e_2} \right)  \right] t_2^3 \\
++ \left[ b_{1,0} - \frac{1}{2} \left(b_{1,0}^{e_1} + b_{1,0}^{e_2} \right) - \frac{1}{2} \left(b_{1,1}^{e_1} + b_{1,1}^{e_2} \right)  \right] t_1^2 + \left[ b_{2,0} - \frac{1}{2} \left(b_{2,0}^{e_1} + b_{2,0}^{e_2} \right) - \frac{1}{2} \left(b_{2,1}^{e_1} + b_{2,1}^{e_2} \right)  \right] t_2^2 \\
++ \left[ c_{1,0} - \frac{1}{2} \left(c_{1,0}^{e_1} + c_{1,0}^{e_2} \right) - \frac{1}{2} \left(c_{1,1}^{e_1} + c_{1,1}^{e_2} \right)  \right] t_1 + \left[ c_{2,0} - \frac{1}{2} \left(c_{2,0}^{e_1} + c_{2,0}^{e_2} \right) - \frac{1}{2} \left(c_{2,1}^{e_1} + c_{2,1}^{e_2} \right)  \right] t_2 \\
++ \left[ d_{1,0} - \frac{1}{2} \left(d_{1,0}^{e_1} + d_{1,0}^{e_2} \right) - \frac{1}{2} \left(d_{1,1}^{e_1} + d_{1,1}^{e_2} \right)  \right] + \left[ d_{2,0} - \frac{1}{2} \left(d_{2,0}^{e_1} + d_{2,0}^{e_2} \right) - \frac{1}{2} \left(d_{2,1}^{e_1} + d_{2,1}^{e_2} \right)  \right] 
+\end{split}
+\end{equation}
+
+A more general way to express \ref{c_1} is given by:
+\begin{equation}
+\begin{split}
+c_1 = \bigg\{ \sum_{n=1}^{N-1} \left[ a_{i,0} - \sum_{j=0}^{G-1} \frac{1}{2} \left( a_{i,j}^{e_1} + a_{i,j}^{e_2} \right) \right]t^3 + \sum_{n=1}^{N-1} \left[ b_{i,0} - \sum_{j=0}^{G-1} \frac{1}{2} \left( b_{i,j}^{e_1} + b_{i,j}^{e_2} \right) \right] t^2 \\
++ \sum_{n=1}^{N-1} \left[ c_{i,0} - \sum_{j=0}^{G-1} \frac{1}{2} \left( c_{i,j}^{e_1} + c_{i,j}^{e_2} \right) \right] t  + \sum_{n=1}^{N-1} \left[ d_{i,0} - \sum_{j=0}^{G-1} \frac{1}{2} \left( d_{i,j}^{e_1} + d_{i,j}^{e_2} \right) \right] \bigg\} \mathbbm{1} \left( t \in \left[ t_{i-1}, t_i \right] \right)
+\end{split}
+\end{equation}
+
+where $G$ are the number of sifting steps to stop the sifting procedure and hence, identify the first IMF. Here $G=2$.\\ 
+Define now $c_D$ as the $D-th$ extracted IMF. The number of sifting steps required to extract this IMF is the sum of all the previous ones and the ones necessary to extract it.  We define it as $Q$. Therefore, the $D-th$ IMF can be expressed as:
+\begin{equation}
+\label{c_D_final}
+\begin{split}
+c_D = c_0 - \sum_{i=0}^{Q-1} m_{D,i} = \bigg\{ \sum_{i=1}^{N-1} \left[ a_{i,0} - \sum_{j=0}^{Q-1} \frac{1}{2} \left( a_{i,j}^{e_1} + a_{i,j}^{e_2} \right) \right]t^3 + \sum_{i=1}^{N-1} \left[ b_{i,0} - \sum_{j=0}^{Q-1} \frac{1}{2} \left( b_{i,j}^{e_1} + b_{i,j}^{e_2} \right) \right] t^2 \\
+\sum_{i=1}^{N-1} \left[ c_{i,0} - \sum_{j=0}^{Q-1} \frac{1}{2} \left( c_{i,j}^{e_1} + c_{i,j}^{e_2} \right) \right] t  + \sum_{i=1}^{N-1} \left[ d_{i,0} - \sum_{j=0}^{Q-1} \frac{1}{2} \left( d_{i,j}^{e_1} + d_{i,j}^{e_2} \right) \right] \bigg\} \mathbbm{1} \left( t \in \left[ t_{i-1}, t_i \right] \right)
+\end{split}
+\end{equation} 
+
+By considering the following equalities:
+
+\begin{multicols}{2}
+\begin{itemize}
+\item $a_i^Q = a_{i,0} - \sum_{j=0}^{Q-1} \frac{1}{2} \left( a_{i,j}^{e_1} + a_{i,j}^{e_2} \right) $
+\item $b_i^Q = b_{i,0} - \sum_{j=0}^{Q-1} \frac{1}{2} \left( b_{i,j}^{e_1} + b_{i,j}^{e_2} \right)$
+\item $c_i^Q =  c_{i,0} - \sum_{j=0}^{Q-1} \frac{1}{2} \left( c_{i,j}^{e_1} + c_{i,j}^{e_2} \right)$
+\item $d_i^Q =  d_{i,0} - \sum_{j=0}^{Q-1} \frac{1}{2} \left( d_{i,j}^{e_1} + d_{i,j}^{e_2} \right)$
+
+\end{itemize}
+\end{multicols}
+
+The equation \ref{c_D_final} can be written as:
+\begin{equation}
+c_D = c_0 - \sum_{i=0}^{Q-1} m_{D,i} = \sum_{i=1}^{n-1} \left( a_i^Q t^3 + b_i^Q t^2 + c_i^Q t + d_i^Q \right) \mathbbm{1} \left( t \in \left[ t_{i-1}, t_i \right] \right)
+\end{equation}
