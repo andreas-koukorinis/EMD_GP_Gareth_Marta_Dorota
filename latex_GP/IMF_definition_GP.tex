@@ -1,17 +1,37 @@
-\subsection{IMFs as Gaussian Processes}
-Let $x(t)$ be a continuous real-valued signal and let us define its EMD decomposition into $K$ intrinsic mode functions (IMFs) given by 
+\subsection{The Stochastic Representation by Gaussian Processes}
+Let $s(t)$ for $t\in [0,\infty]$ be a continuous signal which is observed on discrete grid of points in the interval $[0,T]$. We consider not so uncommon situation, when the observed values of $s(t)$ are perturbed by some noise component. The perturbation of the true signal can be either deterministic or stochastic. The deterministic noise might be a results of  a chaotic 
+
+
+ and therefore the process which we observe is in fact
+\begin{equation}\label{eq:signal_noisy_y}
+y(t) = s(t) + \epsilon, \text{ for } \epsilon \in \mathcal{N}(0, \sigma^2).
+\end{equation}
+Therefore, our observation set consist of the pairs $\big\{t_n,y_n\big\}$ where $y_n = y(t_n)$ for $t_n \in [0,T]$. Let us remark that for the same
+
+ the realisations of the continuous signal $s(t)$ on the discrete sent of points. W
+
+
+Let $x(t)$ be a continuous real-valued signal which is an approximation of the signal $s(t)$ based on its observed values. Therefore, $x(t)$ is  
+
+and let us define its EMD decomposition into $K$ intrinsic mode functions (IMFs) given by 
 \begin{equation}\label{eq:model_x_EMD}
-x(t) = \sum_{k = 1}^K c_k(t) + r_K(t) = \sum_{k = 1}^K \text{Re}\Big\{ A_k(t)  e^{i \theta_k(t)} \Big\} + r_K(t).
+x(t) = \sum_{m = 1}^M c_m(t) + r_m(t) = \sum_{m = 1}^M \text{Re}\Big\{ A_m(t)  e^{i \theta_m(t)} \Big\} + r_M(t).
 \end{equation}
-We assume that each $c_k(t)$ is a Gaussian process such that 
+where $r_k$ is a tendency which does not have much of oscillation and therefore characterize the low frequency tend of $x(t)$. In order to reconstruct the stochastic representation of $x(t)$ given by EMD decomposition we assume that each of the IMFs functions, $c_m(t)$, is a Gaussian process 
 \begin{equation}\label{eq:model_IMF_GP_k}
-c_k(t) \sim \mathcal{GP} \Big( \mu_k(t), K_k(t,t')\Big), 
+c_k(t) \sim \mathcal{GP} \Big(0, k_m(t,t')\Big), 
 \end{equation}
-where $\mu_k(t)$ is a mean function of the process and $K_k(t,t')$ is a positive definite covariance kernel which are parametrized with a set of parameters $\varphi_{k}$ and $\Psi_{k}$, respectively. Therefore, the moments of $c_k(t)$ are given in the form of the following one dimensional and two dimensional mappings
-\begin{align*}
-&\mathbb{E}_{ c_k(t)| \varphi_{k}} \big[ c_k(t)\big] = \mu_k(t), \\
-& \mathbb{E}_{ c_k(t)| \Psi_{k}} \Big[ \big(c_k(t) - \mu_k(t) \big)\big(c_k(t') - \mu_k(t') \big) \Big] = K_k(t,t')
-\end{align*}
+where $k_m(t,t')$ is a positive definite covariance kernel which is parametrized by a set of parameters $\Psi_m$.   The component $r_M(t)$ can be modelled as a Gaussian process itself or one can assume that $x(t)$ is Gaussian Process conditioned on $r_M(t)$, that is
+\begin{equation}\label{eq:xt_conditional_rep}
+x(t) | r_M(t) \sim \mathcal{GP} \Big(r_M(t),  k(t,t')  \Big).
+\end{equation}
+These two approaches provide an unconditional and conditional stochastic representation of $x(t)$, respectively, and determine two different estimators of the out-of-sample forecast for $x(t)$.  The later is a more convenient assumption to preserve the monotonicity of the $r_M(t)$ which is a desired property of a residual function in the decomposition in Equation \eqref{eq:model_x_EMD}.  To ensure the function $r_M(t)$ to have only single convexity change, $r_M(t)$ might be extrapolated by a power law which stays monotonic (ie a polynomial up to the second order). Then, the out-of-sample forecast of $x(t)$ would be conditioned on the extrapolation of $r_M(t)$.  In order to preserve the monotonicity property of the tendency function $r_M(t)$ in the out-of-sample prediction, the extrapolation from a low order spline representation of $r_M(t)$, which is deterministic,  is excepted to behaves better than the forecast from a Gaussian Process since the later would most plausibly wiggle around a trend and, consequently, would loose the monotonicity of $r_M(t)$.  In the following work we would like to guarantee the out-of-sample monotonicity of $r_M(t)$ obtained by construction in the in-ample set,  and therefore, we chose to work with the conditional representation of $x(t)$ given in Equation \eqref{eq:xt_conditional_rep}.  {\color{red} TODO: derive the properties of these two estimators.}.
+
+The sets of the time points for each trial, $\mathbf{t}^i$, can be specified deterministic or be a realisations of the random variable. Regardless of the assumption on the sampling mechanism, the time points collected in the set $\mathbf{t}^i$ can be missing. Therefore, we may distinguish the complete and incomplete cases for the sampling times $\mathbf{t}^i$ and the deterministic or random sampling framework. In the following section we will consider the simplest case, when the elements of  $\mathbf{t}^i$  are obtained deterministically and are not missing. {\color{red} Set up notation and cases for the frameworks which we will consider later for subsampling}
+
+\subsubsection{Denoising Observed Values of the True Signal}
+We consider the following experiment setup. Let $J$ represents the number of trials in our experiment where we collect the realisations of $y(t)$ on the discrete subsets of the interval $ \in [0,T]$, which can be specified by \textbf{random or deterministic sub-sampling}. We assume that each trial has a set of $N^i$ samples and $N^i$ varies over trials for $i = 1,\ldots, J$. Let  $\mathbf{y}^{i}$ and $\mathbf{t}^i$ denote $N^i$-dimensional vectors which represent the $N^i$ observed values in the $i$th trial and the $N_i$ corresponding time points being a subsample of $[0,T]$, respectively. Given that, $\mathbf{y}^{i} := y(\mathbf{t}^i) = \big[y(t_1^i), \ldots, y(t_{N^i}^i) \big]$. \textbf{We remark that it is not ensured that for the same time point $t_0\in [0,T]$, a value of $y(t_0)$ in trial $i_1$ and a value of $y(t_0)$ in trial $i_2$ are equal since the definition of $y(t)$ in Equation \eqref{eq:signal_noisy_y} includes the error term component.}
+
 
 In order to specify the distribution of each $c_k(t)$, we collect $M$ paths of $x(t)$ . Therefore, we have $M$ collections of of points $\mathbf{t}^{(1)} , \ldots, \mathbf{t}^{(M)}$, each $N_i$ dimensional for $i \in \Big\{1,\ldots,M\Big\}$ and by  by $\mathbf{x}^{(i)}$ we denote the values of $x(t)$ collected in the trail $i$ on the points $t \in \mathbf{t}^{(i)}$.  The sets $\mathbf{t}^{(i)}$ can be the same.
 The EMD decomposition on each of the $M$ replications  $x^{(i)}$ gives the following representations

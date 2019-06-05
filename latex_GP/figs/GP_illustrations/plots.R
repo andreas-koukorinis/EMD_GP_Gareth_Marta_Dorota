@@ -24,10 +24,10 @@ n = 20
 t <- seq(0,10,len=n)
 t_grid = expand.grid(t,t)
 
-l_list = c(0.01,0.25,0.5,1,2,3)
+l_list = c(0.25,1,3,0.25,1,3)
 nl = length(l_list)
 
-l_alpha_list = expand.grid(l_list[c(1,3,6)],c(0.5,7))
+l_alpha_list = expand.grid(l_list[c(1,2,3)],c(0.5,7))
 nla = nrow(l_alpha_list)
 
 function_Sigma_SE = function(l) matrix( apply(expand.grid(t,t),1, function(s) K_SE(x1=s[1],x2=s[2],l = l)),nrow = n)
@@ -171,7 +171,6 @@ ggsave(paste(dir,'/y_cont_stationary_locPR.eps',sep = ''),width =10,height = 8)
 
 
 ######### PREDICTION
-
 id_obs = sample(1:n,4,replace= F)
 nobs = length(id_obs)
 npred = n - nobs
@@ -202,7 +201,14 @@ mu_pred_PR = do.call('rbind',lapply(1:nl, function(i){df = data.frame(t = c(t_ob
                                                                       parm =  i, 
                                                                       label ='PR');return(df) } ))
 
-toplot_y_pred_st =  do.call('rbind',list(mu_pred_SE,mu_pred_RQ,mu_pred_PR))
+mu_pred_locPR = do.call('rbind',lapply(1:nl, function(i){df = data.frame(t = c(t_obs,t_pred),
+                                                                      y = c(y_obs,Sigma_locPR[[i]][-id_obs,id_obs] %*% solve(Sigma_locPR[[i]][id_obs,id_obs]) %*% matrix(y_obs,ncol = 1)),
+                                                                      conf_spread = c(rep(0,nobs), diag(Sigma_locPR[[i]][-id_obs,-id_obs] - Sigma_locPR[[i]][-id_obs,id_obs] %*% solve( Sigma_locPR[[i]][id_obs,id_obs]) %*% Sigma_locPR[[i]][id_obs,-id_obs]) ),
+                                                                      isObs = c(rep(1,nobs),rep(0,npred) ),    
+                                                                      parm =  i, 
+                                                                      label ='locPR');return(df) } ))
+
+toplot_y_pred_st =  do.call('rbind',list(mu_pred_SE,mu_pred_RQ,mu_pred_PR,mu_pred_locPR))
 toplot_y_pred_st$conf_up = toplot_y_pred_st$y + 1.96 * toplot_y_pred_st$conf_spread
 toplot_y_pred_st$conf_down = toplot_y_pred_st$y - 1.96 * toplot_y_pred_st$conf_spread
 gg = ggplot(data = toplot_y_pred_st)
@@ -221,7 +227,7 @@ ggsave(paste(dir,'/y_pred_stationary.eps',sep = ''),width =10,height = 8)
 
 
 confidence_interval = sigma * 1.96
-q_80 = qmvnorm(p = 0.95, tail = c("upper.tail"), sigma = function_Sigma_SE(1)[1:2,1:2])
+q_80 = qmvnorm(p = 0.95, sigma = function_Sigma_SE(1)[1:2,1:2])
 
 
 

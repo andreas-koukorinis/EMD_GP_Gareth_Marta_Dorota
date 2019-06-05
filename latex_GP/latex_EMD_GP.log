@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.11.30)  3 JUN 2019 18:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.11.30)  5 JUN 2019 16:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1180,39 +1180,39 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 1.
  [1
 
-{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 23.
+(hyperref)                removing `math shift' on input line 43.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 23.
+(hyperref)                removing `math shift' on input line 43.
 
-[2]
-<figs/GP_illustrations/kernel_stationary.png, id=112, 3011.25pt x 2409.0pt>
+[3]
+<figs/GP_illustrations/kernel_stationary.png, id=127, 3011.25pt x 2409.0pt>
 File: figs/GP_illustrations/kernel_stationary.png Graphic file (type png)
 <use figs/GP_illustrations/kernel_stationary.png>
 Package pdftex.def Info: figs/GP_illustrations/kernel_stationary.png  used on i
-nput line 94.
+nput line 114.
 (pdftex.def)             Requested size: 451.66801pt x 361.33441pt.
- [3]
-<figs/GP_illustrations/y_sim_stationary.png, id=121, 3011.25pt x 2409.0pt>
+ [4]
+<figs/GP_illustrations/y_sim_stationary.png, id=135, 3011.25pt x 2409.0pt>
 File: figs/GP_illustrations/y_sim_stationary.png Graphic file (type png)
 <use figs/GP_illustrations/y_sim_stationary.png>
 Package pdftex.def Info: figs/GP_illustrations/y_sim_stationary.png  used on in
-put line 100.
+put line 120.
 (pdftex.def)             Requested size: 451.66801pt x 361.33441pt.
- [4 <./figs/GP_illustrations/kernel_stationary.png>]
-<figs/GP_illustrations/y_pred_stationary.png, id=130, 3011.25pt x 2409.0pt>
+ [5 <./figs/GP_illustrations/kernel_stationary.png>]
+<figs/GP_illustrations/y_pred_stationary.png, id=144, 3011.25pt x 2409.0pt>
 File: figs/GP_illustrations/y_pred_stationary.png Graphic file (type png)
 <use figs/GP_illustrations/y_pred_stationary.png>
 Package pdftex.def Info: figs/GP_illustrations/y_pred_stationary.png  used on i
-nput line 106.
+nput line 126.
 (pdftex.def)             Requested size: 451.66801pt x 361.33441pt.
 )
-(./estimation_params.tex [5 <./figs/GP_illustrations/y_sim_stationary.png>]
-[6 <./figs/GP_illustrations/y_pred_stationary.png>]
+(./estimation_params.tex [6 <./figs/GP_illustrations/y_sim_stationary.png>]
+[7 <./figs/GP_illustrations/y_pred_stationary.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 35.
@@ -1221,30 +1221,30 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 35.
 
-) (./IMF_pred_distribution.tex) (./multikernel_signal.tex [7])
-(./IMF_Brownian_Bridge.tex [8]) 
+) (./IMF_pred_distribution.tex) (./multikernel_signal.tex [8])
+(./IMF_Brownian_Bridge.tex [9]) 
 AED: lastpage setting LastPage
-[9]
+[10]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 90.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 90.
  (./latex_EMD_GP.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 90.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 90.
 Package rerunfilecheck Info: File `latex_EMD_GP.out' has not changed.
-(rerunfilecheck)             Checksum: 0BEC04E76BB51C71F5DE6D4453536634;4200.
+(rerunfilecheck)             Checksum: 7F8AA24896ADA0EFCB082447A5387873;4636.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 25698 strings out of 492649
- 444076 string characters out of 6129621
- 548703 words of memory out of 5000000
- 28908 multiletter control sequences out of 15000+600000
- 52231 words of font info for 174 fonts, out of 8000000 for 9000
+ 25729 strings out of 492649
+ 444392 string characters out of 6129621
+ 548909 words of memory out of 5000000
+ 28911 multiletter control sequences out of 15000+600000
+ 53483 words of font info for 190 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,17n,56p,867b,461s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,17n,56p,1475b,461s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
 xlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
@@ -1257,10 +1257,10 @@ dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2018/te
 xmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dis
 t/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts
 /type1/urw/palatino/uplri8a.pfb>
-Output written on latex_EMD_GP.pdf (9 pages, 1343564 bytes).
+Output written on latex_EMD_GP.pdf (10 pages, 1350845 bytes).
 PDF statistics:
- 223 PDF objects out of 1000 (max. 8388607)
- 192 compressed objects within 2 object streams
- 48 named destinations out of 1000 (max. 500000)
- 28828 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 239 PDF objects out of 1000 (max. 8388607)
+ 206 compressed objects within 3 object streams
+ 52 named destinations out of 1000 (max. 500000)
+ 28836 words of extra memory for PDF output out of 29859 (max. 10000000)
 
