@@ -23,12 +23,16 @@ c_k(t) \sim \mathcal{GP} \Big(0, k_m(t,t')\Big),
 \end{equation}
 where $k_m(t,t')$ is a positive definite covariance kernel which is parametrized by a set of parameters $\Psi_m$.   The component $r_M(t)$ can be modelled as a Gaussian process itself or one can assume that $x(t)$ is Gaussian Process conditioned on $r_M(t)$, that is
 \begin{equation}\label{eq:xt_conditional_rep}
-x(t) | r_M(t) \sim \mathcal{N} \Big(r_M(t),  k(t,t')  \Big).
+x(t) | r_M(t) \sim \mathcal{GP} \Big(r_M(t),  k(t,t')  \Big).
 \end{equation}
 These two approaches provide an unconditional and conditional stochastic representation of $x(t)$, respectively, and determine two different estimators of the out-of-sample forecast for $x(t)$.  The later is a more convenient assumption to preserve the monotonicity of the $r_M(t)$ which is a desired property of a residual function in the decomposition in Equation \eqref{eq:model_x_EMD}.  To ensure the function $r_M(t)$ to have only single convexity change, $r_M(t)$ might be extrapolated by a power law which stays monotonic (ie a polynomial up to the second order). Then, the out-of-sample forecast of $x(t)$ would be conditioned on the extrapolation of $r_M(t)$.  In order to preserve the monotonicity property of the tendency function $r_M(t)$ in the out-of-sample prediction, the extrapolation from a low order spline representation of $r_M(t)$, which is deterministic,  is excepted to behaves better than the forecast from a Gaussian Process since the later would most plausibly wiggle around a trend and, consequently, would loose the monotonicity of $r_M(t)$.  In the following work we would like to guarantee the out-of-sample monotonicity of $r_M(t)$ obtained by construction in the in-ample set,  and therefore, we chose to work with the conditional representation of $x(t)$ given in Equation \eqref{eq:xt_conditional_rep}.  {\color{red} TODO: derive the properties of these two estimators.}.
 
+
 \subsubsection{Denoising Observed Values of the True Signal}
-We consider the following experiment setup. Let $\mathtt{I}$ represents the number of trials in our experiment where we collect the realisations of $y(t)$ on the discrete subsets of the interval $ \in [0,T]$, which can be specified by \textbf{random or deterministic sub-sampling}. We assume that each trial has a set of $N^i$ samples. Let  $\mathbf{y}^{i}$ and $\mathbf{t}^i$ denote $N^i$-dimensional vectors which represent the $N^i$ observed values and the $N_i$ time points being a subsample of $[0,T]$ in the $i$th trial, respectively. Given that, $\mathbf{y}^{i} := y(\mathbf{t}^i) = \big[y(t_1^i), \ldots, y(t_{N^i}^i) \big]$. We remark that it is not ensured that the values of $y(t_0)$ in trial $i_1$ and trial $i_2$ are equal since the definition of $y(t)$ in Equation \eqref{eq:signal_noisy_y} includes the error term component.
+We consider the following experiment setup. Let $J$ represents the number of trials in our experiment where we collect the realisations of $y(t)$ on the discrete subsets of the interval $ \in [0,T]$, which can be specified by \textbf{random or deterministic sub-sampling}. We assume that each trial has a set of $N^i$ samples and $N^i$ varies over trials for $i = 1,\ldots, J$. Let  $\mathbf{y}^{i}$ and $\mathbf{t}^i$ denote $N^i$-dimensional vectors which represent the $N^i$ observed values in the $i$th trial and the $N_i$ corresponding time points being a subsample of $[0,T]$, respectively. Given that, $\mathbf{y}^{i} := y(\mathbf{t}^i) = \big[y(t_1^i), \ldots, y(t_{N^i}^i) \big]$. \textbf{We remark that it is not ensured that for the same time point $t_0\in [0,T]$, a value of $y(t_0)$ in trial $i_1$ and a value of $y(t_0)$ in trial $i_2$ are equal since the definition of $y(t)$ in Equation \eqref{eq:signal_noisy_y} includes the error term component.}
+
+
+The sets of the time points for each trial, $\mathbf{t}^i$, can be specified deterministic or be a realisations of the random variable. Regardless of the assumption on the sampling mechanism, the time points collected in the set $\mathbf{t}^i$ can be missing. Therefore, we may distinguish the complete and incomplete cases for the sampling times $\mathbf{t}^i$ and the deterministic or random sampling framework. In the following section we will consider the simplest case, when the elements of  $\mathbf{t}^i$  are obtained deterministically and are not missing. {\color{red} Set up notation and cases for the frameworks which we will consider later for subsampling}
 
 
 In order to specify the distribution of each $c_k(t)$, we collect $M$ paths of $x(t)$ . Therefore, we have $M$ collections of of points $\mathbf{t}^{(1)} , \ldots, \mathbf{t}^{(M)}$, each $N_i$ dimensional for $i \in \Big\{1,\ldots,M\Big\}$ and by  by $\mathbf{x}^{(i)}$ we denote the values of $x(t)$ collected in the trail $i$ on the points $t \in \mathbf{t}^{(i)}$.  The sets $\mathbf{t}^{(i)}$ can be the same.
@@ -72,7 +76,7 @@ S(t) = \sum_{i=1}^{N-1} \left(a_i t^3 +b_i t^2 + c_i t +d_i \right) \mathbbm{1} 
 where the spline coefficients will be estimated from the original sample path, such that the representation exactly matches the sample values at these time points, $a_i = S(t_i) = s(t_i)$. We need to construct an analog continuous signal from the discrete one, since our basis decomposition requires a continuous smooth signal for the basis extraction. The number of total convexity changes (oscillations) of the analog signal $S(t)$ corresponds to $K \in \mathbb{N}$ within the time domain $t$, over which the signal was observed. Note that $S(t)$ is decomposed according to direct extraction of the energy associated with various intrinsic time scales. This is the property that makes it suitable to non linear and non-stationary processes. One may now define the  Empirical Mode Decomposition.
 
 
-\begin{defn}
+\begin{Definition}
 
 The Empirical Mode Decomposition of signal $S(t)$ is represented by the Intrinsic Mode Functions finite basis expansion given by
 \begin{equation}
@@ -91,7 +95,7 @@ here the collection of $\left\{c_k(t)\right\}$ basis functions are known as the 
 \frac{M(t) + m(t)}{2} = 0
 \end{equation}
 \end{itemize}
-\end{defn}
+\end{Definition}
 
 \noindent Note that, in the above representation, $c_k(t)$ is not explicitly expressed in a functional form, as opposed to classical stationary methods where a cosine basis or a wavelet basis function is specified. Here, the basis can take any functional form so long as it satisfies the decomposition relationship and the properties stated on the IMF. A natural way to proceed to represent an IMF is to utilise a smooth, flexible characterisation that can adapt to local non-stationary time structures; we have, again, selected the cubic spline in this work to represent  $c_k(t)$.\\
 \noindent Given a mathematical representation for the IMFs, we must now proceed to outline the process applied to extract recursively the IMF spline representations. This procedure is known as \textit{sifting}. The first step consists of computing extrema of $S(t)$. By taking the first derivative $S'(t)$ and set it equal to zero, maxima and minima within each interval are calculated, producing the sequence of time points at which maxima and minima of $S(t)$ are located being given by:
@@ -157,18 +161,18 @@ Update the signal by subtracting the obtained IMF, $S(t) \leftarrow S(t)-c(t)$.
 
 It is often the case that such algorithm does not reach a mean equal to 0; therefore, multiple solutions in the literature have been proposed as stopping criteria of the sifting procedure. For further details see \cite{Machine}. By exploiting the definition of cubic spline used in the representation of the analog speech signal $S(t)$ and the IMF basis functions, one can obtain a mathematical connection between the coefficients of $S(t)$ and the coefficients of $c_k(t)$ detailed as follows: 
 
-\begin{prop}
-\label{prop_cs}
-The k-$th$ extracted IMF denoted as $c_k$ can be expressed as a cubic spline whose coefficients are a linear combination of the spline coefficients of $S(t)$ and the coefficients of the mean envelopes of the $k-1$ IMFs previously extracted, i.e.
-
-\begin{equation}
-c_D = c_0 - \sum_{i=0}^{Q-1} m_{D,i} = \sum_{i=1}^{N-1} \left( a_i^Q t^3 + b_i^Q t^2 + c_i^Q t + d_i^Q \right) \mathbbm{1} \left( t \in \left[ t_{i-1}, t_i \right] \right)
-\end{equation}
-where $c_0$ is $S(t)$ and $m_{D,i} = \frac{S(e_1^{h_{D,i}})+S(e_2^{h_{D,i}})}{2}$ and $Q$ is the number of sifting steps required to extract the IMF itslef.
-\end{prop}
-
-Note that our notation $c(t)$ changed in this proposition by becoming $c$ for a clearer proofs. The proof is provided in the appendix \ref{appendix_IMFS-coeff}.
-
+%\begin{prop}
+%\label{prop_cs}
+%The k-$th$ extracted IMF denoted as $c_k$ can be expressed as a cubic spline whose coefficients are a linear combination of the spline coefficients of $S(t)$ and the coefficients of the mean envelopes of the $k-1$ IMFs previously extracted, i.e.
+%
+%\begin{equation}
+%c_D = c_0 - \sum_{i=0}^{Q-1} m_{D,i} = \sum_{i=1}^{N-1} \left( a_i^Q t^3 + b_i^Q t^2 + c_i^Q t + d_i^Q \right) \mathbbm{1} \left( t \in \left[ t_{i-1}, t_i \right] \right)
+%\end{equation}
+%where $c_0$ is $S(t)$ and $m_{D,i} = \frac{S(e_1^{h_{D,i}})+S(e_2^{h_{D,i}})}{2}$ and $Q$ is the number of sifting steps required to extract the IMF itslef.
+%\end{prop}
+%
+%Note that our notation $c(t)$ changed in this proposition by becoming $c$ for a clearer proofs. The proof is provided in the appendix \ref{appendix_IMFS-coeff}.
+%
 
 \subsubsection{Predictive Distribution of IMFs  under Uncertainty}
 Let $N = \sum_{i=1}^M N_i$ is an overall number of  observed pairs of points $\big\{x_j^{(i)}, t^{(i)}_j \big\}$  for $j = 1,\dots,N_i$ and $i = 1,\ldots	, M$. We denote by $\mathbf{t} = \big[ \mathbf{t}^{(1)} ,\ldots,\mathbf{t}^{(M)} \big]$ an $N$-dimensional vector which is a collection of all sets of arguments. Let $\mathbf{c}_k  = \big[ \mathbf{c}_k^{(1)} ,\ldots,\mathbf{c}_k^{(M)} \big]$ and $\bm{\mu}_k = \mu_k(\mathbf{t})$  be  $N$-dimensional vectors. 

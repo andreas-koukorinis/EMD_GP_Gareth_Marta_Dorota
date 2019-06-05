@@ -1,6 +1,7 @@
 \documentclass[article,moreauthors,pdftex,10pt,a4paper]{ssrn} 
 \usepackage{algpseudocode}
-\usepackage{algorithm}
+%\usepackage{algorithm}
+\usepackage[boxruled, lined, vlined]{algorithm2e}
 \usepackage{multicol}
 \usepackage{placeins}
 \usepackage[title]{appendix}
@@ -9,6 +10,7 @@
 \usepackage{lscape}
 \usepackage{longtable,hhline}
 \usepackage{pifont}
+\usepackage{bbm}
 \allowdisplaybreaks
 
 \newcommand{\chighlight}[1]{%
@@ -85,7 +87,7 @@ We treat each IMF as a separate Gaussian process and then represent the signal u
 \input{IMF_Brownian_Bridge}
 
 
-\input{appendix_IMF-coeff}
+%\input{appendix_IMF-coeff}
 
 
 
