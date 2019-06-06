@@ -228,12 +228,6 @@ K(x,x') = \int \pi(\omega) e^{ i \omega^T (x - x') }\ d\omega = \mathbb{E}_{\ome
 for $\phi_\omega (x)  =e^{j \omega^T x} = r \big( \cos (\omega x ) + i \sin (\omega x )\big)$. The density of $\omega$ is denoted by spectral density. 
 
 
-The non-stationary kernel can be characterised by a spectral density $\pi(\omega,\omega')$ such that
-\begin{equation}
-K(x,x') =\int \int \pi(\omega) e^{ i \omega^T x - i \omega^{, \ T} x' }\ d\omega d\omega' = \mathbb{E}_{\omega}\big[ \phi_\omega (x) \phi_\omega (x')^* \big] 
-\end{equation}
-
-
 TODO: produce some plots about the kernel choice for IMFS, plots like from the Turners presentation - elipsoids, a priori generated sample, a posteriori distribution given a few points
 
 
@@ -254,3 +248,12 @@ TODO: produce some plots about the kernel choice for IMFS, plots like from the T
 \includegraphics[scale = 0.15]{GP_illustrations/y_pred_stationary.png}
 \caption{The predictive conditional mean of the IMF with the confidence intervals  under  noise-free assumption for different stationary kernel assumptions (columns wise) given 6 different sets of hyper-parameters. The red dots correspond to the observed values of the signal}\label{fig:}
 \end{figure}
+
+
+
+\subsubsubsection{Non-stationary Kernels}
+The non-stationary kernel can be characterised by a spectral density $\pi(\omega,\omega')$ such that
+\begin{equation}
+k(x,x') =\int \int \pi(\omega,\omega') e^{ 2 \pi i \omega x - \omega' x' }\ d\omega d\omega' = \mathbb{E}_{\omega}\big[ \phi_\omega (x) \phi_\omega (x')^* \big] 
+\end{equation}
+where $\pi(\omega)$ is a spectral density of the kernel $k$ over frequencies $\omega$ and $\omega'$. For a scalar inputs $x$ and $x'$ the density $\pi(\omega,\omega')$ corresponds to bivariate distribution. 
