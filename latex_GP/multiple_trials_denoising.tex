@@ -1,4 +1,4 @@
-\section{Multiple Trials Setting: How to Construct $S(t)$ in Noisy Environment}
+\section{Multiple Trials Setting: How to Construct $S(t)$ in Noisy Environment}\label{sec:multiple_trials_setting}
 We consider the following experiment setup. Let $J$ represents the number of trials in our experiment which characterize the set of sample that we collected, ie. realisations of $y(t)$ on the discrete subsets of the interval $ \in [0,T]$, which can be specified by \textbf{random or deterministic sub-sampling}. We assume that each trial has a set of $N^i$ samples and $N^i$ varies over trials for $i = 1,\ldots, J$. Let  $\mathbf{y}^{i}$ and $\mathbf{t}^i$ denote $N^i$-dimensional vectors which represent the $N^i$ observed values in the $i$th trial and the $N_i$ corresponding time points being a subsample of $[0,T]$, respectively. Given that, $\mathbf{y}^{i} := y(\mathbf{t}^i) = \big[y(t_1^i), \ldots, y(t_{N^i}^i) \big]$. \textbf{We remark that it is not ensured that for the same time point $t_0\in [0,T]$, that the value of $y(t_0)$ in trial $i_1$ and a value of $y(t_0)$ in trial $i_2$ are equal since the definition of $y(t)$ in Equation \eqref{eq:signal_noisy_y} includes the error term component.}
 
 
@@ -7,6 +7,7 @@ The sets of the time points for each trial, $\mathbf{t}^i$, can be specified det
 \subsection{Review of Denoising Approaches}
 \begin{enumerate}
 \item median filter
+\item spline filter
 \item smoothing splines
 \item L1 trend filter
 \item Exponential moving average (EMA) / a weighted moving average (WMA)

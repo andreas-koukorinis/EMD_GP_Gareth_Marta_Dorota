@@ -1,15 +1,17 @@
 \subsection{The Stochastic Representation by Gaussian Processes}
-Let $s(t)$ for $t\in [0,\infty]$ be a continuous signal which is observed on discrete grid of points in the interval $[0,T]$. We consider not so uncommon situation, when the observed values of $s(t)$ are perturbed by some noise component. The perturbation of the true signal can be either deterministic (ie an chaotic system) or stochastic.  In fact, the process which we observe is the following
+Let $s(t)$ for $t\in [0,\infty]$ be a continuous true signal which is observed on discrete grid of points in the interval $[0,T]$, $t =( t_1 < \dots <t_N ) = \{ t_i \}_{i=1:N}$, where the subscripts represent the sampling index times. The observed values of the true signal $s(t)$ might be exact or be perturbed. The noisy observation are not uncommon situation in practice. The perturbation of the true signal can be either deterministic (ie an chaotic system, not stable) or stochastic.  If the realisations of the signal $s(t)$ are corrupted with some stochastic error term, the process which we observe is represented as follows
 \begin{equation}\label{eq:signal_noisy_y}
 y(t) = x(t) + \epsilon, \text{ for } \epsilon \in \mathcal{N}(0, \sigma^2).
 \end{equation}
-The signal $y(t)$ is observed at $t =( t_1 < \dots <t_N ) = \{ t_i \}_{i=1:N}$, where the subscripts represent the sampling index times. Therefore, our observation set consists of pairs $\big\{t_n,y_n\big\}$ where $y_n = y(t_n)$ for $t_n \in [0,T]$. 
+Therefore, our observation set consists of pairs $\big\{t_n,y_n\big\}$ where $y_n = y(t_n)$ for $t_n \in [0,T]$. 
 
-For EMD to exists, the input signal needs to be approximated by a continuous representation; therefore, the discrete signal $s(t)$ is converted back into a continuous analog signal via a spline representation as in Equation \label{cubic_spl}. Having an continuous representation $S(t)$, which is an approximation of $s(t)$, we define the formulation of $S(t)$ given by EMD into $M$ intrinsic mode functions (IMFs) as follows 
+We would like to find an EMD decoposition of the signal $s(t)$. For EMD to exists, the input signal needs to be approximated by a continuous representation; therefore, the discrete signal $s(t)$ is converted back into a continuous analog signal. The background on the EMD decomposition is given in Subsection \ref{ssec:EMD_background}. If we assume that the observations of the signal are exact, the approximation of the signal $s(t)$ might be carried out by a spline interpolation as described in Section \ref{EMD_background} in Equation \label{cubic_spl}. In the presence of noisy environment, the approximation $S(t)$ might be obtained by a filtering techniques which would account for the perturbation of the true values. We describe in detail this case in Section \ref{sec:multiple_trials_setting}.  
+
+Either way, we specify a continuous approximation $S(t)$ to the discrete realisation of the true signal $s(t)$ and define the representation of $S(t)$ given by EMD into $M$ intrinsic mode functions (IMFs) as follows 
 \begin{equation}\label{eq:model_x_EMD}
 S(t) = \sum_{m = 1}^M \gamma_m(t) + r(t) = \sum_{m = 1}^M \text{Re}\Big\{ A_m(t)  e^{i \theta_m(t)} \Big\} + r(t).
 \end{equation}
-where $r(t)$ represents a tendency which does not have much of oscillation and therefore characterize the low frequency tend of $S(t)$. The background on the EMD decomposition is given in Subsection \ref{ssec:EMD_background}.
+where $r(t)$ represents a tendency which does not have much of oscillation and therefore characterize the low frequency tend of $S(t)$. 
 
 \subsubsection{Continuous signal $S(t)$ as a Gaussian Process}
 Out goal is to obtain a stochastic representation of the continuous signal $S(t)$ by a Gaussian Process. We postulate that each IMFs function, $\gamma_m(t)$, is a Gaussian process 
