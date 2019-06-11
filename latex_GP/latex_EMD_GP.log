@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.7.16)  11 JUN 2019 16:23
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.7.16)  11 JUN 2019 17:46
 entering extended mode
 **latex_EMD_GP.tex
 
@@ -1442,15 +1442,18 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
 
 LaTeX Warning: Reference `ssec:EMD_background' on page 2 undefined on input lin
-e 12.
+e 8.
+
+
+LaTeX Warning: Reference `EMD_background' on page 2 undefined on input line 8.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 14.
+(hyperref)                removing `math shift' on input line 16.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 14.
+(hyperref)                removing `math shift' on input line 16.
 
 [2])
 (D:\Dropbox\0_work\FunctionalRegression\EMD_GP_Gareth_Marta_Dorota\latex_GP\mul
@@ -1472,7 +1475,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1.
 
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 8.33606pt on input line 10.
+(Font)              scaled to size 8.33606pt on input line 5.
 [3])
 (D:\Dropbox\0_work\FunctionalRegression\EMD_GP_Gareth_Marta_Dorota\latex_GP\GP_
 formulation_splines.tex
@@ -1520,42 +1523,42 @@ File: figs/GP_illustrations/kernel_stationary.png Graphic file (type png)
 Package pdftex.def Info: figs/GP_illustrations/kernel_stationary.png used on in
 put line 14.
 (pdftex.def)             Requested size: 451.66801pt x 361.33441pt.
-
-<figs/GP_illustrations/y_sim_stationary.png, id=136, 3011.25pt x 2409.0pt>
+ [6]
+<figs/GP_illustrations/y_sim_stationary.png, id=146, 3011.25pt x 2409.0pt>
 File: figs/GP_illustrations/y_sim_stationary.png Graphic file (type png)
 
 <use figs/GP_illustrations/y_sim_stationary.png>
 Package pdftex.def Info: figs/GP_illustrations/y_sim_stationary.png used on inp
 ut line 20.
 (pdftex.def)             Requested size: 451.66801pt x 361.33441pt.
- [6 <D:/Dropbox/0_work/FunctionalRegression/EMD_GP_Gareth_Marta_Dorota/latex_GP
+ [7 <D:/Dropbox/0_work/FunctionalRegression/EMD_GP_Gareth_Marta_Dorota/latex_GP
 /figs/GP_illustrations/kernel_stationary.png>]
-<figs/GP_illustrations/y_pred_stationary.png, id=149, 3011.25pt x 2409.0pt>
+<figs/GP_illustrations/y_pred_stationary.png, id=156, 3011.25pt x 2409.0pt>
 File: figs/GP_illustrations/y_pred_stationary.png Graphic file (type png)
 
 <use figs/GP_illustrations/y_pred_stationary.png>
 Package pdftex.def Info: figs/GP_illustrations/y_pred_stationary.png used on in
 put line 26.
 (pdftex.def)             Requested size: 451.66801pt x 361.33441pt.
- [7 <D:/Dropbox/0_work/FunctionalRegression/EMD_GP_Gareth_Marta_Dorota/latex_GP
+ [8 <D:/Dropbox/0_work/FunctionalRegression/EMD_GP_Gareth_Marta_Dorota/latex_GP
 /figs/GP_illustrations/y_sim_stationary.png>]
 
-Package natbib Warning: Citation `Remes2017' on page 8 undefined on input line 
+Package natbib Warning: Citation `Remes2017' on page 9 undefined on input line 
 50.
 
-[8 <D:/Dropbox/0_work/FunctionalRegression/EMD_GP_Gareth_Marta_Dorota/latex_GP/
+[9 <D:/Dropbox/0_work/FunctionalRegression/EMD_GP_Gareth_Marta_Dorota/latex_GP/
 figs/GP_illustrations/y_pred_stationary.png>]
 
-Package natbib Warning: Citation `Remes2017' on page 9 undefined on input line 
-72.
+Package natbib Warning: Citation `Remes2017' on page 10 undefined on input line
+ 72.
 
 
-Package natbib Warning: Citation `LazaroGredilla2010' on page 9 undefined on in
-put line 89.
+Package natbib Warning: Citation `LazaroGredilla2010' on page 10 undefined on i
+nput line 89.
 
 )
 (D:\Dropbox\0_work\FunctionalRegression\EMD_GP_Gareth_Marta_Dorota\latex_GP\IMF
-_Brownian_Bridge.tex [9]
+_Brownian_Bridge.tex [10]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 40.
@@ -1563,9 +1566,9 @@ Package hyperref Warning: Difference (2) between bookmark levels is greater
 
 LaTeX Warning: Command \k invalid in math mode on input line 56.
 
-[10]) 
+[11]) 
 AED: lastpage setting LastPage
-[11]
+[12]
 
 Package natbib Warning: There were undefined citations.
 
@@ -1587,13 +1590,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 27334 strings out of 493706
- 463864 string characters out of 3144541
- 581606 words of memory out of 3000000
- 29837 multiletter control sequences out of 15000+200000
- 78586 words of font info for 275 fonts, out of 3000000 for 9000
+ 27336 strings out of 493706
+ 463907 string characters out of 3144541
+ 581698 words of memory out of 3000000
+ 29839 multiletter control sequences out of 15000+200000
+ 78515 words of font info for 274 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 62i,17n,56p,1459b,517s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 62i,17n,56p,1459b,476s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc} <C:\Users\Dorot
 a Toczydlowska\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\bbm\dpi600\bbm9.
 pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/P
@@ -1608,9 +1611,9 @@ fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
 les/MiKTeX 2.9/fonts/type1/urw/palatino/uplbi8a.pfb><C:/Program Files/MiKTeX 2.
 9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 urw/palatino/uplri8a.pfb>
-Output written on latex_EMD_GP.pdf (11 pages, 1428890 bytes).
+Output written on latex_EMD_GP.pdf (12 pages, 1430340 bytes).
 PDF statistics:
- 262 PDF objects out of 1000 (max. 8388607)
- 74 named destinations out of 1000 (max. 500000)
+ 268 PDF objects out of 1000 (max. 8388607)
+ 76 named destinations out of 1000 (max. 500000)
  43140 words of extra memory for PDF output out of 51595 (max. 10000000)
 
