@@ -16,14 +16,16 @@ Therefore, it is also the Gaussian Process which is zero mean and has the covari
 &  = min(t,t') - \frac{ts}{T}
 \end{align*}
 The described process $B(t)$ satisfies that $B(0) = B(T) = 0$. The Brownian bridge which statisfied 
-$B(0) = a$ and $B(T) = b$ is a solution to the following SDE system of equations
+$B(t_0) = a$ and $B(_t1) = b$ is a solution to the following SDE system of equations
 \begin{equation}
 \begin{cases}
 & dB(t) = dW(t) \\
-& B(0) = a \\
-& B(T) = b
-\end{cases},  \text{ for } 0 \leq t \leq T
+& B(t_0) = a \\
+& B(t_1) = b
+\end{cases},  \text{ for } t_0 \leq t \leq t_1
 \end{equation}
+Therefore, the Brownian Bridge
+
 and after calculations results in the form
 \begin{equation}
 B(t) = a + (b-a)\frac{t}{T} + W(t) - \frac{t}{T} W(T)
@@ -35,6 +37,44 @@ B(t) \sim \text{GP}\Big( a + (b-a)\frac{t}{T} ,K(t,t') - \frac{tt'}{T} \Big)
 for $0 \leq t \leq T$
 %%%  https://math.aalto.fi/reports/a481.pdf
 %% https://www.diva-portal.org/smash/get/diva2:233650/FULLTEXT01.pdf
+\subsubsection{Brownian Bridge Movement Model}
+
+Let $W(t)$ denote the Brownian Motion such that
+\begin{equation}
+W(t) \sim \mathcal{GP}, \big(0,k(t,t') \big)
+\end{equation}
+with the kernel function $k(t,t') =  \min \big\{ t,t'\big\} $ and $t \in [0,T]$. Let us define the sequence of $N$ points $0 \leq t_1 < t_2 < \ldots <t_N \leq < T$ such that we require that the process $W(t)$ had the fixed values at that points $W(t_i) = a_i$ for $ i \in \big\{1,\ldots,N \big\}$.  Theretofore, we are looking for a Gaussian process for $t \in [0,T]$ model of a conditional variable defined as 
+\begin{equation}
+B(t) := W(t) | W(t_1) = a_1, W(t_2) = a_2, \ldots, ... W(t_N) = a_N
+\end{equation} 
+Let $\mathbf{W} = \big[W(t_1) , W(t_2) , \ldots, ... W(t_N)  \big]$ and $\mathbf{t} = \big[ t_1, t_2, \ldots, t_N \big]$ be $N$-dimensional vectors.  Since $W(t)$ is a Gaussian Process, the random variable $W(t) | W(t_1) , W(t_2) , \ldots, ... W(t_N) $ is also a Gaussian Process with the conditional mean
+\begin{equation}
+\mu(t) : = \mathbb{E}_{W(t) | W(t_1) , W(t_2) , \ldots, ... W(t_N) }\big[ W(t) \big] = \mathbf{k} \big( t, \mathbf{t} \big)^T \mathbf{K}(\mathbf{t},\mathbf{t} \big)^{-1} \mathbf{W}
+\end{equation}
+and the covariance function 
+\begin{equation}
+\k(t,t') = \mathbb{E}_{W(t) | W(t_1) , W(t_2) , \ldots, ... W(t_N) }\Big[ \big[ W(t) -\mu(t)  \big] \big[W(t')  -\mu(t')  \big] \big] \Big] =k(t,t') -  \mathbf{k} \big( t, \mathbf{t} \big)^T \mathbf{K}(\mathbf{t},\mathbf{t} \big)^{-1}   \mathbf{k} \big( t', \mathbf{t} \big)
+\end{equation}
+
+where
+\begin{equation}
+\mathbf{K}(\mathbf{t},\mathbf{t}): =\begin{bmatrix}
+t_1 & t_1 & t_1 & \ldots & t_1 \\
+t_1 & t_2 & t_2 & \ldots & t_2 \\
+t_1 & t_2 & t_3 & \ldots & t_3 \\
+\vdots & \vdots & \ddots & \vdots \\
+t_1 & t_2 & t_3 & \vdots & t_N
+\end{bmatrix}_{N \times N}
+\end{equation}
+and 
+\begin{equation}
+\mathbf{k}(t,\mathbf{t}): =\begin{bmatrix}
+\min(t,t_1) \\
+\min(t,t_2) \\
+\vdots \\
+\min(t,t_N)
+\end{bmatrix}_{N \times 1}
+\end{equation}
 
 
 \subsection{Symmetric Local Extremas of IMFs} 

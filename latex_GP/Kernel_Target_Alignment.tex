@@ -1,0 +1,15 @@
+\subsection{Kernel Target Alignment}
+
+An alternative way to estimate the Kernel Matrix of the Gaussian Process of each IMF $\gamma_m(t)$ is given by Kernel Target Alignment (KTA). This choice is preferred in this work since computing the maximum likelihood estimator would require the inversion of $K_m (\bm{t}, \bm{t})$; such operation often arises computational challenges which are therefore avoided.\\
+In classification tasks, KTA consists of measuring the similarity between the ``ideal'' or target kernel and the one computed on the training set of the considered features. The alignment provides a measure for the degree of fitness of the given kernel. As given in \cite{}, the (empirical) alignment of a kernel $k_1$ with a kernel $k_2$ with respect to an (unlabelled) sample $S= \left\lbrace x_1, \dots, x_m \right\rbrace$ is given by:
+\begin{equation}
+\hat{A} \left(S, k_1, k_2  \right) = \frac{\left\langle K_1, K_2 \right\rangle_F}{\sqrt{\left\langle K_1, K_1 \right\rangle_F \left\langle K_2, K_2 \right\rangle_F}}
+\end{equation}
+
+where $\left\langle K_1, K_2 \right\rangle_F = \sum_{i,j = 1}^{m} K_1 (x_i,x_j) K_2 (x_i,x_j)$ represents the inner product between Gram matrices. If $K_2 = yy'$, where $y$ is the vector of $ \left\lbrace -1,1 \right\rbrace $ labels for the sample, then the above equation becomes:
+
+\begin{equation}
+\hat{A} \left(S, K, yy'  \right) = \frac{\left\langle  K, yy' \right\rangle_F}{\sqrt{\left\langle K, K \right\rangle_F \left\langle yy',yy' \right\rangle_F}} = \frac{\left\langle  K, yy' \right\rangle_F}{m \sqrt{\left\langle  K, K' \right\rangle_F}}, \quad \mbox{since} \quad \left\langle  yy', yy' \right\rangle_F = m^2
+\end{equation}
+
+Cristianini et al. proved that $\hat{A}$ gives a reliable estimate of its expected value by being concentrated around its mean. In this work, such concept is employed to compute the similarity between the kernel matrix of each Gaussian Process related to each IMF and the sample covariance. \textcolor{red}{By defining a grid for the kernel parameters (initially uniform), for any parameter, we build a Gram Matrix. By computing for each Gram Matrix the alignment, we will select the one with smallest alignment.} Specifically, $K = \mathbf{K}_m (\mathbf{t},\mathbf{t})$ and $y$ \textcolor{red}{will be the label assigned to each sample point.}

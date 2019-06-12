@@ -1,5 +1,7 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: latex_EMD_GP.aux
 The style file: chicago2.bst
-I found no \citation commands---while reading file latex_EMD_GP.aux
 I found no \bibdata command---while reading file latex_EMD_GP.aux
-(There were 2 error messages)
+Warning--I didn't find a database entry for "Machine"
+Warning--I didn't find a database entry for "Remes2017"
+Warning--I didn't find a database entry for "LazaroGredilla2010"
+(There was 1 error message)

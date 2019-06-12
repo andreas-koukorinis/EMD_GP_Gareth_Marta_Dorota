@@ -20,8 +20,8 @@ and I'll forget about whatever was undefined.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.1 \subsection{T
                  he Stochastic Representation by Gaussian Processes}
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -390,8 +390,8 @@ Overfull \hbox (16.07642pt too wide) in paragraph at lines 1--3
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.5  a
       nd therefore the process which we observe is in fact
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -571,8 +571,8 @@ Overfull \hbox (22.23265pt too wide) in paragraph at lines 8--10
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.11  t
        he realisations of the continuous signal $s(t)$ on the discrete sent ...
 
@@ -657,8 +657,8 @@ Overfull \hbox (16.07642pt too wide) in paragraph at lines 11--12
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.14 L
       et $x(t)$ be a continuous real-valued signal which is an approximation...
 
@@ -793,8 +793,8 @@ Overfull \hbox (17.10419pt too wide) in paragraph at lines 14--15
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.16 a
       nd let us define its EMD decomposition into $K$ intrinsic mode functio...
 
@@ -1678,7 +1678,7 @@ Missing character: There is no d in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no l in font nullfont!
 ! Missing $ inserted.
-<inserted text> 
+<inserted text>
                 $
 l.28 ...decomposition in Equation \eqref{eq:model_
                                                   x_EMD}.  To ensure the fun...
@@ -1701,7 +1701,7 @@ deleted material, e.g., by typing `I$}'.
 
 Missing character: There is no r in font nullfont!
 ! Missing $ inserted.
-<inserted text> 
+<inserted text>
                 $
 l.28 ...:model_x_EMD}.  To ensure the function $r_
                                                   M(t)$ to have only single ...
@@ -2409,7 +2409,7 @@ Missing character: There is no : in font nullfont!
 Missing character: There is no x in font nullfont!
 Missing character: There is no t in font nullfont!
 ! Missing $ inserted.
-<inserted text> 
+<inserted text>
                 $
 l.28 ... of $x(t)$ given in Equation \eqref{eq:xt_
                                                   conditional_rep}.  {\color...
@@ -2435,10 +2435,10 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Missing $ inserted.
-<inserted text> 
+<inserted text>
                 $
-l.29 
-     
+l.29
+
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
@@ -2506,7 +2506,7 @@ Overfull \hbox (17.10419pt too wide) in paragraph at lines 27--29
 
 
 Overfull \hbox (312.794pt too wide) in paragraph at lines 27--29
-[]\OML/cmm/m/it/10 onditional[]ep:[]:$ 
+[]\OML/cmm/m/it/10 onditional[]ep:[]:$
  []
 
 ! Undefined control sequence.
@@ -2523,8 +2523,8 @@ and I'll forget about whatever was undefined.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.31 \subsubsection{D
                      enoising Observed Values of the True Signal}
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -2944,10 +2944,10 @@ Missing character: There is no t in font nullfont!
 Missing character: There is no , in font nullfont!
 Missing character: There is no . in font nullfont!
 ! Undefined control sequence.
-<argument> ...nition of $y(t)$ in Equation \eqref 
+<argument> ...nition of $y(t)$ in Equation \eqref
                                                   {eq:signal_noisy_y} includ...
 l.32 ...isy_y} includes the error term component.}
-                                                  
+
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -2955,10 +2955,10 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Missing $ inserted.
-<inserted text> 
+<inserted text>
                 $
 l.32 ...isy_y} includes the error term component.}
-                                                  
+
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
@@ -2966,7 +2966,7 @@ you left one out. Proceed, with fingers crossed.
 <argument> ... Equation \eqref {eq:signal_noisy_y}
                                                    includes the error term c...
 l.32 ...isy_y} includes the error term component.}
-                                                  
+
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
 you forgot something else, as in `\hbox{$x}'. In such cases
@@ -2974,10 +2974,10 @@ the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
 ! Extra }, or forgotten $.
-<recently read> \egroup 
-                        
+<recently read> \egroup
+
 l.32 ...isy_y} includes the error term component.}
-                                                  
+
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
 you forgot something else, as in `\hbox{$x}'. In such cases
@@ -2985,10 +2985,10 @@ the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
 ! Missing $ inserted.
-<inserted text> 
+<inserted text>
                 $
-l.33 
-     
+l.33
+
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
@@ -3366,7 +3366,7 @@ Overfull \hbox (19.80545pt too wide) in paragraph at lines 31--33
 
 Overfull \hbox (219.17091pt too wide) in paragraph at lines 31--33
 \OT1/cmr/bx/n/10 eq:signal$[]\OML/cmm/m/it/10 oisy[]includestheerrortermcompone
-nt:$ 
+nt:$
  []
 
 
@@ -3375,20 +3375,20 @@ nt:$
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.33 
-     
+ ...
+
+l.33
+
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 [1{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 ! Undefined control sequence.
-<write> \newlabel{eq:signal_noisy_y}{{1}{\thepage 
+<write> \newlabel{eq:signal_noisy_y}{{1}{\thepage
                                                   }}
-l.33 
-     
+l.33
+
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -3397,10 +3397,10 @@ and I'll forget about whatever was undefined.
 
 \newlabel{eq:signal_noisy_y}{{1}{}}
 ! Undefined control sequence.
-<write> \newlabel{eq:model_x_EMD}{{2}{\thepage 
+<write> \newlabel{eq:model_x_EMD}{{2}{\thepage
                                                }}
-l.33 
-     
+l.33
+
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -3409,10 +3409,10 @@ and I'll forget about whatever was undefined.
 
 \newlabel{eq:model_x_EMD}{{2}{}}
 ! Undefined control sequence.
-<write> \newlabel{eq:model_IMF_GP_k}{{3}{\thepage 
+<write> \newlabel{eq:model_IMF_GP_k}{{3}{\thepage
                                                   }}
-l.33 
-     
+l.33
+
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -3421,10 +3421,10 @@ and I'll forget about whatever was undefined.
 
 \newlabel{eq:model_IMF_GP_k}{{3}{}}
 ! Undefined control sequence.
-<write> ...el{eq:xt_conditional_rep}{{4}{\thepage 
+<write> ...el{eq:xt_conditional_rep}{{4}{\thepage
                                                   }}
-l.33 
-     
+l.33
+
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -3438,8 +3438,8 @@ and I'll forget about whatever was undefined.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.35 T
       he sets of the time points for each trial, $\mathbf{t}^i$, can be spec...
 
@@ -4227,7 +4227,7 @@ Overfull \hbox (23.5429pt too wide) in paragraph at lines 35--36
 
 
 Overfull \hbox (24.91653pt too wide) in paragraph at lines 35--36
-\OT1/cmr/bx/n/10 pling 
+\OT1/cmr/bx/n/10 pling
  []
 
 
@@ -4235,8 +4235,8 @@ Overfull \hbox (24.91653pt too wide) in paragraph at lines 35--36
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.38 I
       n order to specify the distribution of each $c_k(t)$, we collect $M$ p...
 
@@ -4731,18 +4731,18 @@ Overfull \hbox (13.89574pt too wide) in paragraph at lines 38--40
 
 
 Overfull \hbox (24.34152pt too wide) in paragraph at lines 38--40
-\OT1/cmr/bx/n/10 tions 
+\OT1/cmr/bx/n/10 tions
  []
 
 
 Overfull \hbox (81.9774pt too wide) detected at line 42
-\OT1/cmr/bx/n/10 x[] \OT1/cmr/m/n/10 = [] \OT1/cmr/bx/n/10 c[] \OT1/cmr/m/n/10 
+\OT1/cmr/bx/n/10 x[] \OT1/cmr/m/n/10 = [] \OT1/cmr/bx/n/10 c[] \OT1/cmr/m/n/10
 + \OT1/cmr/bx/n/10 r[]
  []
 
 ! Undefined control sequence.
-<recently read> \bm 
-                    
+<recently read> \bm
+
 l.43 ...ors $\mathbf{r}^{(i)}_K $. The vector $\bm
                                                   {\mu}_k^{(i)}$  correspond...
 The control sequence at the end of the top line
@@ -4752,8 +4752,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-<recently read> \bm 
-                    
+<recently read> \bm
+
 l.43 ...ments in $\mathbf{t}^{(i)}$, that is, $\bm
                                                   {\mu}_k^{(i)} = \mu_k(\mat...
 The control sequence at the end of the top line
@@ -5124,7 +5124,7 @@ Overfull \hbox (26.16031pt too wide) in paragraph at lines 42--44
 
 
 Overfull \hbox (35.68175pt too wide) in paragraph at lines 42--44
-\OML/cmm/m/it/10 ^^V[]\OT1/cmr/m/n/10 ([])$\OT1/cmr/bx/n/10 . 
+\OML/cmm/m/it/10 ^^V[]\OT1/cmr/m/n/10 ([])$\OT1/cmr/bx/n/10 .
  []
 
 ! Undefined control sequence.
@@ -5141,8 +5141,8 @@ and I'll forget about whatever was undefined.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.45 \subsubsection{G
                      aussian Process of IMFs given Splines Formulation of $x...
 
@@ -5211,7 +5211,7 @@ Overfull \hbox (9.26384pt too wide) in paragraph at lines 45--46
 
 
 Overfull \hbox (17.10419pt too wide) in paragraph at lines 45--46
-\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )$ 
+\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )$
  []
 
 ! Undefined control sequence.
@@ -5228,8 +5228,8 @@ and I'll forget about whatever was undefined.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.47 {\color{r
               ed}
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -5555,8 +5555,8 @@ Overfull \hbox (16.38486pt too wide) in paragraph at lines 47--50
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.53 F
       or the EMD to exist, the underlying signal $x(t)$ needs to be approxim...
 
@@ -5568,16 +5568,16 @@ If that doesn't work, type  X <return>  to quit.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.54 \begin{equation*}
-                      
+
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 ! Missing $ inserted.
-<inserted text> 
+<inserted text>
                 $
 l.55 c_
        {k,j}^{(i)}(t) = \begin{cases}
@@ -5589,19 +5589,19 @@ you left one out. Proceed, with fingers crossed.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.61 \end{equation*}
-                    
+
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 ! Missing $ inserted.
-<inserted text> 
+<inserted text>
                 $
 l.61 \end{equation*}
-                    
+
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
 With luck, this will get me unwedged. But if you
@@ -5965,7 +5965,7 @@ Overfull \hbox (59.74632pt too wide) in paragraph at lines 53--62
 
 
 Overfull \hbox (28.4167pt too wide) in paragraph at lines 53--62
-\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t[]; t[]\OT1/cmr/m/n/10 )[] 
+\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t[]; t[]\OT1/cmr/m/n/10 )[]
  []
 
 
@@ -5995,12 +5995,12 @@ Overfull \hbox (59.74632pt too wide) in paragraph at lines 53--62
 
 
 Overfull \hbox (28.4167pt too wide) in paragraph at lines 53--62
-\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t[]; t[]\OT1/cmr/m/n/10 )[] 
+\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t[]; t[]\OT1/cmr/m/n/10 )[]
  []
 
 
 Overfull \hbox (158.6657pt too wide) in paragraph at lines 53--62
-[]   []   []   []   [] [] 
+[]   []   []   []   [] []
  []
 
 
@@ -6030,7 +6030,7 @@ Overfull \hbox (65.2621pt too wide) in paragraph at lines 53--62
 
 
 Overfull \hbox (49.6844pt too wide) in paragraph at lines 53--62
-\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t[]; t[]\OT1/cmr/m/n/10 )$ 
+\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t[]; t[]\OT1/cmr/m/n/10 )$
  []
 
 
@@ -6038,8 +6038,8 @@ Overfull \hbox (49.6844pt too wide) in paragraph at lines 53--62
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.63 A
        shorter version of the above system of equations can be given by:
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -6122,7 +6122,7 @@ Overfull \hbox (26.35403pt too wide) in paragraph at lines 63--64
 
 
 Overfull \hbox (15.33325pt too wide) in paragraph at lines 63--64
-\OT1/cmr/bx/n/10 by: 
+\OT1/cmr/bx/n/10 by:
  []
 
 ! Undefined control sequence.
@@ -6151,8 +6151,8 @@ Overfull \hbox (348.72198pt too wide) detected at line 66
  []
 
 ! Undefined control sequence.
-<recently read> \mathbbm 
-                         
+<recently read> \mathbbm
+
 l.67 where $\mathbbm
                     {1}$ represents the indicator function.
 The control sequence at the end of the top line
@@ -6218,7 +6218,7 @@ Overfull \hbox (25.23598pt too wide) in paragraph at lines 66--68
 
 
 Overfull \hbox (22.99988pt too wide) in paragraph at lines 66--68
-\OT1/cmr/bx/n/10 tion. 
+\OT1/cmr/bx/n/10 tion.
  []
 
 
@@ -6226,8 +6226,8 @@ Overfull \hbox (22.99988pt too wide) in paragraph at lines 66--68
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.69 L
       et us start with having observed partially or discretely in time a con...
 
@@ -7251,7 +7251,7 @@ Overfull \hbox (16.29158pt too wide) in paragraph at lines 69--70
 
 
 Overfull \hbox (24.66096pt too wide) in paragraph at lines 69--70
-\OT1/cmr/bx/n/10 lows: 
+\OT1/cmr/bx/n/10 lows:
  []
 
 
@@ -7259,16 +7259,16 @@ Overfull \hbox (24.66096pt too wide) in paragraph at lines 69--70
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.71 \begin{equation}
-                     
+
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
 Overfull \hbox (20.0pt too wide) in paragraph at lines 71--71
-[] 
+[]
  []
 
 ! Undefined control sequence.
@@ -7291,8 +7291,8 @@ Overfull \hbox (216.7672pt too wide) detected at line 74
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.76 w
       here the spline coefficients will be estimated from the original sampl...
 
@@ -8291,7 +8291,7 @@ Overfull \hbox (11.56381pt too wide) in paragraph at lines 76--77
 
 
 Overfull \hbox (22.99988pt too wide) in paragraph at lines 76--77
-\OT1/cmr/bx/n/10 tion. 
+\OT1/cmr/bx/n/10 tion.
  []
 
 
@@ -8300,20 +8300,20 @@ Overfull \hbox (22.99988pt too wide) in paragraph at lines 76--77
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.77 
-     
+ ...
+
+l.77
+
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 [2
 ! Undefined control sequence.
-<write> \newlabel{cubic_spl}{{}{\thepage 
+<write> \newlabel{cubic_spl}{{}{\thepage
                                          }}
-l.77 
-     
+l.77
+
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -8322,10 +8322,10 @@ and I'll forget about whatever was undefined.
 
 \newlabel{cubic_spl}{{}{}}
 ! Undefined control sequence.
-<write> \newlabel{cubic_spl}{{7}{\thepage 
+<write> \newlabel{cubic_spl}{{7}{\thepage
                                           }}
-l.77 
-     
+l.77
+
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -8339,10 +8339,10 @@ and I'll forget about whatever was undefined.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.79 \begin{Definition}
-                       
+
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
@@ -8352,8 +8352,8 @@ or  <return>  to continue without it.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.81 T
       he Empirical Mode Decomposition of signal $S(t)$ is represented by the...
 
@@ -8537,7 +8537,7 @@ Overfull \hbox (26.35403pt too wide) in paragraph at lines 81--82
 
 
 Overfull \hbox (12.13882pt too wide) in paragraph at lines 81--82
-\OT1/cmr/bx/n/10 by 
+\OT1/cmr/bx/n/10 by
  []
 
 
@@ -8551,8 +8551,8 @@ OML/cmm/m/it/10 c[] [] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 r []
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.87 h
       ere the collection of $\left\{c_k(t)\right\}$ basis functions are know...
 
@@ -8991,7 +8991,7 @@ Overfull \hbox (13.84023pt too wide) in paragraph at lines 87--88
 
 
 Overfull \hbox (20.66794pt too wide) in paragraph at lines 87--88
-\OT1/cmr/bx/n/10 ties: 
+\OT1/cmr/bx/n/10 ties:
  []
 
 
@@ -9096,7 +9096,7 @@ Overfull \hbox (12.13882pt too wide) in paragraph at lines 89--90
 
 
 Overfull \hbox (20.60406pt too wide) in paragraph at lines 89--90
-\OT1/cmr/bx/n/10 one; 
+\OT1/cmr/bx/n/10 one;
  []
 
 
@@ -9276,7 +9276,7 @@ Overfull \hbox (10.22217pt too wide) in paragraph at lines 93--94
 
 
 Overfull \hbox (24.0624pt too wide) in paragraph at lines 93--94
-\OT1/cmr/bx/n/10 zero. 
+\OT1/cmr/bx/n/10 zero.
  []
 
 
@@ -9289,10 +9289,10 @@ Overfull \hbox (75.305pt too wide) detected at line 96
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.98 \end{Definition}
-                     
+
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
@@ -10015,7 +10015,7 @@ Overfull \hbox (20.3485pt too wide) in paragraph at lines 100--102
 
 Overfull \hbox (23.83107pt too wide) in paragraph at lines 100--102
 \OML/cmm/m/it/10 c[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )$\OT1/c
-mr/bx/n/10 . 
+mr/bx/n/10 .
  []
 
 
@@ -10601,7 +10601,7 @@ Overfull \hbox (26.35403pt too wide) in paragraph at lines 100--102
 
 
 Overfull \hbox (15.33325pt too wide) in paragraph at lines 100--102
-\OT1/cmr/bx/n/10 by: 
+\OT1/cmr/bx/n/10 by:
  []
 
 ! Undefined control sequence.
@@ -10620,7 +10620,7 @@ Overfull \hbox (271.26312pt too wide) detected at line 105
  []
 
 ! Undefined control sequence.
-<write> ...ning: Reference `t_j' on page \thepage 
+<write> ...ning: Reference `t_j' on page \thepage
                                                   \space undefined\on@line .
 l.107 ...and minima always alternate, in \ref{t_j}
                                                    the plus refers to the ma...
@@ -11365,12 +11365,12 @@ Overfull \hbox (26.35403pt too wide) in paragraph at lines 107--108
 
 
 Overfull \hbox (15.33325pt too wide) in paragraph at lines 107--108
-\OT1/cmr/bx/n/10 by: 
+\OT1/cmr/bx/n/10 by:
  []
 
 
 Overfull \hbox (20.0pt too wide) in paragraph at lines 109--109
-[] 
+[]
  []
 
 ! Undefined control sequence.
@@ -11485,7 +11485,7 @@ Overfull \hbox (34.30812pt too wide) in paragraph at lines 112--114
 
 
 Overfull \hbox (13.4166pt too wide) in paragraph at lines 112--114
-\OT1/cmr/bx/n/10 to: 
+\OT1/cmr/bx/n/10 to:
  []
 
 ! Undefined control sequence.
@@ -11640,7 +11640,7 @@ Overfull \hbox (26.35403pt too wide) in paragraph at lines 117--119
 
 
 Overfull \hbox (12.13882pt too wide) in paragraph at lines 117--119
-\OT1/cmr/bx/n/10 by 
+\OT1/cmr/bx/n/10 by
  []
 
 ! Undefined control sequence.
@@ -11885,7 +11885,7 @@ Overfull \hbox (15.33325pt too wide) in paragraph at lines 123--124
 
 
 Overfull \hbox (31.56929pt too wide) in paragraph at lines 123--124
-\OT1/cmr/bx/n/10 rithm. 
+\OT1/cmr/bx/n/10 rithm.
  []
 
 
@@ -11894,20 +11894,20 @@ Overfull \hbox (31.56929pt too wide) in paragraph at lines 123--124
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.124 
-      
+ ...
+
+l.124
+
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 [3
 ! Undefined control sequence.
-<write> \newlabel{EMD-for}{{8}{\thepage 
+<write> \newlabel{EMD-for}{{8}{\thepage
                                         }}
-l.124 
-      
+l.124
+
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -11916,10 +11916,10 @@ and I'll forget about whatever was undefined.
 
 \newlabel{EMD-for}{{8}{}}
 ! Undefined control sequence.
-<write> \newlabel{t_j}{{11}{\thepage 
+<write> \newlabel{t_j}{{11}{\thepage
                                      }}
-l.124 
-      
+l.124
+
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -11928,10 +11928,10 @@ and I'll forget about whatever was undefined.
 
 \newlabel{t_j}{{11}{}}
 ! Undefined control sequence.
-<write> \newlabel{upper_env}{{12}{\thepage 
+<write> \newlabel{upper_env}{{12}{\thepage
                                            }}
-l.124 
-      
+l.124
+
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -11940,10 +11940,10 @@ and I'll forget about whatever was undefined.
 
 \newlabel{upper_env}{{12}{}}
 ! Undefined control sequence.
-<write> \newlabel{lower_env}{{13}{\thepage 
+<write> \newlabel{lower_env}{{13}{\thepage
                                            }}
-l.124 
-      
+l.124
+
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -11957,8 +11957,8 @@ and I'll forget about whatever was undefined.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.125 \begin{algorithm}
                        [H]
 Your command was ignored.
@@ -11967,7 +11967,7 @@ or  <return>  to continue without it.
 
 ! Undefined control sequence.
 l.126 \small
-            
+
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -11976,7 +11976,7 @@ and I'll forget about whatever was undefined.
 
 
 Overfull \hbox (35.38881pt too wide) in paragraph at lines 125--127
-[]\OT1/cmr/bx/n/10 [H] 
+[]\OT1/cmr/bx/n/10 [H]
  []
 
 
@@ -11984,8 +11984,8 @@ Overfull \hbox (35.38881pt too wide) in paragraph at lines 125--127
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.129 \caption
               {EMD Sifting Procedure}
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -12018,12 +12018,12 @@ Overfull \hbox (14.21521pt too wide) in paragraph at lines 129--130
 
 
 Overfull \hbox (22.78462pt too wide) in paragraph at lines 129--130
-\OT1/cmr/bx/n/10 dure 
+\OT1/cmr/bx/n/10 dure
  []
 
 ! Undefined control sequence.
 l.131 \BlankLine
-                
+
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -12080,7 +12080,7 @@ Overfull \hbox (15.8124pt too wide) in paragraph at lines 134--136
 
 
 Overfull \hbox (12.26657pt too wide) in paragraph at lines 134--136
-\OT1/cmr/bx/n/10 sis 
+\OT1/cmr/bx/n/10 sis
  []
 
 ! Undefined control sequence.
@@ -12238,12 +12238,12 @@ Overfull \hbox (15.97214pt too wide) in paragraph at lines 137--141
 
 
 Overfull \hbox (31.30537pt too wide) in paragraph at lines 137--141
-\OT1/cmr/bx/n/10 tained 
+\OT1/cmr/bx/n/10 tained
  []
 
 ! Missing number, treated as zero.
-<to be read again> 
-                   \c@* 
+<to be read again>
+                   \c@*
 l.141 \begin{enumerate}[label=(\roman*
                                       )]
 A number should have been here; I inserted `0'.
@@ -12255,8 +12255,8 @@ look up `weird error' in the index to The TeXbook.)
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.143 \item I
              dentify the local extrema of $S(t)$.  %
 Try typing  <return>  to proceed.
@@ -12267,8 +12267,8 @@ If that doesn't work, type  X <return>  to quit.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.143 \item I
              dentify the local extrema of $S(t)$.  %
 Try typing  <return>  to proceed.
@@ -12279,8 +12279,8 @@ If that doesn't work, type  X <return>  to quit.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.143 \item I
              dentify the local extrema of $S(t)$.  %
 Try typing  <return>  to proceed.
@@ -12291,8 +12291,8 @@ If that doesn't work, type  X <return>  to quit.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.144 \item C
              alculate the upper envelope $S^U(t)$ and the lower envelope $S^...
 
@@ -12304,8 +12304,8 @@ If that doesn't work, type  X <return>  to quit.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.144 \item C
              alculate the upper envelope $S^U(t)$ and the lower envelope $S^...
 
@@ -12317,8 +12317,8 @@ If that doesn't work, type  X <return>  to quit.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.144 \item C
              alculate the upper envelope $S^U(t)$ and the lower envelope $S^...
 
@@ -12330,8 +12330,8 @@ If that doesn't work, type  X <return>  to quit.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.146 \item C
              onstruct a residual time series by calculating the difference b...
 
@@ -12343,8 +12343,8 @@ If that doesn't work, type  X <return>  to quit.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.146 \item C
              onstruct a residual time series by calculating the difference b...
 
@@ -12356,8 +12356,8 @@ If that doesn't work, type  X <return>  to quit.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.146 \item C
              onstruct a residual time series by calculating the difference b...
 
@@ -12369,10 +12369,10 @@ If that doesn't work, type  X <return>  to quit.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.148 \end{enumerate}
-                     
+
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -12697,7 +12697,7 @@ Overfull \hbox (89.81367pt too wide) in paragraph at lines 141--148
 
 Overfull \hbox (84.20827pt too wide) in paragraph at lines 141--148
 \OML/cmm/m/it/10 S\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) \OMS/cms
-y/m/n/10  
+y/m/n/10
  []
 
 
@@ -12709,12 +12709,12 @@ y/m/n/10 ^^@
 
 Overfull \hbox (76.6968pt too wide) in paragraph at lines 141--148
 \OML/cmm/m/it/10 m\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )$\OT1/cmr
-/bx/n/10 . 
+/bx/n/10 .
  []
 
 ! Undefined control sequence.
 l.154 \BlankLine
-                
+
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -12723,7 +12723,7 @@ and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
 l.155 \BlankLine
-                
+
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -12793,7 +12793,7 @@ Overfull \hbox (25.70819pt too wide) in paragraph at lines 153--156
 
 Overfull \hbox (30.87495pt too wide) in paragraph at lines 153--156
 \OML/cmm/m/it/10 S\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) \OMS/cms
-y/m/n/10  
+y/m/n/10
  []
 
 
@@ -12805,7 +12805,7 @@ y/m/n/10 ^^@
 
 Overfull \hbox (18.9109pt too wide) in paragraph at lines 153--156
 \OML/cmm/m/it/10 c\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )$\OT1/cmr
-/bx/n/10 . 
+/bx/n/10 .
  []
 
 
@@ -12813,10 +12813,10 @@ Overfull \hbox (18.9109pt too wide) in paragraph at lines 153--156
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.158 \end{algorithm}
-                     
+
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
@@ -12827,17 +12827,17 @@ or  <return>  to continue without it.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.160 \normalsize
-                 
+
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 \citation{Machine}
 ! Undefined control sequence.
-<write> ...: Citation `\@citeb ' on page \thepage 
+<write> ...: Citation `\@citeb ' on page \thepage
                                                   \space undefined\on@line .
 l.162 ...e. For further details see \cite{Machine}
                                                   . By exploiting the defini...
@@ -13487,7 +13487,7 @@ Overfull \hbox (16.29158pt too wide) in paragraph at lines 162--163
 
 
 Overfull \hbox (24.66096pt too wide) in paragraph at lines 162--163
-\OT1/cmr/bx/n/10 lows: 
+\OT1/cmr/bx/n/10 lows:
  []
 
 ! Undefined control sequence.
@@ -13500,8 +13500,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-<recently read> \bm 
-                    
+<recently read> \bm
+
 l.178 ...\ldots,\mathbf{c}_k^{(M)} \big]$ and $\bm
                                                   {\mu}_k = \mu_k(\mathbf{t}...
 The control sequence at the end of the top line
@@ -13852,7 +13852,7 @@ Overfull \hbox (19.96518pt too wide) in paragraph at lines 177--179
 
 
 Overfull \hbox (22.68877pt too wide) in paragraph at lines 177--179
-\OT1/cmr/bx/n/10 tors. 
+\OT1/cmr/bx/n/10 tors.
  []
 
 
@@ -13860,16 +13860,16 @@ Overfull \hbox (22.68877pt too wide) in paragraph at lines 177--179
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.181 \begin{align*}
-                    
+
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 ! Missing $ inserted.
-<inserted text> 
+<inserted text>
                 $
 l.182 K_
         k (\mathbf{t}^{(i)},\mathbf{t}^{(j)}  ) := \begin{bmatrix}
@@ -13881,10 +13881,10 @@ you left one out. Proceed, with fingers crossed.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.182 ...)},\mathbf{t}^{(j)}  ) := \begin{bmatrix}
-                                                  
+
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
@@ -14014,8 +14014,8 @@ might try typing `S' now just to see what is salvageable.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.187 \end{bmatrix}
                    _{ N_i \times	N_j}.
 Your command was ignored.
@@ -14027,19 +14027,19 @@ or  <return>  to continue without it.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.188 \end{align*}
-                  
+
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 ! Missing $ inserted.
-<inserted text> 
+<inserted text>
                 $
 l.188 \end{align*}
-                  
+
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
 With luck, this will get me unwedged. But if you
@@ -14056,7 +14056,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Missing $ inserted.
-<inserted text> 
+<inserted text>
                 $
 l.189 ...distribution in Equation \eqref{eq:model_
                                                   IMF_GP_k} is valid for thi...
@@ -14073,7 +14073,7 @@ the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
 ! Missing $ inserted.
-<inserted text> 
+<inserted text>
                 $
 l.189 ... assumption to hold, the $M$ paths of $c_
                                                   k(t)$ at the same point $t...
@@ -14287,7 +14287,7 @@ Overfull \hbox (173.8079pt too wide) in paragraph at lines 180--190
 \OML/cmm/m/it/10 K[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t[]; t[]\OT1/cmr/m/n/10 )
 \OML/cmm/m/it/10 K[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t[]; t[]\OT1/cmr/m/n/10 )
  [] \OML/cmm/m/it/10 K[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t[]; t[]\OT1/cmr/m/n/
-10 )[] 
+10 )[]
  []
 
 
@@ -14295,12 +14295,12 @@ Overfull \hbox (173.8079pt too wide) in paragraph at lines 180--190
 \OML/cmm/m/it/10 K[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t[]; t[]\OT1/cmr/m/n/10 )
 \OML/cmm/m/it/10 K[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t[]; t[]\OT1/cmr/m/n/10 )
  [] \OML/cmm/m/it/10 K[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t[]; t[]\OT1/cmr/m/n/
-10 )[] 
+10 )[]
  []
 
 
 Overfull \hbox (25.83307pt too wide) in paragraph at lines 180--190
-[][] [] [][] 
+[][] [] [][]
  []
 
 
@@ -14640,7 +14640,7 @@ Overfull \hbox (18.0485pt too wide) in paragraph at lines 180--190
 
 
 Overfull \hbox (19.39017pt too wide) in paragraph at lines 180--190
-\OT1/cmr/bx/n/10 ues. 
+\OT1/cmr/bx/n/10 ues.
  []
 
 
@@ -14971,7 +14971,7 @@ Overfull \hbox (23.12762pt too wide) in paragraph at lines 191--192
 
 
 Overfull \hbox (7.7305pt too wide) in paragraph at lines 191--192
-\OT1/cmr/bx/n/10 is 
+\OT1/cmr/bx/n/10 is
  []
 
 
@@ -15439,7 +15439,7 @@ Overfull \hbox (16.29158pt too wide) in paragraph at lines 194--196
 
 
 Overfull \hbox (25.3957pt too wide) in paragraph at lines 194--196
-\OT1/cmr/bx/n/10 nent. 
+\OT1/cmr/bx/n/10 nent.
  []
 
 ! Undefined control sequence.
@@ -15452,7 +15452,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Missing $ inserted.
-<inserted text> 
+<inserted text>
                 $
 l.198 ...en the model in Equation \eqref{eq:model_
                                                   IMF_GP_k_noisy}, the rando...
@@ -15474,7 +15474,7 @@ the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
 ! Missing $ inserted.
-<inserted text> 
+<inserted text>
                 $
 l.198 ...IMF_GP_k_noisy}, the random pair $\big(c_
                                                   k(\mathbf{t}), c_k(\mathbf...
@@ -15810,7 +15810,7 @@ Overfull \hbox (16.61102pt too wide) in paragraph at lines 198--199
 
 
 Overfull \hbox (19.80545pt too wide) in paragraph at lines 198--199
-\OT1/cmr/bx/n/10 tion 
+\OT1/cmr/bx/n/10 tion
  []
 
 
@@ -15818,10 +15818,10 @@ Overfull \hbox (19.80545pt too wide) in paragraph at lines 198--199
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.200 \begin{bmatrix}
-                     
+
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
@@ -15831,8 +15831,8 @@ or  <return>  to continue without it.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.203 \end{bmatrix}
                     \sim \mathcal{N}\bigg( \begin{bmatrix}
 Your command was ignored.
@@ -15844,10 +15844,10 @@ or  <return>  to continue without it.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.203 ...x} \sim \mathcal{N}\bigg( \begin{bmatrix}
-                                                  
+
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
@@ -15857,8 +15857,8 @@ or  <return>  to continue without it.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.206 \end{bmatrix}
                     , \begin{bmatrix}
 Your command was ignored.
@@ -15870,10 +15870,10 @@ or  <return>  to continue without it.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.206 \end{bmatrix} , \begin{bmatrix}
-                                     
+
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
@@ -15912,8 +15912,8 @@ might try typing `S' now just to see what is salvageable.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.209 \end{bmatrix}
                      \bigg)
 Your command was ignored.
@@ -15939,10 +15939,10 @@ m/m/it/10 ; \OT1/cmr/bx/n/10 s\OT1/cmr/m/n/10 )[]
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.212 \begin{equation*}
-                       
+
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
@@ -15957,7 +15957,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Missing $ inserted.
-<inserted text> 
+<inserted text>
                 $
 l.213 \mathbb{E}_
                  {c_k(t)|\mathbf{c}_k, \mathbf{t}} \big[c_k(\mathbf{s})] = \...
@@ -15969,19 +15969,19 @@ you left one out. Proceed, with fingers crossed.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.214 \end{equation*}
-                     
+
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 ! Missing $ inserted.
-<inserted text> 
+<inserted text>
                 $
 l.214 \end{equation*}
-                     
+
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
 With luck, this will get me unwedged. But if you
@@ -15993,10 +15993,10 @@ my insertion and my current dilemma will both disappear.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.216 \begin{equation*}
-                       
+
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
@@ -16006,8 +16006,8 @@ or  <return>  to continue without it.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.217 \mathbf{Cov}
                   _{c_k(t)|\mathbf{c}_k,\mathbf{t}} \big[c_k(\mathbf{s})] = ...
 
@@ -16015,7 +16015,7 @@ You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 ! Missing $ inserted.
-<inserted text> 
+<inserted text>
                 $
 l.217 \mathbf{Cov}_
                    {c_k(t)|\mathbf{c}_k,\mathbf{t}} \big[c_k(\mathbf{s})] = ...
@@ -16027,19 +16027,19 @@ you left one out. Proceed, with fingers crossed.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.218 \end{equation*}
-                     
+
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 ! Missing $ inserted.
-<inserted text> 
+<inserted text>
                 $
 l.218 \end{equation*}
-                     
+
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
 With luck, this will get me unwedged. But if you
@@ -16546,7 +16546,7 @@ Overfull \hbox (12.13882pt too wide) in paragraph at lines 210--220
 
 
 Overfull \hbox (93.2742pt too wide) in paragraph at lines 210--220
-\OT1/cmr/bx/n/10 Cov$[][]\OML/cmm/m/it/10 c[]\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 
+\OT1/cmr/bx/n/10 Cov$[][]\OML/cmm/m/it/10 c[]\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10
 s\OT1/cmr/m/n/10 )] =
  []
 
@@ -16746,7 +16746,7 @@ Overfull \hbox (5.59023pt too wide) in paragraph at lines 210--220
 
 
 Overfull \hbox (30.0276pt too wide) in paragraph at lines 210--220
-\OT1/cmr/bx/n/10 mean. 
+\OT1/cmr/bx/n/10 mean.
  []
 
 
@@ -16755,20 +16755,20 @@ Overfull \hbox (30.0276pt too wide) in paragraph at lines 210--220
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.220 
-      
+ ...
+
+l.220
+
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 [4
 ! Undefined control sequence.
-<write> \newlabel{sifting_algorithm}{{}{\thepage 
+<write> \newlabel{sifting_algorithm}{{}{\thepage
                                                  }}
-l.220 
-      
+l.220
+
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -16777,10 +16777,10 @@ and I'll forget about whatever was undefined.
 
 \newlabel{sifting_algorithm}{{}{}}
 ! Undefined control sequence.
-<write> ...eq:model_IMF_GP_k_noisy}{{15}{\thepage 
+<write> ...eq:model_IMF_GP_k_noisy}{{15}{\thepage
                                                   }}
-l.220 
-      
+l.220
+
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -17061,7 +17061,7 @@ Overfull \hbox (20.92348pt too wide) in paragraph at lines 223--225
 
 
 Overfull \hbox (7.7305pt too wide) in paragraph at lines 223--225
-\OT1/cmr/bx/n/10 is 
+\OT1/cmr/bx/n/10 is
  []
 
 ! Undefined control sequence.
@@ -17170,7 +17170,7 @@ Overfull \hbox (21.88184pt too wide) in paragraph at lines 227--229
 
 
 Overfull \hbox (20.18877pt too wide) in paragraph at lines 227--229
-\OT1/cmr/bx/n/10 sity. 
+\OT1/cmr/bx/n/10 sity.
  []
 
 
@@ -17265,7 +17265,7 @@ Overfull \hbox (22.10542pt too wide) in paragraph at lines 231--232
 
 
 Overfull \hbox (20.92348pt too wide) in paragraph at lines 231--232
-\OT1/cmr/bx/n/10 that 
+\OT1/cmr/bx/n/10 that
  []
 
 ! Undefined control sequence.
@@ -17513,7 +17513,7 @@ Overfull \hbox (17.0902pt too wide) in paragraph at lines 237--238
 
 
 Overfull \hbox (30.73038pt too wide) in paragraph at lines 237--238
-\OT1/cmr/bx/n/10 points 
+\OT1/cmr/bx/n/10 points
  []
 
 
@@ -17521,8 +17521,8 @@ Overfull \hbox (30.73038pt too wide) in paragraph at lines 237--238
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.240 \begin{figure}
                     [H]
 Your command was ignored.
@@ -17539,7 +17539,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Missing $ inserted.
-<inserted text> 
+<inserted text>
                 $
 l.242 \includegraphics[scale = 0.15]{GP_
                                         illustrations/kernel_stationary.png}
@@ -17548,7 +17548,7 @@ you left one out. Proceed, with fingers crossed.
 
 ! Extra }, or forgotten $.
 l.242 ...]{GP_illustrations/kernel_stationary.png}
-                                                  
+
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
 you forgot something else, as in `\hbox{$x}'. In such cases
@@ -17560,8 +17560,8 @@ deleted material, e.g., by typing `I$}'.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.243 \caption
               {Stationary kernels under 6 different sets of hyper-parameters...
 
@@ -17573,19 +17573,19 @@ If that doesn't work, type  X <return>  to quit.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.244 \end{figure}
-                  
+
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 ! Missing $ inserted.
-<inserted text> 
+<inserted text>
                 $
 l.244 \end{figure}
-                  
+
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
 With luck, this will get me unwedged. But if you
@@ -17593,10 +17593,10 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 ! Missing } inserted.
-<inserted text> 
+<inserted text>
                 }
 l.244 \end{figure}
-                  
+
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
 With luck, this will get me unwedged. But if you
@@ -17621,7 +17621,7 @@ Overfull \hbox (8.9444pt too wide) in paragraph at lines 240--245
 
 Overfull \hbox (474.44977pt too wide) in paragraph at lines 240--245
 \OT1/cmr/bx/n/10 0.15]GP$[]\OML/cmm/m/it/10 llustrations=kernel[]tationary:png[
-][]$ 
+][]$
  []
 
 
@@ -17629,8 +17629,8 @@ Overfull \hbox (474.44977pt too wide) in paragraph at lines 240--245
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.246 \begin{figure}
                     [H]
 Your command was ignored.
@@ -17647,7 +17647,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Missing $ inserted.
-<inserted text> 
+<inserted text>
                 $
 l.248 \includegraphics[scale = 0.15]{GP_
                                         illustrations/y_sim_stationary.png}
@@ -17656,7 +17656,7 @@ you left one out. Proceed, with fingers crossed.
 
 ! Extra }, or forgotten $.
 l.248 ...5]{GP_illustrations/y_sim_stationary.png}
-                                                  
+
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
 you forgot something else, as in `\hbox{$x}'. In such cases
@@ -17668,8 +17668,8 @@ deleted material, e.g., by typing `I$}'.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.249 \caption
               {The 3 path of the signal $c_k$ simulated from the a priori di...
 
@@ -17677,7 +17677,7 @@ You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 ! Missing } inserted.
-<inserted text> 
+<inserted text>
                 }
 l.249 \caption{The 3 path of the signal $
                                          c_k$ simulated from the a priori di...
@@ -17688,7 +17688,7 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 ! Missing $ inserted.
-<inserted text> 
+<inserted text>
                 $
 l.249 \caption{The 3 path of the signal $c_
                                            k$ simulated from the a priori di...
@@ -17705,7 +17705,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Missing $ inserted.
-<inserted text> 
+<inserted text>
                 $
 l.249 ...distribution in Equation \eqref{eq:model_
                                                   IMF_GP_k} under different ...
@@ -17735,19 +17735,19 @@ deleted material, e.g., by typing `I$}'.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.250 \end{figure}
-                  
+
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 ! Missing $ inserted.
-<inserted text> 
+<inserted text>
                 $
 l.250 \end{figure}
-                  
+
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
 With luck, this will get me unwedged. But if you
@@ -17755,10 +17755,10 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 ! Missing } inserted.
-<inserted text> 
+<inserted text>
                 }
 l.250 \end{figure}
-                  
+
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
 With luck, this will get me unwedged. But if you
@@ -17766,10 +17766,10 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 ! Missing } inserted.
-<inserted text> 
+<inserted text>
                 }
 l.250 \end{figure}
-                  
+
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
 With luck, this will get me unwedged. But if you
@@ -17882,7 +17882,7 @@ L/cmm/m/it/10 andfor\OT1/cmr/m/n/10 6\OML/cmm/m/it/10 differentsetsofhyper \OMS
 
 
 Overfull \hbox (54.35083pt too wide) in paragraph at lines 246--251
-\OML/cmm/m/it/10 parameters:[]$ 
+\OML/cmm/m/it/10 parameters:[]$
  []
 
 
@@ -17890,8 +17890,8 @@ Overfull \hbox (54.35083pt too wide) in paragraph at lines 246--251
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.252 \begin{figure}
                     [H]
 Your command was ignored.
@@ -17908,7 +17908,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Missing $ inserted.
-<inserted text> 
+<inserted text>
                 $
 l.254 \includegraphics[scale = 0.15]{GP_
                                         illustrations/y_pred_stationary.png}
@@ -17917,7 +17917,7 @@ you left one out. Proceed, with fingers crossed.
 
 ! Extra }, or forgotten $.
 l.254 ...]{GP_illustrations/y_pred_stationary.png}
-                                                  
+
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
 you forgot something else, as in `\hbox{$x}'. In such cases
@@ -17929,8 +17929,8 @@ deleted material, e.g., by typing `I$}'.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.255 \caption
               {The predictive conditional mean of the IMF with the confidenc...
 
@@ -17942,19 +17942,19 @@ If that doesn't work, type  X <return>  to quit.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.256 \end{figure}
-                  
+
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 ! Missing $ inserted.
-<inserted text> 
+<inserted text>
                 $
 l.256 \end{figure}
-                  
+
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
 With luck, this will get me unwedged. But if you
@@ -17962,10 +17962,10 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 ! Missing } inserted.
-<inserted text> 
+<inserted text>
                 }
 l.256 \end{figure}
-                  
+
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
 With luck, this will get me unwedged. But if you
@@ -17975,10 +17975,10 @@ my insertion and my current dilemma will both disappear.
 )
 ! Emergency stop.
 <*> IMF_definition_GP.tex
-                         
+
 *** (job aborted, no legal \end found)
 
- 
+
 Here is how much of TeX's memory you used:
  33 strings out of 492649
  434 string characters out of 6129621

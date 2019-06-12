@@ -11,6 +11,9 @@
 \usepackage{longtable,hhline}
 \usepackage{pifont}
 \usepackage{bbm}
+\usepackage{tikz}
+\usetikzlibrary{calc, fit, positioning}
+
 \allowdisplaybreaks
 
 \newcommand{\chighlight}[1]{%
@@ -28,10 +31,10 @@
 \graphicspath{{figs/} }
 
 %=================================================================
-\firstpage{1} 
-\makeatletter 
-\setcounter{page}{\@firstpage} 
-\makeatother 
+\firstpage{1}
+\makeatletter
+\setcounter{page}{\@firstpage}
+\makeatother
 
 %% TODO: add date, make smaller names of authors, fix correspondence with cross and corresponding aurthor.
 %------------------------------------------------------------------
@@ -59,7 +62,7 @@
 % Authors, for metadata in PDF
 \AuthorNames{}
 
-\address{% 
+\address{%
 }
 
 % Contact information of the corresponding author
@@ -81,11 +84,13 @@ Extension 2, Forecasting: GP representation does not ensures itself that the pre
 We treat each IMF as a separate Gaussian process and then represent the signal using multi-kernel representation of the Gaussian Process.
 
 \input{IMF_definition_GP}
-\input{estimation_params}
-\input{IMF_pred_distribution}
-\input{multikernel_signal}
+\input{multiple_trials_denoising}
+\input{GP_formulation_splines}
+\input{EMD_background}
+\input{kernel_choice}
+%\input{estimation_params}
 \input{IMF_Brownian_Bridge}
-
+\input{Kernel_Target_Alignment}
 
 %\input{appendix_IMF-coeff}
 
