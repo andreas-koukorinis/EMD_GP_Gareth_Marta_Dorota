@@ -5,17 +5,35 @@
 The Empirical Mode Decomposition of signal $S(t)$ is represented by the Intrinsic Mode Functions finite basis expansion given by
 \begin{equation}
 \label{EMD-for}
-S(t) = \sum_{k=1}^K c_k \left(t\right) + r \left(t \right)
+S(t) = \sum_{m=1}^M \gamma_m \left(t\right) + r \left(t \right)
 \end{equation}
-here the collection of $\left\{c_k(t)\right\}$ basis functions are known as the Intrinsic Mode Functions (IMFs) and $r \left(t \right)$ represents the final residual (or final tendency) extracted, which has only a single convexity. In general the $c_k$ basis will have k-convexity changes throughout the domain $t$ and furthermore, each IMF satisfies the following mathematical properties:
+
+here the collection of $\left\{\gamma_m(t)\right\}$ basis functions are known as the Intrinsic Mode Functions (IMFs) and $r \left(t \right)$ represents the final residual (or final tendency) extracted, which has only a single convexity. In general the $\gamma_m$ basis will have k-convexity changes throughout the domain $(t_1, t_N)$ and furthermore, each IMF satisfies the following mathematical properties:
 \begin{itemize}
 \item \textbf{Oscillation} The number of extrema and zero-crossing must either equal or differ at most by one;
 \begin{equation}
-\left| \left\{ \frac{d \gamma_m (t)}{dt} = 0 : \quad t \in \left( t_1, t_N \right), \frac{d \gamma_m (t)}{dt} \neq 0 \quad \forall t    \right\} \right|  \in  \left( -1, 1 \right)
+abs \left( \left| \left\{ \frac{d \gamma_m (t)}{dt} = 0 : \quad t \in \left( t_1, t_N \right) \right\} \right| - \left| \left\{ \gamma_m (t) = 0 : \quad t \in \left( t_1, t_N \right) \right\} \right| \right)  \in  \left[ 0, 1 \right]
 \end{equation}
-\item \textbf{Local Symmetry} The mean value of the envelope defined by the local maxima and the envelope of the local minima is equal to zero.  
+\item \textbf{Local Symmetry} The local mean value of the envelope defined by the local maxima and the envelope of the local minima is equal to zero pointwise i.e.   
 \begin{equation}
-\frac{M(t) + m(t)}{2} = 0
+\label{mean_env}
+m_m(t) = \left(\frac{S^{U_m} (t) + S^{L_m} (t)}{2} \right) \mathbbm{1} \left( t \in [t_1, t_N] \right) = 0
+\end{equation}
+
+where the lower script $m$ refers to the interested IMF. The minimum requirements of the upper and lower envelopes are: 
+\begin{equation}
+\label{cond_1_sp}
+\begin{split}
+S^{U_m}(t) & =  \gamma_m(t), \; \; if \; \; \frac{d \gamma_m(t)}{dt} = 0 \quad \& \quad \frac{d^2 \gamma_k(t)}{d t^2} <0, \\
+S^{U_m} (t) & > \gamma_m(t) \quad  \forall t, \quad (t_1, t_N)
+\end{split}
+\end{equation}
+\begin{equation}
+\label{cond_2_sp}
+\begin{split}
+S^{L_m} (t) & =  \gamma_m(t), \; \; if \; \; \frac{d \gamma_m(t)}{dt} = 0 \quad \& \quad \frac{d^2 \gamma_m(t)}{d t^2} > 0, \\
+S^{L_m} (t) & < \gamma_m(t) \quad  \forall t, \quad (t_1, t_N)
+\end{split}
 \end{equation}
 \end{itemize}
 \end{Definition}

@@ -6,7 +6,7 @@ The natural cubic spline is characterised over time intervals, where the local c
 \begin{equation}
 \label{cubic_spl}
 S(t) = \sum_{i=1}^{N-1} \left(a_i t^3 +b_i t^2 + c_i t +d_i \right) \mathbbm{1} \left[ t \in \left[ t_{i-1},t_i \right] \right],
-\end{equation} 
+\end{equation}
 where the spline coefficients will be estimated from the original sample path, such that the representation exactly matches the sample values at these time points, $a_i = S(t_i) = s(t_i)$. We need to construct an analog continuous signal from the discrete one, since our basis decomposition requires a continuous smooth signal for the basis extraction. The number of total convexity changes (oscillations) of the analog signal $S(t)$ corresponds to $K \in \mathbb{N}$ within the time domain $t$, over which the signal was observed. Note that $S(t)$ is decomposed according to direct extraction of the energy associated with various intrinsic time scales. This is the property that makes it suitable to non-linear and non-stationary processes. One may now define the EMD defined in Section \ref{sec:EMD_background} of the signal $S(t)$ as in Equation \eqref{eq:model_x_EMD}.
 
 
@@ -21,7 +21,7 @@ s_{N_i}(t) = a_{N_i} t^3 + b_{N_i} t^2 + c_{N_i} t + d_{N_i} \quad \mbox{for} \q
 \end{equation*}
 A shorter version of the above system of equations can be given by:
 \begin{equation}
-\gamma_{m,j}^{(i)}(t) = \sum_{j = 1}^{N_i} \left( a_j t^3 + b_j t^2 + c_j t + d_j \right){\mathbbm{1}} \left( t \in (t_{j-1}^i, t_j^i) \right) = \sum_{j = 1}^{N_i} s_j (t) {\mathbbm{1}} \left( t \in (t_{j-1}^i, t_j^i) \right) 
+\gamma_{m,j}^{(i)}(t) = \sum_{j = 1}^{N_i} \left( a_j t^3 + b_j t^2 + c_j t + d_j \right){\mathbbm{1}} \left( t \in (t_{j-1}^i, t_j^i) \right) = \sum_{j = 1}^{N_i} s_j (t) {\mathbbm{1}} \left( t \in (t_{j-1}^i, t_j^i) \right)
 \end{equation}
 where $\mathbbm{1}$ represents the indicator function.
 
@@ -29,27 +29,21 @@ where $\mathbbm{1}$ represents the indicator function.
 \noindent Given a mathematical representation for the IMFs, we must now proceed to outline the process applied to extract recursively the IMF spline representations. This procedure is known as \textit{sifting}. The first step consists of computing extrema of $S(t)$. By taking the first derivative $S'(t)$ and set it equal to zero, maxima and minima within each interval are calculated, producing the sequence of time points at which maxima and minima of $S(t)$ are located being given by:
 \begin{equation}
 \label{t_j}
-t^*_{j} = \left[ - \frac{b_j}{3 a_j} \pm \sqrt{\frac{{b_j}^2 - 3a_j c_j}{9 {a_j}^2}} \right] \mathbbm{1} \left[ t^*_{j} \in \left[ t_{i-1},t_i \right] \right] \quad j= 1, \dots, K
+\left\{ t^*_{j} \right\}  = \left\{ \left[ - \frac{b_j}{3 a_j} \pm \sqrt{\frac{{b_j}^2 - 3a_j c_j}{9 {a_j}^2}} \right] : t \in (t_1, t_N) \quad \& \quad \frac{d S(t)}{dt} = 0  \quad j= 1, \dots, M  \right\}
 \end{equation}
 
-where $ \{ t_j^{*} \}_{j = 1: K}$ represents the sequence of extrema and $K << N$. Since maxima and minima always alternate, in \ref{t_j} the plus refers to the maxima, while the minus to the minima. Consider the case in which the first detected extremum is a maximum and the second one is a minimum; then maxima occur at odd intervals, i.e. $t^*_{2j+1}$, and minima occur at even intervals, i.e. $t^*_{2j}$. The second step of sifting builds an upper and lower envelope of $S(t)$ as two natural cubic splines through the sequence of maxima $e_2^s$ and the sequence of minima $e_1^S$ respectively. The upper envelope is given by:
+where $ \{ t_j^{*} \}_{j = 1: M}$ represents the sequence of extrema and $M << N$. Since maxima and minima always alternate, in \ref{t_j} the plus refers to the maxima, while the minus to the minima. Without loss of generality, the first detected extremum is a maximum and the second one is a minimum; then maxima occur at odd intervals, i.e. $t^*_{2j+1}$, and minima occur at even intervals, i.e. $t^*_{2j}$. The second step of sifting builds an upper and lower envelope of $S(t)$ as two natural cubic splines through the sequence of maxima and the sequence of minima respectively. We therefore provide the semi-parametric forms for the conditions of the envelopes functions defined in \ref{cond_1_sp} and \ref{cond_2_sp} respectively. Note they should respect such conditions in principle, although guaranteeing them is a challenging task due to numerical undershoot or overshoot of the cubic spline. The two envelopes are then defined as:
 
 \begin{equation}
 \label{upper_env}
-S^{U}(t) = \sum_{j=1}^{K-1} \left( a_{2j+1}  t^3 + b_{2j+1} t^2 + c_{2j+1} t  +d_{2j+1} \right) \mathbbm{1} \left( t \in \left[ t^*_{2j}, t^*_{2j+1} \right] \right),
+S^{U_m}(t) = \sum_{j=1}^{M-1} \left( a_{2j+1}  t^3 + b_{2j+1} t^2 + c_{2j+1} t  +d_{2j+1} \right) \mathbbm{1} \left( t \in \left[ t^*_{2j}, t^*_{2j+1} \right] \right),
 \end{equation}
-such that $S^U (t) = S(t^*_{2j+1})$ for all $ t \in t^*_{2j+1}$. Equivalently, the lower envelope corresponds to: 
+such that $S^{U_m} (t^*_{2j+1}) = S(t^*_{2j+1})$ for all odd $ t^*_{j}$. . Equivalently, the lower envelope corresponds to:
 \begin{equation}
 \label{lower_env}
-S^{L}(t) = \sum_{j=1}^{K-1} \left( a_{2j}  t^3 + b_{2j} t^2 + c_{2j} t  +d_{2j} \right)   \mathbbm{1} \left( t \in \left[ t^*_{2j-1}, t^*_{2j} \right] \right),
+S^{L_m}(t) = \sum_{j=1}^{M-1} \left( a_{2j}  t^3 + b_{2j} t^2 + c_{2j} t  +d_{2j} \right)   \mathbbm{1} \left( t \in \left[ t^*_{2j-1}, t^*_{2j} \right] \right),
 \end{equation}
-such that $S^L (t) = S(t^*_{2j})$ for all $ t \in t^*_{2j}$. Next, one utilises these envelopes to construct the mean signal denoted by $m(t)$ and given by
-\begin{equation}
-m(t) = \left( \frac{S \left( S^{U}(t) \right)+S \left( S^{L}(t) \right)}{2} \right) \mathbbm{1} \left( t \in [t_1, t_N] \right),
-\end{equation}
-
-which will then be used to compensate the signal $S(t)$ in a recursive fashion, until an IMF is obtained.  The procedure is detailed in the following algorithm.
-
+such that $S^{L_m} (t^*_{2j}) = S(t^*_{2j})$ for all even $ t_j^*$.Next, one utilises these envelopes to construct the mean signal denoted by $m_m(t)$ given in equation \ref{mean_env}, which will then be used to compensate the original speech signal $S(t)$ in a recursive fashion, until an IMF is obtained.  The procedure is detailed in the following algorithm.
 %\begin{algorithm}[H]
 %\label{sifting_algorithm}
 %\caption{EMD Sifting Procedure}
@@ -64,27 +58,36 @@ which will then be used to compensate the signal $S(t)$ in a recursive fashion, 
 %{
 %\begin{enumerate}[label=(\roman*)]
 %\item Identify the local extrema of $S(t)$.  %
-%\item Calculate the upper envelope $S^U(t)$ and the lower envelope $S^L(t)$ respecting $S^L(t) \leq S(t) \leq S^U(t)$ for all $t$. 
+%\item Calculate the upper envelope $S^U(t)$ and the lower envelope $S^L(t)$ respecting $S^L(t) \leq S(t) \leq S^U(t)$ for all $t$.
 %%
 %\item Construct a residual time series by calculating the difference between the data and the mean of the upper and lower envelopes $S(t)\leftarrow S(t) - m(t)$.
 %\end{enumerate}
 %}
-%Update the signal by subtracting the obtained IMF, $S(t) \leftarrow S(t)-c(t)$. 
+%Update the signal by subtracting the obtained IMF, $S(t) \leftarrow S(t)-c(t)$.
 %\BlankLine
 %\BlankLine }
 %\end{algorithm}
 %\normalsize
 
-It is often the case that such algorithm does not reach a mean equal to 0; therefore, multiple solutions in the literature have been proposed as stopping criteria of the sifting procedure. For further details see \cite{Machine}. By exploiting the definition of cubic spline used in the representation of the analog speech signal $S(t)$ and the IMF basis functions, one can obtain a mathematical connection between the coefficients of $S(t)$ and the coefficients of $c_k(t)$ detailed as follows: 
+It is often the case that such an algorithm does not reach a mean equal to 0; therefore, multiple solutions in the literature have been proposed as stopping criteria of the sifting procedure. For further details, see \cite{Machine}. From the sifting process, it is clear that these bases are recursively extracted; this means that, once the $k$-$1$ IMF is obtained, it is subtracted by the main signal and the sifting procedure is applied to the residual signal. Hence, it is highly essential to understand the linking relationship between the coefficients of two successive extracted IMFs.
+By exploiting the definition of cubic spline used in the representation of the analog speech signal $S(t)$ and the IMF basis functions, one can obtain a mathematical connection between the coefficients of $S(t)$ and the coefficients of $\gamma_m(t)$ detailed as follows:
 
 \begin{Proposition}
 \label{prop_cs}
-The k-$th$ extracted IMF denoted as $c_k$ can be expressed as a cubic spline whose coefficients are a linear combination of the spline coefficients of $S(t)$ and the coefficients of the mean envelopes of the $k-1$ IMFs previously extracted, i.e.
+The m-$th$ extracted IMF denoted as $\gamma_m(t)$ can be expressed as a cubic spline whose coefficients are a linear combination of the spline coefficients of $S(t)$ and the coefficients of the $m-1$ IMFs extracted until such point of the sifting procedure and the coefficients of its mean envelopes, i.e.
 
 \begin{equation}
-c_D = c_0 - \sum_{i=0}^{Q-1} m_{D,i} = \sum_{i=1}^{N-1} \left( a_i^Q t^3 + b_i^Q t^2 + c_i^Q t + d_i^Q \right) \mathbbm{1} \left( t \in \left[ t_{i-1}, t_i \right] \right)
+\gamma_m(t) = S(t) - \sum_{j=1}^{m-1} \gamma_j(t) - m_{m}(t) = \sum_{i=1}^{N-1} \left( a_i^m t^3 + b_i^m t^2 + c_i^m t + d_i^m \right) \mathbbm{1} \left( t \in \left[ t_{i-1}, t_i \right] \right)
 \end{equation}
-where $c_0$ is $S(t)$ and $m_{D,i} = \frac{S(e_1^{h_{D,i}})+S(e_2^{h_{D,i}})}{2}$ and $Q$ is the number of sifting steps required to extract the IMF itslef.
+where the spline coefficients are given as follows:
+\begin{multicols}{2}
+\begin{itemize}
+\item $a_i^m = a_i - \sum_{j=1}^{m-1} a_i^j - \frac{1}{2} ( a_i^{U_m} + a_i^{L_m}) $
+\item $b_i^m = b_i - \sum_{j=1}^{m-1} b_i^j - \frac{1}{2}( b_i^{U_m} + b_i^{L_m}) $
+\item $c_i^m = c_i - \sum_{j=1}^{m-1} c_i^j - \frac{1}{2} ( c_i^{U_m} + c_i^{L_m}) $
+\item $d_i^m = d_i - \sum_{j=1}^{m-1} d_i^j - \frac{1}{2} ( d_i^{U_m} + d_i^{L_m}) $
+\end{itemize}
+\end{multicols}
 \end{Proposition}
 
-Note that our notation $c(t)$ changed in this proposition by becoming $c$ for a clearer proofs. The proof is provided in the appendix \ref{appendix_IMFS-coeff}.
+Such a proposition expresses the EMD construction of an IMF by considering the outer loop steps of the described algorithm. This means that, by looking at Algorithm \ref{sifting_algorithm}, the proposition considers 1), 2) and 3) to prove the statement. Note that in our notation $\gamma_m(t)$ in the case study, we suppressed the $m$ upper script for the coefficients to avoid redundancy. The proof is provided in the appendix \ref{appendix_IMFS-coeff_no_sifting}.

@@ -1,9 +1,9 @@
 \section{Review of Stationary and Non-stationary Kernels}
-Based on Bochner's theorem, the Fourier transfor of a continious shift-invariant positive definite kernel $K(x,x')$ is a proper probability distribution function $\pi(\omega)$, assuming that $K(x,x')$ is properly scaled, that is
+Based on Bochner's theorem, the Fourier transform of a continuous shift-invariant positive definite kernel $K(x,x')$ is a proper probability distribution function $\pi(\omega)$, assuming that $K(x,x')$ is properly scaled, that is
 \begin{equation}
-K(x,x') = \int \pi(\omega) e^{ i \omega^T (x - x') }\ d\omega = \mathbb{E}_{\omega}\big[ \phi_\omega (x) \phi_\omega (x')^* \big] 
+K(x,x') = \int \pi(\omega) e^{ i \omega^T (x - x') }\ d\omega = \mathbb{E}_{\omega}\big[ \phi_\omega (x) \phi_\omega (x')^* \big]
 \end{equation}
-for $\phi_\omega (x)  =e^{j \omega^T x} = r \big( \cos (\omega x ) + i \sin (\omega x )\big)$. The density of $\omega$ is denoted by spectral density. 
+for $\phi_\omega (x)  =e^{j \omega^T x} = r \big( \cos (\omega x ) + i \sin (\omega x )\big)$. The density of $\omega$ is denoted by spectral density.
 
 
 TODO: produce some plots about the kernel choice for IMFS, plots like from the Turners presentation - elipsoids, a priori generated sample, a posteriori distribution given a few points
@@ -32,14 +32,14 @@ TODO: produce some plots about the kernel choice for IMFS, plots like from the T
 \paragraph{Non-stationary Kernels}
 The non-stationary kernel can be characterised by a spectral density $\pi(\omega,\omega')$ such that
 \begin{equation}
-k(t,t') =\int \int \pi(\omega,\omega') e^{ 2 \pi i \omega t - \omega' t' }\ d\omega d\omega' = \mathbb{E}_{\omega,\omega'}\big[ \phi_{\omega,\omega'} (x) \phi_{\omega,\omega'} (x')^* \big] 
+k(t,t') =\int \int \pi(\omega,\omega') e^{ 2 \pi i \omega t - \omega' t' }\ d\omega d\omega' = \mathbb{E}_{\omega,\omega'}\big[ \phi_{\omega,\omega'} (x) \phi_{\omega,\omega'} (x')^* \big]
 \end{equation}
-where $\pi(\omega)$ is a spectral density of the kernel $k$ over frequencies $\omega$ and $\omega'$. For a scalar inputs $x$ and $x'$ the density $\pi(\omega,\omega')$ corresponds to bivariate distribution. 
+where $\pi(\omega)$ is a spectral density of the kernel $k$ over frequencies $\omega$ and $\omega'$. For a scalar inputs $x$ and $x'$ the density $\pi(\omega,\omega')$ corresponds to bivariate distribution.
 
 \begin{enumerate}
 \item Non-stationary generalisation of the Squared Exponential kernel (GSE)
 \begin{align*}
-k_{GSE}(t,t') = \sigma(t) \sigma(t') \bigg( \frac{2\mu(t) \mu(t')}{\mu(t)^2 +  \mu(t')^2}\bigg)^{-\frac{1}{2}} \exp \Big\{ - \frac{(t - t')^2}{\mu(t)^2 +  \mu(t')^2} \Big\} 
+k_{GSE}(t,t') = \sigma(t) \sigma(t') \bigg( \frac{2\mu(t) \mu(t')}{\mu(t)^2 +  \mu(t')^2}\bigg)^{-\frac{1}{2}} \exp \Big\{ - \frac{(t - t')^2}{\mu(t)^2 +  \mu(t')^2} \Big\}
 \end{align*}
 for
 \begin{align*}
@@ -63,23 +63,23 @@ t \\
 \sin (2 \pi \mu_{q} t) + \sin (2 \pi \mu_{q}' t)
 \end{bmatrix}.
 \end{align*}
-The spectral density of the kernel $k_{SM}$ is defined by a weighted mixture 
+The spectral density of the kernel $k_{SM}$ is defined by a weighted mixture
 \begin{equation}
 \pi(\omega,\omega') = \sum_{q = 1}^Q w_q^2 \pi_q(\omega,\omega)
-\end{equation} 
+\end{equation}
 where $\pi_q(\omega,\omega)$ is a sum of bivariate normal densities with two dimension mean vectors are equal to the the eight combinations of the two element permutations of the set $\big\{\mu_q,\mu_q'\big\}$ and $\big\{-\mu_q,-\mu_q',  \big\}$, and the covariance matrix $\bm{\Sigma}_q$.
 
 \item Generalized Spectral Mixture Kernel by \citep{Remes2017} with Gibbs kernel formulations
 % Non-Stationary Spectral Kernels, Remes 2017
 which is formulated as follows
 \begin{equation}
-k_{GSM}(t,t') = \sum_{q = 1}^Q w_q(t) w_q(t') \bigg( \frac{2l_g(t) l_q(t')}{l_g(t)^2 +  l_q(t')^2}\bigg)^{-\frac{1}{2}} \exp \Big\{ - \frac{(t - t')^2}{l_q(t)^2 +  l_q(t')^2} \Big\} \cos \Big(2\pi (\mu_q(t) t - \mu_q(t') t') \Big) 
+k_{GSM}(t,t') = \sum_{q = 1}^Q w_q(t) w_q(t') \bigg( \frac{2l_g(t) l_q(t')}{l_g(t)^2 +  l_q(t')^2}\bigg)^{-\frac{1}{2}} \exp \Big\{ - \frac{(t - t')^2}{l_q(t)^2 +  l_q(t')^2} \Big\} \cos \Big(2\pi (\mu_q(t) t - \mu_q(t') t') \Big)
 \end{equation}
 for
 \begin{align*}
 & \log l_q(t) \sim \mathcal{GP} \Big(\mu_l, k_l (t,t') \Big) \\
 & \log it \mu_q(t) \sim \mathcal{GP} \Big(\mu_\mu, k_\mu (t,t') \Big) \\
-& \log w_q(t) \sim \mathcal{GP} \Big(\mu_w, k_w (t,t') \Big) 
+& \log w_q(t) \sim \mathcal{GP} \Big(\mu_w, k_w (t,t') \Big)
 \end{align*}
 
 The spectral density of the kernel $k_{GSM}$ is ...
@@ -88,4 +88,3 @@ The spectral density of the kernel $k_{GSM}$ is ...
 
 \item Sparse Spectrum Kernel by \citep{LazaroGredilla2010}
 \end{enumerate}
-
