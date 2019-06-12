@@ -11,6 +11,9 @@
 \usepackage{longtable,hhline}
 \usepackage{pifont}
 \usepackage{bbm}
+\usepackage{tikz} 
+\usetikzlibrary{calc, fit, positioning}
+
 \allowdisplaybreaks
 
 \newcommand{\chighlight}[1]{%
@@ -87,7 +90,7 @@ We treat each IMF as a separate Gaussian process and then represent the signal u
 \input{kernel_choice}
 %\input{estimation_params}
 \input{IMF_Brownian_Bridge}
-
+\input{Kernel_Target_Alignment}
 
 %\input{appendix_IMF-coeff}
 

@@ -1,7 +1,7 @@
 \subsection{The Stochastic Representation by Gaussian Processes}
 Let $s(t)$ for $t\in [0,\infty]$ be a continuous true signal which is observed on discrete grid of points in the interval $[0,T]$, $t =( t_1 < \dots <t_N ) = \{ t_i \}_{i=1:N}$, where the subscripts represent the sampling index times. The observed values of the true signal $s(t)$ might be exact or be perturbed. The noisy observation are not uncommon situation in practice. The perturbation of the true signal can be either deterministic (ie an chaotic system, not stable) or stochastic.  If the realisations of the signal $s(t)$ are corrupted with some stochastic error term, the process which we observe is represented as follows
 \begin{equation}\label{eq:signal_noisy_y}
-y(t) = x(t) + \epsilon, \text{ for } \epsilon \in \mathcal{N}(0, \sigma^2).
+y(t) = s(t) + \epsilon, \text{ for } \epsilon \in \mathcal{N}(0, \sigma^2).
 \end{equation}
 Therefore, our observation set consists of pairs $\big\{t_n,y_n\big\}$ where $y_n = y(t_n)$ for $t_n \in [0,T]$. 
 
@@ -14,15 +14,90 @@ S(t) = \sum_{m = 1}^M \gamma_m(t) + r(t) = \sum_{m = 1}^M \text{Re}\Big\{ A_m(t)
 where $r(t)$ represents a tendency which does not have much of oscillation and therefore characterize the low frequency tend of $S(t)$. 
 
 \subsubsection{Continuous signal $S(t)$ as a Gaussian Process}
-Out goal is to obtain a stochastic representation of the continuous signal $S(t)$ by a Gaussian Process. We postulate that each IMFs function, $\gamma_m(t)$, is a Gaussian process 
+Our goal is to obtain a stochastic representation of the continuous signal $S(t)$ by a Gaussian Process. We postulate that each IMFs function, $\gamma_m(t)$, is a Gaussian process 
 \begin{equation}\label{eq:model_IMF_GP_k}
 \gamma_m(t) \sim \mathcal{GP} \Big(0, k_m(t,t')\Big), 
 \end{equation}
 where $k_m(t,t')$ is a positive definite covariance kernel which is parametrized by a set of parameters $\Psi_m$.  
+\textcolor{red}{discussion with dorota}
+\hfill
+\hfill
+\hfill
+
+    \begin{tikzpicture}[
+node distance = 5mm,
+ inbox/.style = {rectangle, draw, rounded corners,
+                 minimum height=10mm, minimum width=25mm ,
+                 align=center, inner xsep=6mm, inner ysep=3mm},
+outbox/.style = {rectangle, draw=blue, densely dashed, rounded corners,
+                 inner xsep=6mm, inner ysep=1mm}
+                    ]
+                    
+                    
+ \node (xuno) [inbox ]   {$S_1(t)$};
+ \node (xdue) [inbox, right=of xuno ]   {$S_2(t)$}; 
+ \node (xtre) [inbox, right=of xdue ]   {$S_3(t)$};
+ \node (dots) [inbox, right=of xtre ]   {$\dots$};
+ \node (xesse) [inbox, right=of dots ]   {$S_s(t)$};
+     
+ \node (cuno) [inbox, below=1cm of xuno ]   {$\gamma_1^1(t)$};
+ \node (cdue) [inbox, right=of cuno ]   {$\gamma_2^1(t)$}; 
+ \node (ctre) [inbox, right=of cdue ]   {$\gamma_3^1(t)$};
+ \node (dotsdue) [inbox, right=of ctre ]   {$\dots$};
+ \node (cesse) [inbox, right=of dotsdue ]   {$\gamma_s^1(t)$};
+    
+ \node (cunodue) [inbox, below=of cuno ]   {$\gamma_1^2(t)$};
+ \node (cduedue) [inbox, right=of cunodue ]   {$\gamma_2^2(t)$}; 
+ \node (ctredue) [inbox, right=of cduedue ]   {$\gamma_3^2(t)$};
+ \node (dotsduedue) [inbox, right=of ctredue ]   {$\dots$};
+ \node (cessedue) [inbox, right=of dotsduedue ]   {$\gamma_s^2(t)$};              
+ 
+ \node (cunotre) [inbox, below=of cunodue ]   {$\gamma_1^3(t)$};
+ \node (cduetre) [inbox, right=of cunotre ]   {$\gamma_2^3(t)$}; 
+ \node (ctretre) [inbox, right=of cduetre ]   {$\gamma_3^3(t)$};
+ \node (dotsduetre) [inbox, right=of ctretre ]   {$\dots$};
+ \node (cessetre) [inbox, right=of dotsduetre ]   {$\gamma_s^3(t)$};              
+
+ \node (cunodots) [inbox, below=of cunotre ]   {$\dots$};
+ \node (cduedots) [inbox, right=of cunodots ]   {$\dots$}; 
+ \node (ctredots) [inbox, right=of cduedots ]   {$\dots$};
+ \node (dotsduedots) [inbox, right=of ctredots ]   {$\dots$};
+ \node (cessedots) [inbox, right=of dotsduedots ]   {$\dots$};              
+
+ \node (cunok) [inbox, below=of cunodots ]   {$\gamma_1^M(t)$};
+ \node (cduek) [inbox, right=of cunok ]   {$\gamma_2^M(t)$}; 
+ \node (ctrek) [inbox, right=of cduek ]   {$\gamma_3^M(t)$};
+ \node (dotsduek) [inbox, right=of ctrek ]   {$\dots$};
+ \node (cessek) [inbox, right=of dotsduek ]   {$\gamma_s^M(t)$}; 
+ 
+ \node (cunokuno) [inbox, below=of cunok ]   {$r_1(t)$};
+ \node (cduekuno) [inbox, right=of cunokuno ]   {$r_2(t)$}; 
+ \node (ctrekuno) [inbox, right=of cduekuno ]   {$r_3(t)$};
+ \node (dotsduekuno) [inbox, right=of ctrekuno ]   {$\dots$};
+ \node (cessekuno) [inbox, right=of dotsduekuno ]   {$r_s(t)$};              
+ 
+\path[->,thick] 
+(xuno) edge (cuno)
+(xdue) edge (cdue)
+(xtre) edge (ctre)
+(xesse) edge (cesse);
+
+%\node (outer1) [outbox, fit = (xuno) (xdue) (xtre) (dots) (xesse), %label=right:Original Signals]{};
+\node (outer2) [outbox, fit = (cuno) (cdue) (ctre) (dotsdue) (cesse), label=right: \footnotesize {$\mathcal{GP} \Big(0, k_1(t,t')\Big)$}]{};
+\node (outer3) [outbox, fit = (cunodue) (cduedue) (ctredue) (dotsduedue) (cessedue), label=right: \footnotesize {$\mathcal{GP} \Big(0, k_2(t,t')\Big)$}]{};
+\node (outer4) [outbox, fit = (cunotre) (cduetre) (ctretre) (dotsduetre) (cessetre), label=right:\footnotesize {$\mathcal{GP} \Big(0, k_3(t,t')\Big)$}]{};
+\node (outer5) [outbox, fit = (cunodots) (cduedots) (ctredots) (dotsduedots) (cessedots)]{};
+\node (outer6) [outbox, fit = (cunok) (cduek) (ctrek) (dotsduek) (cessek), label=right: \footnotesize {$\mathcal{GP} \Big(0, k_M(t,t')\Big)$}]{};
+\node (outer7) [outbox, fit = (cunokuno) (cduekuno) (ctrekuno) (dotsduekuno) (cessekuno), label=right: \footnotesize {$\mathcal{GP} \Big(0, k_r(t,t')\Big)$}]{};
+
+    \end{tikzpicture}
+\hfill
+\hfill
+\hfill
 
 Let us assume that we sample $S(t)$, and functions $\gamma_m(t)$ for $m = 1,\ldots, M$ at the $N$ time points $t_1 < \ldots <t_N$. We denote by $\mathbf{t}$ the vector of points $t_n$ for $n = 1,\ldots, N$.  
 
-Therefore, given the observations $\gamma_m(\mathbf{t}) "= \big[ \gamma_m(t_1), \ldots, \gamma_m(t_N) \big]$, we would like to predict the values of $\gamma_m(t)$ at the argument $s$ that is $c_k(s)$, given the collected information in the observation set. Since $c(t)$ is a Gaussian Process, the random variable $\gamma_m(s)| \gamma_m(\mathbf{t}), \mathbf{t}$ is a Gaussian Process with the conditional mean
+Therefore, given the observations $\gamma_m(\mathbf{t}) "= \big[ \gamma_m(t_1), \ldots, \gamma_m(t_N) \big]$, we would like to predict the values of $\gamma_m(t)$ at the argument $s$ that is $\gamma_m(s)$, given the collected information in the observation set. Since $\gamma(t)$ is a Gaussian Process, the random variable $\gamma_m(s)| \gamma_m(\mathbf{t}), \mathbf{t}$ is a Gaussian Process with the conditional mean
 \begin{equation*}
 \mu_m(s):=\mathbb{E}_{\gamma_m(t)|\gamma_m(\mathbf{t}), \mathbf{t}} \big[\gamma_m(s) \big] =  \mathbf{k}_m \big(s,\mathbf{t}\big) \mathbf{K}_m \big(\mathbf{t},\mathbf{t}\big)^{-1} \gamma_m(\mathbf{t})
 \end{equation*}
@@ -45,6 +120,16 @@ and
 k_m(s,t_1) & k_m(s,t_2)& \cdots & k_m(s,t_{N})
 \end{bmatrix}_{ 1 \times N}. 
 \end{align*}
+{\color{red} TODO:
+If we would like to regularize the Gram matrix of $\gamma_m(t)$, the mean function and kernel of the conditional distribution would be the following
+\begin{equation*}
+\mu_m(s):=\mathbb{E}_{\gamma_m(t)|\gamma_m(\mathbf{t}), \mathbf{t}} \big[\gamma_m(s) \big] =  \mathbf{k}_m \big(s,\mathbf{t}\big) \Big( \mathbf{K}_m \big(\mathbf{t},\mathbf{t}\big) + \sigma^2_k \Big)^{-1} \gamma_m(\mathbf{t})
+\end{equation*}
+and the conditional covariance matrix given by
+\begin{equation*}
+\tilde{k}_m(s,s'):= \mathbb{E}_{\gamma_m(t)|\gamma_m(\mathbf{t}), \mathbf{t}} \bigg[(\gamma_m(s) - \mu_m(s))(\gamma_m(s') - \mu_m(s'))\bigg] = k_m \big(s,s'\big) - \mathbf{k}_m\big(s,\mathbf{t}\big) \Big( \mathbf{K}_m \big(\mathbf{t},\mathbf{t}\big) + \sigma_k^2 \Big)^{-1} \mathbf{k}_m \big(\mathbf{t},s'\big) ^T
+\end{equation*}  
+what is equivalent to the accounting for the artificial noise component in the model in Equation \eqref{eq:model_IMF_GP_k}.}
 
 \paragraph{Multikernel Representation of $S(t)$}
 The tendency component $r(t)$ can be modelled as a Gaussian Process itself or one can assume that $S(t)$ is a Gaussian Process conditioned on $r(t)$, that is
