@@ -1,0 +1,21 @@
+\section{Background: Empirical Mode Decomposition}\label{sec:EMD_background}
+
+
+\begin{Definition}
+The Empirical Mode Decomposition of signal $S(t)$ is represented by the Intrinsic Mode Functions finite basis expansion given by
+\begin{equation}
+\label{EMD-for}
+S(t) = \sum_{k=1}^K c_k \left(t\right) + r \left(t \right)
+\end{equation}
+here the collection of $\left\{c_k(t)\right\}$ basis functions are known as the Intrinsic Mode Functions (IMFs) and $r \left(t \right)$ represents the final residual (or final tendency) extracted, which has only a single convexity. In general the $c_k$ basis will have k-convexity changes throughout the domain $t$ and furthermore, each IMF satisfies the following mathematical properties:
+\begin{itemize}
+\item \textbf{Oscillation} The number of extrema and zero-crossing must either equal or differ at most by one;
+\begin{equation}
+\left| \left\{ \frac{d \gamma_m (t)}{dt} = 0 : \quad t \in \left( t_1, t_N \right), \frac{d \gamma_m (t)}{dt} \neq 0 \quad \forall t    \right\} \right|  \in  \left( -1, 1 \right)
+\end{equation}
+\item \textbf{Local Symmetry} The mean value of the envelope defined by the local maxima and the envelope of the local minima is equal to zero.  
+\begin{equation}
+\frac{M(t) + m(t)}{2} = 0
+\end{equation}
+\end{itemize}
+\end{Definition}
