@@ -11,7 +11,7 @@
 \usepackage{longtable,hhline}
 \usepackage{pifont}
 \usepackage{bbm}
-\usepackage{tikz}
+\usepackage{tikz} 
 \usetikzlibrary{calc, fit, positioning}
 
 \allowdisplaybreaks
@@ -31,10 +31,10 @@
 \graphicspath{{figs/} }
 
 %=================================================================
-\firstpage{1}
-\makeatletter
-\setcounter{page}{\@firstpage}
-\makeatother
+\firstpage{1} 
+\makeatletter 
+\setcounter{page}{\@firstpage} 
+\makeatother 
 
 %% TODO: add date, make smaller names of authors, fix correspondence with cross and corresponding aurthor.
 %------------------------------------------------------------------
@@ -62,7 +62,7 @@
 % Authors, for metadata in PDF
 \AuthorNames{}
 
-\address{%
+\address{% 
 }
 
 % Contact information of the corresponding author
@@ -87,6 +87,7 @@ We treat each IMF as a separate Gaussian process and then represent the signal u
 \input{multiple_trials_denoising}
 \input{GP_formulation_splines}
 \input{EMD_background}
+\input{EMD_Feature_Extraction}
 \input{kernel_choice}
 %\input{estimation_params}
 \input{IMF_Brownian_Bridge}
