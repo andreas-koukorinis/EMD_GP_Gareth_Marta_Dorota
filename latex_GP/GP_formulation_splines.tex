@@ -6,7 +6,7 @@ The natural cubic spline is characterised over time intervals, where the local c
 \begin{equation}
 \label{cubic_spl}
 S(t) = \sum_{i=1}^{N-1} \left(a_i t^3 +b_i t^2 + c_i t +d_i \right) \mathbbm{1} \left[ t \in \left[ t_{i-1},t_i \right] \right],
-\end{equation} 
+\end{equation}
 where the spline coefficients will be estimated from the original sample path, such that the representation exactly matches the sample values at these time points, $a_i = S(t_i) = s(t_i)$. We need to construct an analog continuous signal from the discrete one, since our basis decomposition requires a continuous smooth signal for the basis extraction. The number of total convexity changes (oscillations) of the analog signal $S(t)$ corresponds to $K \in \mathbb{N}$ within the time domain $t$, over which the signal was observed. Note that $S(t)$ is decomposed according to direct extraction of the energy associated with various intrinsic time scales. This is the property that makes it suitable to non-linear and non-stationary processes. One may now define the EMD defined in Section \ref{sec:EMD_background} of the signal $S(t)$ as in Equation \eqref{eq:model_x_EMD}.
 
 
@@ -21,7 +21,7 @@ s_{N_i}(t) = a_{N_i} t^3 + b_{N_i} t^2 + c_{N_i} t + d_{N_i} \quad \mbox{for} \q
 \end{equation*}
 A shorter version of the above system of equations can be given by:
 \begin{equation}
-\gamma_{m,j}^{(i)}(t) = \sum_{j = 1}^{N_i} \left( a_j t^3 + b_j t^2 + c_j t + d_j \right){\mathbbm{1}} \left( t \in (t_{j-1}^i, t_j^i) \right) = \sum_{j = 1}^{N_i} s_j (t) {\mathbbm{1}} \left( t \in (t_{j-1}^i, t_j^i) \right) 
+\gamma_{m,j}^{(i)}(t) = \sum_{j = 1}^{N_i} \left( a_j t^3 + b_j t^2 + c_j t + d_j \right){\mathbbm{1}} \left( t \in (t_{j-1}^i, t_j^i) \right) = \sum_{j = 1}^{N_i} s_j (t) {\mathbbm{1}} \left( t \in (t_{j-1}^i, t_j^i) \right)
 \end{equation}
 where $\mathbbm{1}$ represents the indicator function.
 
@@ -38,7 +38,7 @@ where $ \{ t_j^{*} \}_{j = 1: M}$ represents the sequence of extrema and $M << N
 \label{upper_env}
 S^{U_m}(t) = \sum_{j=1}^{M-1} \left( a_{2j+1}  t^3 + b_{2j+1} t^2 + c_{2j+1} t  +d_{2j+1} \right) \mathbbm{1} \left( t \in \left[ t^*_{2j}, t^*_{2j+1} \right] \right),
 \end{equation}
-such that $S^{U_m} (t^*_{2j+1}) = S(t^*_{2j+1})$ for all odd $ t^*_{j}$. . Equivalently, the lower envelope corresponds to: 
+such that $S^{U_m} (t^*_{2j+1}) = S(t^*_{2j+1})$ for all odd $ t^*_{j}$. . Equivalently, the lower envelope corresponds to:
 \begin{equation}
 \label{lower_env}
 S^{L_m}(t) = \sum_{j=1}^{M-1} \left( a_{2j}  t^3 + b_{2j} t^2 + c_{2j} t  +d_{2j} \right)   \mathbbm{1} \left( t \in \left[ t^*_{2j-1}, t^*_{2j} \right] \right),
@@ -58,19 +58,19 @@ such that $S^{L_m} (t^*_{2j}) = S(t^*_{2j})$ for all even $ t_j^*$.Next, one uti
 %{
 %\begin{enumerate}[label=(\roman*)]
 %\item Identify the local extrema of $S(t)$.  %
-%\item Calculate the upper envelope $S^U(t)$ and the lower envelope $S^L(t)$ respecting $S^L(t) \leq S(t) \leq S^U(t)$ for all $t$. 
+%\item Calculate the upper envelope $S^U(t)$ and the lower envelope $S^L(t)$ respecting $S^L(t) \leq S(t) \leq S^U(t)$ for all $t$.
 %%
 %\item Construct a residual time series by calculating the difference between the data and the mean of the upper and lower envelopes $S(t)\leftarrow S(t) - m(t)$.
 %\end{enumerate}
 %}
-%Update the signal by subtracting the obtained IMF, $S(t) \leftarrow S(t)-c(t)$. 
+%Update the signal by subtracting the obtained IMF, $S(t) \leftarrow S(t)-c(t)$.
 %\BlankLine
 %\BlankLine }
 %\end{algorithm}
 %\normalsize
 
-It is often the case that such an algorithm does not reach a mean equal to 0; therefore, multiple solutions in the literature have been proposed as stopping criteria of the sifting procedure. For further details, see \cite{Machine}. From the sifting process, it is clear that these bases are recursively extracted; this means that, once the $k$-$1$ IMF is obtained, it is subtracted by the main signal and the sifting procedure is applied to the residual signal. Hence, it is highly essential to understand the linking relationship between the coefficients of two successive extracted IMFs. 
-By exploiting the definition of cubic spline used in the representation of the analog speech signal $S(t)$ and the IMF basis functions, one can obtain a mathematical connection between the coefficients of $S(t)$ and the coefficients of $\gamma_m(t)$ detailed as follows: 
+It is often the case that such an algorithm does not reach a mean equal to 0; therefore, multiple solutions in the literature have been proposed as stopping criteria of the sifting procedure. For further details, see \cite{Machine}. From the sifting process, it is clear that these bases are recursively extracted; this means that, once the $k$-$1$ IMF is obtained, it is subtracted by the main signal and the sifting procedure is applied to the residual signal. Hence, it is highly essential to understand the linking relationship between the coefficients of two successive extracted IMFs.
+By exploiting the definition of cubic spline used in the representation of the analog speech signal $S(t)$ and the IMF basis functions, one can obtain a mathematical connection between the coefficients of $S(t)$ and the coefficients of $\gamma_m(t)$ detailed as follows:
 
 \begin{Proposition}
 \label{prop_cs}

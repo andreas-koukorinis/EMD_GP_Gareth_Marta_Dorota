@@ -1,0 +1,34 @@
+\section{EMD Feature Extraction}
+\label{sec:EMD_feat_extr}
+
+\textcolor{red}{Dorota and Gareth - discussion how - TODO: I want a toy example for next week to show you}
+\textcolor{red}{I have to check notation here - wrong for spline}
+To take into account both time and frequency domains, IMFs and related instantaneous frequencies are considered as features. By following our discussion in section \ref{IF}, each IMF is a linear combination of cubic splines, therefore the coefficients of the IMFs splines are also considered as features. By remarking that non-stationarity is proper of sensor data, classical statistics are also a feature extracted  on a window. The structure of the extraction process in the case study is given by: (1) discrete realizations of models are considered providing a segmentation indexed by $t_i$ with $t_i \in \{ 0 =  t_1, \dots, t_n = n \}$ ; (2) a natural cubic spline is fitted through $t_i$ and evaluated at $t_i^{'}$ such that $t_i^{'} \in \{ 0 = t_1^{'}, \dots, t_N^{'} = N \}$, with $N=n$; (3) the EMD is performed over each interpolated signal and IMFs are stored; (4) instantaneous frequencies of IMFs are computed; (6) coefficients of the cubic spline of each IMF are calculated; (7) classical statistics are extracted by sliding a window of fixed length over an IMF such that $W \left[ \tau_1, \tau_{j+1} \right] = W \left[ \tau_{j+1}, \tau_{j+2} \right] = \dots = W \left[ \tau_{j+N-1}, \tau_{j+N} \right]$, where $\tau_j \in \{ 0 = \tau_1, \dots, \tau_V = N \}$. It is worth noting that a method identifying an appropriate length of the window is beyond the final purpose of this work; therefore, windows are selected according to a trade-off between accuracy of the estimation (there should  be enough number of samples to compute certain statistics) and stationarity. For each sensor data sample, \textcolor{red}{5 IMFs are considered}: the first three with highest frequency, the lowest and the residual; then, from these 5 functions, the remaining features are extracted. We call them EMD features to underline their EMD derivation. The next table summaries such extraction:
+
+\begin{table}[H]
+\centering
+\small
+\captionsetup{font=scriptsize}
+\begin{tabular}{ccc} 
+\toprule
+{EMD Feature} & {Label}  & Window \\ 
+\midrule
+IMFs & $\gamma_1(t_i^{'})$, $\gamma_2(t_i^{'})$, $\gamma_3(t_i^{'})$, $\gamma_k(t_i^{'})$, $r(t_i^{'})$ & NA \\ \hline
+Instantaneous Frequencies & $f_1(t_i^{'})$, $f_2(t_i^{'})$, $f_3(t_i^{'})$, $f_k(t_i^{'})$, $f_r(t_i^{'})$ & NA \\ \hline
+\multirow{3}{*}{Cubic Spline Coefficients} & $\vec{b^1}(t_i^{'})$, $\vec{b^2}(t_i^{'})$, $\vec{b^3}(t_i^{'})$, $\vec{b^k}(t_i^{'})$, $\vec{b^r}(t_i^{'})$  & NA \\
+ & $\vec{c^1}(t_i^{'})$, $\vec{c^2}(t_i^{'})$, $\vec{c^3}(t_i^{'})$, $\vec{c^k}(t_i^{'})$, $\vec{c^r}(t_i^{'})$  & NA \\
+  & $\vec{d^1}(t_i^{'})$, $\vec{d^2}(t_i^{'})$, $\vec{d^3}(t_i^{'})$, $\vec{d^k}(t_i^{'})$, $\vec{d^r}(t_i^{'})$  & NA \\ \hline
+\multirow{7}{*}{Classical Statistics} & $\hat{\mu}_1$, $\hat{\mu}_2$, $\hat{\mu}_3$, $\hat{\mu}_k$, $\hat{\mu}_r$ & $W \left[ \tau_{j}, \tau_{j+1} \right]$\\
+ & $\hat{\sigma}^2_1$, $\hat{\sigma}^2_2$, $\hat{\sigma}^2_3$, $\hat{\sigma}^2_k$, $\hat{\sigma}^2_r$  & $W \left[ \tau_{j}, \tau_{j+1} \right]$\\
+ & $\tilde{c}_1$, $\tilde{c}_2$, $\tilde{c}_3$, $\tilde{c}_k$, $\tilde{c}_r$ & \\
+ & $c^{*}_1$, $c^{*}_2$, $c^{*}_3$, $c^{*}_k$, $c^{*}_r$ & $W \left[ \tau_{j}, \tau_{j+1} \right]$\\ 
+ & $\hat{\beta}_{2_1}$, $\hat{\beta}_{2_2}$, $\hat{\beta}_{2_3}$, $\hat{\beta}_{2_k}$, $\hat{\beta}_{2_r}$ & $W \left[ \tau_{j}, \tau_{j+1} \right]$\\ 
+ & $\hat{k}_1$, $\hat{k}_2$, $\hat{k}_3$, $\hat{k}_k$, $\hat{k}_r$ & $W \left[ \tau_{j}, \tau_{j+1} \right]$\\ 
+ & $RMS_1$, $RMS_2$, $RMS_3$, $RMS_k$, $RMS_r$  & $W \left[ \tau_{j}, \tau_{j+1} \right]$\\ 
+\bottomrule
+\end{tabular}
+\caption{Extracted features. Description: $\tilde{c}_i = \min \left[ \tau_i, \tau_{i+1} \right)$, $c^{*}_i = \max \left[ \tau_i, \tau_{i+1} \right)$}
+\label{feature_tbl}
+\end{table}
+
+The considered classical statistics are (in order from the top to the bottom): mean, variance, minimum, maximum, kurtosis, skewness and root mean square (RMS). The length of the window will be later specified.

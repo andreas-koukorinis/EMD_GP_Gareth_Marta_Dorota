@@ -1,16 +1,19 @@
-\contentsline {section}{\numberline {1}Gaussian Processes and EMD: IMFs as Gaussian Processes with non-stationary kernels}{1}{section.1}
-\contentsline {subsection}{\numberline {1.1}The Stochastic Representation by Gaussian Processes}{1}{subsection.1.1}
-\contentsline {subsubsection}{\numberline {1.1.1}Continuous signal $S(t)$ as a Gaussian Process}{2}{subsubsection.1.1.1}
-\contentsline {paragraph}{\numberline {1.1.1.1}Multikernel Representation of $S(t)$}{3}{paragraph.1.1.1.1}
-\contentsline {section}{\numberline {2}Multiple Trials Setting: How to Construct $S(t)$ in Noisy Environment}{4}{section.2}
-\contentsline {subsection}{\numberline {2.1}Review of Denoising Approaches}{4}{subsection.2.1}
-\contentsline {section}{\numberline {3}Gaussian Process Representation Given Splines Formulation of $S(t)$.}{5}{section.3}
-\contentsline {section}{\numberline {4}Background: Empirical Mode Decomposition}{6}{section.4}
-\contentsline {section}{\numberline {5}Review of Stationary and Non-stationary Kernels}{7}{section.5}
-\contentsline {paragraph}{\numberline {5.0.0.1}Non-stationary Kernels}{8}{paragraph.5.0.0.1}
-\contentsline {section}{\numberline {6}Brownian Bridge Analogue to construct IMFs}{9}{section.6}
-\contentsline {subsubsection}{\numberline {6.0.1}Brownian Bridge Movement Model}{10}{subsubsection.6.0.1}
-\contentsline {subsection}{\numberline {6.1}Symmetric Local Extremas of IMFs}{11}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Nonsymmetric}{11}{subsection.6.2}
-\contentsline {subsection}{\numberline {6.3}Bayesian EMD}{11}{subsection.6.3}
-\contentsline {subsection}{\numberline {6.4}Kernel Target Alignment}{11}{subsection.6.4}
+\contentsline {section}{\numberline {1}Gaussian Processes and EMD: IMFs as Gaussian Processes with non-stationary kernels}{1}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}The Stochastic Representation by Gaussian Processes}{1}{subsection.1.1}% 
+\contentsline {subsubsection}{\numberline {1.1.1}Continuous signal $S(t)$ as a Gaussian Process}{2}{subsubsection.1.1.1}% 
+\contentsline {paragraph}{\numberline {1.1.1.1}Multikernel Representation of $S(t)$}{4}{paragraph.1.1.1.1}% 
+\contentsline {section}{\numberline {2}Multiple Trials Setting: How to Construct $S(t)$ in Noisy Environment}{5}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}Review of Denoising Approaches}{5}{subsection.2.1}% 
+\contentsline {section}{\numberline {3}Gaussian Process Representation Given Splines Formulation of $S(t)$.}{5}{section.3}% 
+\contentsline {section}{\numberline {4}Background: Empirical Mode Decomposition}{7}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Empirical Mode Decomposition}{7}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}Instantaneous Frequency}{8}{subsection.4.2}% 
+\contentsline {section}{\numberline {5}EMD Feature Extraction}{9}{section.5}% 
+\contentsline {section}{\numberline {6}Review of Stationary and Non-stationary Kernels}{10}{section.6}% 
+\contentsline {paragraph}{\numberline {6.0.0.1}Non-stationary Kernels}{11}{paragraph.6.0.0.1}% 
+\contentsline {section}{\numberline {7}Brownian Bridge Analogue to construct IMFs}{12}{section.7}% 
+\contentsline {subsubsection}{\numberline {7.0.1}Brownian Bridge Movement Model}{13}{subsubsection.7.0.1}% 
+\contentsline {subsection}{\numberline {7.1}Symmetric Local Extremas of IMFs}{14}{subsection.7.1}% 
+\contentsline {subsection}{\numberline {7.2}Nonsymmetric}{14}{subsection.7.2}% 
+\contentsline {subsection}{\numberline {7.3}Bayesian EMD}{14}{subsection.7.3}% 
+\contentsline {subsection}{\numberline {7.4}Kernel Target Alignment}{14}{subsection.7.4}% 
