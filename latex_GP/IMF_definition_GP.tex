@@ -3,22 +3,22 @@ Let $s(t)$ for $t\in [0,\infty]$ be a continuous true signal which is observed o
 \begin{equation}\label{eq:signal_noisy_y}
 y(t) = s(t) + \epsilon, \text{ for } \epsilon \in \mathcal{N}(0, \sigma^2).
 \end{equation}
-Therefore, our observation set consists of pairs $\big\{t_n,y_n\big\}$ where $y_n = y(t_n)$ for $t_n \in [0,T]$.
+Therefore, our observation set consists of pairs $\big\{t_n,y_n\big\}$ where $y_n = y(t_n)$ for $t_n \in [0,T]$. 
 
-We would like to find an EMD decoposition of the signal $s(t)$. For EMD to exists, the input signal needs to be approximated by a continuous representation; therefore, the discrete signal $s(t)$ is converted back into a continuous analog signal. The background on the EMD decomposition is given in Subsection \ref{ssec:EMD_background}. If we assume that the observations of the signal are exact, the approximation of the signal $s(t)$ might be carried out by a spline interpolation as described in Section \ref{EMD_background} in Equation \label{cubic_spl}. In the presence of noisy environment, the approximation $S(t)$ might be obtained by a filtering techniques which would account for the perturbation of the true values. We describe in detail this case in Section \ref{sec:multiple_trials_setting}.
+We would like to find an EMD decoposition of the signal $s(t)$. For EMD to exists, the input signal needs to be approximated by a continuous representation; therefore, the discrete signal $s(t)$ is converted back into a continuous analog signal. The background on the EMD decomposition is given in Subsection \ref{ssec:EMD_background}. If we assume that the observations of the signal are exact, the approximation of the signal $s(t)$ might be carried out by a spline interpolation as described in Section \ref{EMD_background} in Equation \label{cubic_spl}. In the presence of noisy environment, the approximation $S(t)$ might be obtained by a filtering techniques which would account for the perturbation of the true values. We describe in detail this case in Section \ref{sec:multiple_trials_setting}.  
 
-Either way, we specify a continuous approximation $S(t)$ to the discrete realisation of the true signal $s(t)$ and define the representation of $S(t)$ given by EMD into $M$ intrinsic mode functions (IMFs) as follows
+Either way, we specify a continuous approximation $S(t)$ to the discrete realisation of the true signal $s(t)$ and define the representation of $S(t)$ given by EMD into $M$ intrinsic mode functions (IMFs) as follows 
 \begin{equation}\label{eq:model_x_EMD}
 S(t) = \sum_{m = 1}^M \gamma_m(t) + r(t) = \sum_{m = 1}^M \text{Re}\Big\{ A_m(t)  e^{i \theta_m(t)} \Big\} + r(t).
 \end{equation}
-where $r(t)$ represents a tendency which does not have much of oscillation and therefore characterize the low frequency tend of $S(t)$.
+where $r(t)$ represents a tendency which does not have much of oscillation and therefore characterize the low frequency tend of $S(t)$. 
 
 \subsubsection{Continuous signal $S(t)$ as a Gaussian Process}
-Our goal is to obtain a stochastic representation of the continuous signal $S(t)$ by a Gaussian Process. We postulate that each IMFs function, $\gamma_m(t)$, is a Gaussian process
+Our goal is to obtain a stochastic representation of the continuous signal $S(t)$ by a Gaussian Process. We postulate that each IMFs function, $\gamma_m(t)$, is a Gaussian process 
 \begin{equation}\label{eq:model_IMF_GP_k}
-\gamma_m(t) \sim \mathcal{GP} \Big(0, k_m(t,t')\Big),
+\gamma_m(t) \sim \mathcal{GP} \Big(0, k_m(t,t')\Big), 
 \end{equation}
-where $k_m(t,t')$ is a positive definite covariance kernel which is parametrized by a set of parameters $\Psi_m$.
+where $k_m(t,t')$ is a positive definite covariance kernel which is parametrized by a set of parameters $\Psi_m$.  
 \textcolor{red}{discussion with dorota}
 \hfill
 \hfill
@@ -32,51 +32,51 @@ node distance = 5mm,
 outbox/.style = {rectangle, draw=blue, densely dashed, rounded corners,
                  inner xsep=6mm, inner ysep=1mm}
                     ]
-
-
+                    
+                    
  \node (xuno) [inbox ]   {$S_1(t)$};
- \node (xdue) [inbox, right=of xuno ]   {$S_2(t)$};
+ \node (xdue) [inbox, right=of xuno ]   {$S_2(t)$}; 
  \node (xtre) [inbox, right=of xdue ]   {$S_3(t)$};
  \node (dots) [inbox, right=of xtre ]   {$\dots$};
  \node (xesse) [inbox, right=of dots ]   {$S_s(t)$};
-
+     
  \node (cuno) [inbox, below=1cm of xuno ]   {$\gamma_1^1(t)$};
- \node (cdue) [inbox, right=of cuno ]   {$\gamma_2^1(t)$};
+ \node (cdue) [inbox, right=of cuno ]   {$\gamma_2^1(t)$}; 
  \node (ctre) [inbox, right=of cdue ]   {$\gamma_3^1(t)$};
  \node (dotsdue) [inbox, right=of ctre ]   {$\dots$};
  \node (cesse) [inbox, right=of dotsdue ]   {$\gamma_s^1(t)$};
-
+    
  \node (cunodue) [inbox, below=of cuno ]   {$\gamma_1^2(t)$};
- \node (cduedue) [inbox, right=of cunodue ]   {$\gamma_2^2(t)$};
+ \node (cduedue) [inbox, right=of cunodue ]   {$\gamma_2^2(t)$}; 
  \node (ctredue) [inbox, right=of cduedue ]   {$\gamma_3^2(t)$};
  \node (dotsduedue) [inbox, right=of ctredue ]   {$\dots$};
- \node (cessedue) [inbox, right=of dotsduedue ]   {$\gamma_s^2(t)$};
-
+ \node (cessedue) [inbox, right=of dotsduedue ]   {$\gamma_s^2(t)$};              
+ 
  \node (cunotre) [inbox, below=of cunodue ]   {$\gamma_1^3(t)$};
- \node (cduetre) [inbox, right=of cunotre ]   {$\gamma_2^3(t)$};
+ \node (cduetre) [inbox, right=of cunotre ]   {$\gamma_2^3(t)$}; 
  \node (ctretre) [inbox, right=of cduetre ]   {$\gamma_3^3(t)$};
  \node (dotsduetre) [inbox, right=of ctretre ]   {$\dots$};
- \node (cessetre) [inbox, right=of dotsduetre ]   {$\gamma_s^3(t)$};
+ \node (cessetre) [inbox, right=of dotsduetre ]   {$\gamma_s^3(t)$};              
 
  \node (cunodots) [inbox, below=of cunotre ]   {$\dots$};
- \node (cduedots) [inbox, right=of cunodots ]   {$\dots$};
+ \node (cduedots) [inbox, right=of cunodots ]   {$\dots$}; 
  \node (ctredots) [inbox, right=of cduedots ]   {$\dots$};
  \node (dotsduedots) [inbox, right=of ctredots ]   {$\dots$};
- \node (cessedots) [inbox, right=of dotsduedots ]   {$\dots$};
+ \node (cessedots) [inbox, right=of dotsduedots ]   {$\dots$};              
 
  \node (cunok) [inbox, below=of cunodots ]   {$\gamma_1^M(t)$};
- \node (cduek) [inbox, right=of cunok ]   {$\gamma_2^M(t)$};
+ \node (cduek) [inbox, right=of cunok ]   {$\gamma_2^M(t)$}; 
  \node (ctrek) [inbox, right=of cduek ]   {$\gamma_3^M(t)$};
  \node (dotsduek) [inbox, right=of ctrek ]   {$\dots$};
- \node (cessek) [inbox, right=of dotsduek ]   {$\gamma_s^M(t)$};
-
+ \node (cessek) [inbox, right=of dotsduek ]   {$\gamma_s^M(t)$}; 
+ 
  \node (cunokuno) [inbox, below=of cunok ]   {$r_1(t)$};
- \node (cduekuno) [inbox, right=of cunokuno ]   {$r_2(t)$};
+ \node (cduekuno) [inbox, right=of cunokuno ]   {$r_2(t)$}; 
  \node (ctrekuno) [inbox, right=of cduekuno ]   {$r_3(t)$};
  \node (dotsduekuno) [inbox, right=of ctrekuno ]   {$\dots$};
- \node (cessekuno) [inbox, right=of dotsduekuno ]   {$r_s(t)$};
-
-\path[->,thick]
+ \node (cessekuno) [inbox, right=of dotsduekuno ]   {$r_s(t)$};              
+ 
+\path[->,thick] 
 (xuno) edge (cuno)
 (xdue) edge (cdue)
 (xtre) edge (ctre)
@@ -95,7 +95,7 @@ outbox/.style = {rectangle, draw=blue, densely dashed, rounded corners,
 \hfill
 \hfill
 
-Let us assume that we sample $S(t)$, and functions $\gamma_m(t)$ for $m = 1,\ldots, M$ at the $N$ time points $t_1 < \ldots <t_N$. We denote by $\mathbf{t}$ the vector of points $t_n$ for $n = 1,\ldots, N$.
+Let us assume that we sample $S(t)$, and functions $\gamma_m(t)$ for $m = 1,\ldots, M$ at the $N$ time points $t_1 < \ldots <t_N$. We denote by $\mathbf{t}$ the vector of points $t_n$ for $n = 1,\ldots, N$.  
 
 Therefore, given the observations $\gamma_m(\mathbf{t}) "= \big[ \gamma_m(t_1), \ldots, \gamma_m(t_N) \big]$, we would like to predict the values of $\gamma_m(t)$ at the argument $s$ that is $\gamma_m(s)$, given the collected information in the observation set. Since $\gamma(t)$ is a Gaussian Process, the random variable $\gamma_m(s)| \gamma_m(\mathbf{t}), \mathbf{t}$ is a Gaussian Process with the conditional mean
 \begin{equation*}
@@ -111,14 +111,14 @@ where
 k_m(t_1,t_1) & k_m(t_1,t_2)& \cdots & k_m(t_1,t_{N}) \\
 k_m(t_2,t_1) & k_m(t_2,t_2)& \cdots & k_m(t_2,t_{N}) \\
 \vdots & \vdots & \ddots & \vdots  \\
-k_m(t_{N}^{(i)},t_1) & k_m(t_{N},t_2)& \cdots & k_m(t_{N},t_{N})
+k_m(t_{N}^{(i)},t_1) & k_m(t_{N},t_2)& \cdots & k_m(t_{N},t_{N}) 
 \end{bmatrix}_{ N \times N}
 \end{align*}
 and
 \begin{align*}
 \mathbf{k}_m (s,\mathbf{t}) := \begin{bmatrix}
 k_m(s,t_1) & k_m(s,t_2)& \cdots & k_m(s,t_{N})
-\end{bmatrix}_{ 1 \times N}.
+\end{bmatrix}_{ 1 \times N}. 
 \end{align*}
 {\color{red} TODO:
 If we would like to regularize the Gram matrix of $\gamma_m(t)$, the mean function and kernel of the conditional distribution would be the following
@@ -128,7 +128,7 @@ If we would like to regularize the Gram matrix of $\gamma_m(t)$, the mean functi
 and the conditional covariance matrix given by
 \begin{equation*}
 \tilde{k}_m(s,s'):= \mathbb{E}_{\gamma_m(t)|\gamma_m(\mathbf{t}), \mathbf{t}} \bigg[(\gamma_m(s) - \mu_m(s))(\gamma_m(s') - \mu_m(s'))\bigg] = k_m \big(s,s'\big) - \mathbf{k}_m\big(s,\mathbf{t}\big) \Big( \mathbf{K}_m \big(\mathbf{t},\mathbf{t}\big) + \sigma_k^2 \Big)^{-1} \mathbf{k}_m \big(\mathbf{t},s'\big) ^T
-\end{equation*}
+\end{equation*}  
 what is equivalent to the accounting for the artificial noise component in the model in Equation \eqref{eq:model_IMF_GP_k}.}
 
 \paragraph{Multikernel Representation of $S(t)$}
@@ -142,19 +142,25 @@ These two approaches provide an unconditional and conditional stochastic represe
 
 Given the Gaussian Process model of the $\gamma_m(t)$ in Equation \eqref{eq:model_IMF_GP_k}, the distribution of $S(t)$ can be formulated as a uniform mixture of Gaussian Processes with different kernels.  If we assume that the processes $\gamma_m(t)$ are independent, then, the stochastic representation of $S(t)$ from Equation \eqref{eq:xt_conditional_rep} can be formulated as follows
 \begin{equation}
-S(t)|r(t) \sim ~   GP \bigg(r(t); \sum_{m=1}^M k_m(t,t') \bigg)
+S(t)|r(t) \sim ~   GP \bigg(r(t); \sum_{m=1}^M k_m(t,t') \bigg) 
 \end{equation}
-If we denote by $k(t,t') := \sum_{m=1}^M k_m(t,t')$, then predictive distribution of $S(t)$ is given by
+If we denote by $k(t,t') := \sum_{m=1}^M k_m(t,t')$, then predictive distribution of $S(t)$ is given by 
 \begin{equation}
 \mu(s):= \mathbb{E}_{S(t)| r(t), \mathbf{s},\mathbf{t}} \big[S(\mathbf{s})] =  r(\mathbf{s}) + \sum_{m = 1}^M \mu_m(s)
 \end{equation}
 and the covariance matrix given by
 \begin{equation}
-\tilde{k}(s,s'):= \mathbb{E}_{S(t)|S(\mathbf{t}), \mathbf{t}} \bigg[(S_m(s) - \mu(s))(S(s') - \mu(s'))\bigg] = \sum_{m = 1}^M \tilde{k}(s,s')
+\tilde{k}(s,s'):= \mathbb{E}_{S(t)|S(\mathbf{t}), \mathbf{t}} \bigg[(S_m(s) - \mu(s))(S(s') - \mu(s'))\bigg] = \sum_{m = 1}^M \tilde{k}(s,s') 
 \end{equation}
 
 If the processes of $\gamma_m(t)$ are not independent, the Gram matrix of the model for $S(t)$ contain additional elements which provide the correlation structure between different IMFs
 \begin{equation}
-s(t) |r(t)\sim ~   \mathcal{GP} \bigg(r(t); \sum_{m=1}^M k_m(t,t') + 2\sum_{m_1,m_2=1, m_1<m_2}^M k_{m1,m2}(t,t')\bigg)
+s(t) |r(t)\sim ~   \mathcal{GP} \bigg(r(t); \sum_{m=1}^M k_m(t,t') + 2\sum_{m_1,m_2=1, m_1<m_2}^M k_{m1,m2}(t,t')\bigg) 
 \end{equation}
 where $k_{m1,m2}(t,t')$ defines the dependence structure between $\gamma_{m_1}(t)$ and $\gamma_{m_2}(t)$.
+
+
+
+
+
+
