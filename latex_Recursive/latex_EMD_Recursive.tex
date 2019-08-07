@@ -1,0 +1,528 @@
+\documentclass[article,moreauthors,pdftex,10pt,a4paper]{ssrn} 
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{multicol}
+\usepackage{placeins}
+\usepackage[title]{appendix}
+\usepackage{bm}
+\usepackage{subcaption}
+\usepackage{lscape}
+\usepackage{longtable,hhline}
+\usepackage{pifont}
+\allowdisplaybreaks
+
+\newcommand{\chighlight}[1]{%
+\colorbox{red!50}{$\displaystyle#1$}}
+\DeclareMathSizes{10}{9}{7}{6}
+\DeclareMathOperator*{\tr}{\text{Tr}}
+\DeclareMathOperator*{\myvec}{\text{vec}}
+\DeclareMathOperator*{\diag}{diag}
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\argmax}{argmax}
+\usepackage{colortbl}%
+\newcommand{\myrowcolour}{\rowcolor[gray]{0.925}}
+
+
+\graphicspath{{figs/} }
+
+%=================================================================
+\firstpage{1} 
+\makeatletter 
+\setcounter{page}{\@firstpage} 
+\makeatother 
+
+%% TODO: add date, make smaller names of authors, fix correspondence with cross and corresponding aurthor.
+%------------------------------------------------------------------
+% The following line should be uncommented if the LaTeX file is uploaded to arXiv.org
+%\pdfoutput=1
+
+%=================================================================
+% Add packages and commands here. The following packages are loaded in our class file: fontenc, calc, indentfirst, fancyhdr, graphicx, lastpage, ifthen, lineno, float, amsmath, setspace, enumitem, mathpazo, booktabs, titlesec, etoolbox, amsthm, hyphenat, natbib, hyperref, footmisc, geometry, caption, url, mdframed, tabto, soul, multirow, microtype, tikz
+
+%=================================================================
+%% Please use the following mathematics environments: Theorem, Lemma, Corollary, Proposition, Characterization, Property, Problem, Example, ExamplesandDefinitions, Hypomanuscript, Remark, Definition
+%% For proofs, please use the proof environment (the amsthm package is loaded by the MDPI class).
+\graphicspath{{figs/} }
+%=================================================================
+% Full title of the paper (Capitalized)
+\Title{Notes: Empirical Mode Decomposition \& Gaussian Processes}
+
+% Author Orchid ID: enter ID or remove command
+%\newcommand{\orcidauthorA}{0000-0000-000-000X} % Add \orcidA{} behind the author's name
+%\newcommand{\orcidauthorB}{0000-0000-000-000X} % Add \orcidB{} behind the author's name
+
+% Authors, for the paper (add full first names)
+\Author{Dorota Toczydlowska}
+
+% Authors, for metadata in PDF
+\AuthorNames{}
+
+\address{% 
+}
+
+% Contact information of the corresponding author
+\corres{}
+
+
+
+\begin{document}
+
+%\begin{abstract}
+%TODO
+%\end{abstract}
+%\tableofcontents
+
+\section{Empirical Mode Decomposition}
+
+\subsection{The Hilbert Transform of the real valued signal }
+The Hilbert transform of the real values  signal $x(t)$ is defined as follows
+\begin{equation}
+\tilde{x}(t) := \lim_{\epsilon \rightarrow \infty}\int_{-\epsilon}^{\epsilon} \frac{x(s)}{\pi (t-s)} ds := x(t) * \frac{1}{\pi t }
+\end{equation}
+where $*$ denotes the convolution operator. The Hilbert Transom uniquely specifies the imaginary part of the analytical signal $z(t)$ such that
+\begin{equation}
+z(t) = x(t) + i \tilde{x}(t) = A(t)  e^{i \theta(t)}
+\end{equation}
+for 
+\begin{align*}
+& A(t) :=  \sqrt{x(t)^2 + \tilde{x}(t)^2 },\\
+& \theta(t) := \text{arctag} \Big( \frac{x(t)}{\tilde{x}(t)}\Big), \\
+& f(t) := \frac{d\theta(t)}{dt} = \frac{1}{A^2(t)}\Big( \frac{d \tilde{x}(t)}{dt} x(t) - \frac{d x(t)}{dt} \tilde{x}(t) \Big)
+\end{align*}
+The imaginary part specified by the Hilbert Transform ensures a few properties of the function $A(t), \theta(t)$ and $f(t)$. The function $A(t)$ is known as an envelope signal of $x(t)$ and represents the amplitude of the signal which changes over time.  The function $\theta(t)$ denotes the phase function of $x(t)$ which is a function of time. The scalar $f(t)$ refers to the instantaneous frequency of the signal $x(t)$ which represents the change in phase in unit of time
+
+\subsection{The Hilbert Transform as a Stochastic Integral}
+%https://en.wikipedia.org/wiki/Gaussian_process
+%https://projecteuclid.org/download/pdf_1/euclid.pjm/1102735695
+%https://arxiv.org/pdf/math/0511517.pdf
+Let $X(t)$ be  a Gaussian process, that is $X(t) \sim \mathcal{GP} \Big( \mu(t), k(t,t')\Big)$ where $\mu(t)$ is a mean function of the process and $k(t,t')$ is a positive definite  covariance kernel. Given the Mercer's expansion of the  kernel function, that is
+\begin{equation}
+k(t,t') = \lim_{n \rightarrow \infty} \sum_{k = 1}^n \lambda_k \phi_k(t) \phi_k(t') \text{ and } k(t,t) = \lim_{n \rightarrow \infty} \sum_{k = 1}^n \lambda_k \phi_k(t)^2 
+\end{equation}
+then the  stochastic representation of the Gaussian Process $X(t)$ in terms of the Weiner Process $W(t)$ is given by
+\begin{equation}
+X(t) = \mu(t) + \int_{0}^T h(t,u) dW(u) \text{ for } h(t,u):=  \sum_{k = 1}^\infty \sqrt{\lambda_k} \phi_k(t) \phi_k(u)
+\end{equation}
+Then the  HT is a stochastic interval of the following form
+\begin{equation}
+\tilde{X}(t) := \lim_{\epsilon \rightarrow \infty}\int_{-\epsilon}^{\epsilon} \frac{\mu(s) + \int_{0}^T h(s,u) dW(u)}{\pi (t-s)} ds = \lim_{\epsilon \rightarrow \infty}\int_{-\epsilon}^{\epsilon} \frac{\mu(s)}{\pi (t-s)} ds + \int_{-\epsilon}^{\epsilon} \int_{0}^T\frac{ h(s,u) }{\pi (t-s)} ds \ dW(u)
+\end{equation}
+Given this representation, what can we say about $A(t), \theta(t)$ and $f(t)$. What is the kernel of the process $\tilde{X}(t)$ when it is scaled by a hyperbolic kernel $\frac{1}{t-s}$ ( quadratic variation, check fractional Brownian motion).
+
+
+Integral of Ito  process is Ito process. 
+We want to predict $f(t)$ as well as $X(t)$. Start with Gaussian sheep.
+
+\subsection{Intrinsic Mode Functions}
+Let $x(t)$ be a continuous real-valued signal observed over time interval $[0,T]$. Let us denote by  $x^{max}(t) $ and $x^{min}(t)$ 	
+he envelope defined by the local maxima of the signal $x(t)$ and the envelope  defined by the local minima of the signal $x(t)$, respectively.  We assume that the set of observation of $x(t)$ satisfies the following two conditions
+\begin{description}
+\item[(I1)] the number of local extrema in the observation set of $x(t)$ is equal or differs by 1 from the number of zero crossings,
+\item[(I2)] the mean  value of  $x^{max}(t) $ and $x^{min}(t)$ is equal to 0.
+\end{description}
+The condition (I1) refers to the narrow band requirements for a stationary Gaussian process. The second condition forces the local symmetry of fluctuations (waves) of the signal. If these conditions are satisfied, the signal $x(t)$ is called Intrinsic Mode Function (IMF) which instantaneous frequency $f(t)$ which is stationary. However, its rarely the case that any signal satisfies conditions (I1) and (I2). Therefore,  (Huang1998) proposed a method of decomposing a signal into the sum of IMFs
+
+\subsection{Empirical Mode Decomposition}
+The Empirical Mode Decomposition of () has three baseline assumptions
+\begin{description}
+\item[(E1)] the signal $x(t)$ is characterised by at least one minimum and one maximum, 
+\item[(E2)] the characteristic time scale (the time scale for intrinsic oscillatory modes) is defined by the time lapses between the extrema ( ie it is understood as a time which take the signal to move from one extreme to another extreme) 
+\item[(E3)] if the observed data set does not contain extreme points, then it can be differentiated once or twice to reveal extreme. Therefore, the signal $x(t)$ needs to have continuous derivatives up to the order two.
+\end{description}
+The algorithm of Empirical Mode Decomposition consists of the repetition of the following steps. During $(i)$ iteration for $i = 1,\ldots, n$ we have that
+\begin{description}
+\item[S0] Set $r_{i-1}(t) = r_{i-2}(t) - c_{i-1}(t)$ (for $r_0(t) = x(t)$)
+\item[S1] Calculate  $r_{i-1}^{max}(t) $ and $r_{i-1}^{min}(t)$, which are the upper and lower envelope of the signal $r_{i-1}(t)$ 
+\item[S1] Calculate $m_{i,0}(t) = \frac{r_{i-1}^{max}(t) +r_{i-1}^{min}(t)}{2}$ 
+\item[S2] Denote
+$$
+h_{i,0}(t): = r_{i-1}(t) - m_{i,0}(t)
+$$
+If $h_{i,0}(t)$ satisfies (I1)-(I2) then the first IMF is defined as $c_i(t) = h_{i,0}(t)$. Otherwise repeat $k_i$ times 
+\begin{description}
+\item[S2.1] Calculate $m_{i,j}(t)$ - the mean function of the upper and lower envelope of the signal $h_{i,j-1}(t)$,
+\item[S2.2] Set $h_{i,j}(t) = h_{i,j-1}(t) - m_{i,j}(t)$
+\end{description}
+where $j = 1, \ldots,k_i$ is the iteration number. The number $k_i$ is determined by iterating steps (S2.1) -(S2.2) till the following sum
+\begin{equation}
+SD_{i,j} = \sum_{m = 1}^{k_i } \frac{\big( h_{i,m-1}(t) - h_{i,m}(t)  \big)^2}{h_{i,m-1}^2(t) }.
+\end{equation}
+\item[S3] Set 
+\begin{equation}\label{eq:IMFs_mean_functions}
+c_i(t) = h_{i,k_i}(t) = r_{i-1}(t)  - \sum_{j = 0}^{k_i}  m_{i,j}(t)
+\end{equation}
+If $c_i(t) = h_{i,0}(t)$ then $k_i =0$.
+\end{description}
+The sifting process ends at step $n$ when $c_n(t)$ or $r_1(t)$ have smaller values than some predefined criterion or $r_n(t)$ is a monotonic function from which no IMF can be extracted. The EMD procedure results in the following decomposition of the underlying signal
+\begin{equation}\label{eq:decomp_IMFs}
+x(t) = \sum_{i = 1}^n c_i(t) + r_n(t) \text{ where } r_n(t) = r_{n-1} - c_n(t).
+\end{equation}
+Th completeness of the decomposition given by EMD stems from Equation \eqref{eq:decomp_IMFs}. Theoretically, IMFs can reconstruct the original signal.  If IMFs would be orthogonal, the functions would satisfy that
+\begin{equation}
+\int_0^T c_i(t) c_j(t) \ dt =0 \text{ for }i \neq j.
+\end{equation}
+TODO: add algorithm
+
+\subsection{Theoretical aspects of EMD}
+
+\subsection{Completeness}
+To show that $x(t) - \hat{x}(t)  = g(t) =  0 $ where
+\begin{equation}
+\hat{x}(t) = \sum_{i = 1}^n c_i(t) + r_n(t) \text{ where } r_n(t) = r_{n-1} - c_n(t).
+\end{equation}
+Proof of the completeness theorem for Fourier basis. 
+Two ideas how to tackle:
+\begin{enumerate}
+\item show that by expanding $x(t)$ and $\hat{x}(t)$ into a Fourier basis, one can find a relation between the Fourier coefficients which would  $g(t) =  0$. The since the EMD is a finite decomposition, we want majority of the coeffs of Fourier basis to land in the IMFs and the other to be included into residual therm which has only one convexity type.
+\item using Gibbs phenomena and representing signal as a smoothed step function. Then partial sums of Fourier basis might converge to the EMD finite representation,
+\item finite Schauder basis (infinite basis of functional spaces)
+\end{enumerate}
+We can show completeness for a special cases of a signal representation, ie different polynomials. 
+\subsection{Uniqueness}
+
+\subsection{Symmetry}
+
+\subsection{•}
+
+\subsubsection{Orthogonality}
+
+If $m_1(t)$ referred to local mean then
+$$
+x^2(t) =  \sum_{i = 1}^n c_i^2(t) + r_n^2(t)
+$$
+To check - prove it's not orthogonal based on Equation \eqref{eq:IMFs_mean_functions}. With Gaussina processes would be different.
+
+\subsection{Hilbert Transfor and EMD}
+Given the decomposition of the signal $x(t)$ into IMFs we obtain the following representation of $x(t)$
+\begin{equation}\
+\hat{x}(t) =  \sum_{i = 1}^n A_i(t)  e^{i  \int f_i(t) dt}
+\end{equation}
+where $\theta_i(t) =  \int f_i(t) dt$ where the function $A_i, f_i$ and $\theta_i$ are obtained by applying the Hilbert Transform to the $c_i$ for $i = 1,\ldots,n$. Let us remark, that the residual trend is left out.  The representation 
+
+
+\section{EMD expressed in terms of basic spline of a discrete signal}
+\subsection{Specifying a Spline Function for Discrete Signal  }
+We observe $N$ realisations of a continuous univariate signal $\mathbf{x}(t)$ over the elements from the set of points $\mathrm{T}:= \Big\{t_1,\ldots, t_N\Big\}$ which form a discrete and finite set of  pairs $\Big\{ (x_n, t_n) \Big\}_{n = 1}^N$ where $x_n = x(t_n)$ is a value of the signal at point $t_n$.  Since the continuous signal is not fully observable, we consider a problem of specifying a smooth function $y(t)$ with continuous 2nd derivatives ($y \in \mathcal{C}^2([t_1,t_N])$) such that there exist a subset of $k$ points from $\mathrm{T}$, the set $\mathcal{T}^k_{1,N}:=\Big\{ \tau_1,\ldots,\tau_k \Big\}$ such that
+\begin{align*}
+& (1) \ y(\tau_{i}) = x(\tau_{i}) = x_{\tau_i} ,\\
+& (2) \lim_{s\rightarrow \tau_{i}^- } y'(s)  = \lim_{s \rightarrow \tau_{i}^+ } y'(s)  \\
+& (3)  \lim_{s \rightarrow \tau_{i}^- } y''(s)  = \lim_{s \rightarrow \tau_{i}^+ } y''(s) 
+\end{align*}
+for $ i = 1,\ldots, k$. We postulate that the function $y$ is a piecewise cubic function formed of $k-1$ cubic polynomials such that
+for $t \in [\tau_i,\tau_{i+1}]$
+\begin{equation*}
+y(t) = P_i(t) = a_{0,i} + a_{1,i} (t - \tau_i)  + a_{2,i} (t - \tau_i)^2 + a_{3,i} (t -\tau_i)^3 \
+\end{equation*}
+where $a_{j,i} $ are a scalar coefficients for $j = 0,1,2,3$ and $i = 1, \ldots,k-1$. Therefore,
+\begin{equation*}
+y(t) = \sum_{i = 1}^k \mathbf{1}_{[\tau_i,\tau_{i+1}]} (t) P_i(t).
+\end{equation*}
+The conditions (1)-(3)  reformulated using the notation of polynomials $P_i$ are equivalent to
+\begin{align}\label{eq:cubic_spline_cond_1_3}\notag
+& (1) P_i(\tau_{i}) = P_{i-1}(\tau_{i}) = x_{\tau_i} ,\\\notag
+& (2) \lim_{s\rightarrow \tau_{i}^- } P_i'(s)  = \lim_{s \rightarrow \tau_{i}^+ } P_{i-1}'(s)  \\
+& (3)  \lim_{s \rightarrow \tau_{i}^- } P_i''(s)  = \lim_{s \rightarrow \tau_{i}^+ } P_{i-1}''(s) 
+\end{align}
+for $i = 1, \ldots,k$ and
+\begin{align}\label{eq:cubic_poly_derivs}\notag
+& P_i(t) = a_{0,i} + a_{1,i} (t - \tau_i)  + a_{2,i} (t - \tau_i)^2 + a_{3,i} (t -\tau_i)^3,  \\\notag
+& P_i'(t) = a_{1,i}   + 2a_{2,i} (t - \tau_i) + 3a_{3,i} (t -\tau_i)^2, \\
+& P_i''(t) = 2 a_{2,i}  + 6a_{3,i} (t -\tau_i).
+\end{align}
+
+There are different ways of obtaining the basis coefficients depending on the kind of observations and assumptions we are working with.
+The problem of representing the discrete realisation of continious signal $x(t)$ by a cubic spline $y(t)$  can be seen as a spline regression approaches where we specify the formulations of the polynomials $P_i$ for $i = 1, \ldots, k-1$ in order to obtain the best predictor of the model
+$$
+x(t) = y(t) + \epsilon_t.
+$$
+for $t \in \mathcal{T}^k_{1,N}$ and some assumption on the error term $\epsilon_t$, which will be equivalent to 
+$$
+x(t) =  \sum_{i = 1}^k \mathbf{1}_{[\tau_i,\tau_{i+1}]} (t) P_i(t) + \epsilon_t.
+$$
+If the signal $x(t)$ is observed without error, what implies that $\mathcal{T}^k_{1,N} = \mathrm{T}_{1,N}$ (and consequently $k = N$), we have no observation error since all the pair from the discrete set of  pairs $\Big\{ (x_n, t_n) \Big\}_{n = 1}^N$ fully explained by $y(t)$ due to the condition (1). If we decide not to use all realisations of $x(t)$ to specify the interpolate function, the function $y(t)$  does not fully explains discrete realisations of $x(t)$ and the error becomes the element of the model.  Intuituvely we assume that  the signal $x(t)$ is a smooth function observed with error. These two cases form two direction of mathematical formulations of EMD which we intend to study
+\begin{description}
+\item[P1:] the spline interpolation problem, where $\mathcal{T}^k_{1,N} = \mathrm{T}_{1,N}$, and $k = N$
+\item[P2:] a least square approximation of $x(t)$ on the discrete set for optimal specification of both number of polynomials $P_i$ and their coefficients since $\mathcal{T}^k_{1,N} $  becomes a subset of $\mathrm{T}_{1,N}$, $k<=N$,
+\end{description}
+The second problem, $\mathbf{P2}$ can be approach in two ways: by penalized spline interpolation/smoothing in frequentest setting or given Bayesian paradigm of a spline regression.
+
+
+\section{The spline interpolation of $x(t)$}
+The formulation of the piecewise cubic spline interpolant $y(t)$ of the signal $x(t)$ on the set of discrete points $\Big\{ (x_n, t_n) \Big\}_{n = 1}^N$ is obtained by solving the following system of (TODO, specify the number, 5N -4) linear equations defined  by conditions (1)-(3) for $N-1$ cubic polynomials $P_i$ for $i = 1,\ldots, N-1$
+\begin{align*}
+\begin{cases}
+& P_1(t_1) = a_{0,1} = x_1 \\
+& P_1(t_2) = a_{0,1} + a_{1,1} (t_2 - t_1)  + a_{2,1} (t_2 - t_1)^2 + a_{3,1} (t_2 - t_1)^3 = x_2 \\
+& P_1'(t_1) =  a_{1,1}  = s_1 \\
+& P_1'(t_2) =  a_{1,1}   + 2 a_{2,1} (t_2 - t_1) + 3a_{3,1} (t_2 - t_1)^2 = s_2 \\
+& P_1''(t_2) = 2 a_{2,1} + 6a_{3,1} (t_2 - t_1) = 2 a_{2,2} = P_2''(t_2)  \\
+& P_2'(t_2) =  a_{1,2}   = s_2 \\
+& P_2 (t_3) =   a_{0,2} + a_{1,2} (t_3 - t_2)  + a_{2,2} (t_3 - t_2)^2 + a_{3,2} (t_3 - t_2)^3 = x_3 \\
+& P_2' (t_3) =  a_{1,2}  + 2a_{2,2} (t_3 - t_2) + 3a_{3,2} (t_3 - t_2)^2 = s_3 \\
+& P_2'' (t_3) =   2a_{2,2} + 6a_{3,2} (t_3 - t_2) = 2 a_{2,4} = P_3''(t_3) \\
+& \vdots \\
+& P_{i-1}''(t_i) = 2 a_{2,i-1} + 6a_{3,i-1} (t_i - t_{i-1}) = 2 a_{2,i} = P_i''(t_i)  \\
+& P_i'(t_i) =  a_{1,i}   = s_i \\
+& P_i (t_{i+1}) =   a_{0,i} + a_{1,i} (t_{i+1} - t_i)  + a_{2,i} (t_{i+1} - t_i)^2 + a_{3,i} (t_{i+1} - t_i)^3 = x_{i+1} \\
+& P_i' (t_{i+1}) =  a_{1,i}  + 2a_{2,i} (t_{i+1} - t_i) + 3a_{3,i} (t_{i+1} - t_i)^2 = s_{i+1} \\
+& P_i'' (t_{i+1}) =   2a_{2,i} + 6a_{3,i} (t_{i+1} - t_i) = 2 a_{2,i+1} = P_{i+1}''(t_{i+1}) \\
+& \vdots \\
+& P_{N-2}''(t_{N-1}) = 2 a_{2,N-2} + 6a_{3,N-2} (t_{N-1} - t_{N-2}) = 2 a_{2,N-1} = P_{N-1}''(t_{N-1})  \\
+& P_{N-1}'(t_{N-1}) =  a_{1,N-1}   = s_{N-1} \\
+& P_{N-1} (t_N) =   a_{0,N-1} + a_{1,N-1} (t_N - t_{N-1})  + a_{2,N-1} (t_N - t_{N-1})^2 + a_{3,N-1} (t_N - t_{N-1})^3 = x_N \\
+& P_{N-1}' (t_N) =  a_{1,N-1}  + 2a_{2,N-1} (t_N - t_{N-1}) + 3a_{3,N-1} (t_N - t_{N-1})^2 = s_N
+\end{cases}
+\end{align*}
+Let us recall the assumption (3) allows us to obtain the parameters $a_{0,i},\ a_{1,i}, \ a_{2,i} $ and $a_{3,i}$ along with the values of the slopes $s_i$ for $i = 2,\ldots,N-1$. Therefore, the considered cubic interpolation is global in a sense that the slopes are computed from imposed continuity conditions rather than are pre-specified. The boundary conditions specify the behaviour of a spline on the edges of out set $ \mathcal{T}_{1,N}$ which might be formulated (but not limited to) as
+\begin{description}
+\item (4.1) clamped spline:  $y'(t_1)=P_1(t_1) = u$ and $y'(t_N) = P_{N-1}(t_N) = v$,
+\item (4.2) natural spline: $y''(t_1) = 0$ and $y''(t_N) = 0$,
+\item (4.3) quadratic end conditions spline: $P_1''(t_1) = P_2''(t_1)$ and $P_{N-1}''(t_N) =P_{N-2}''(t_N) $,
+\item (4.4) cyclic spline: $P_1'(t_1) = P_{N-1}'(t_N)$ and $P_1''(t_1) = P_{N-1}''(t_N)$,
+\end{description} 
+In order to  obtain coefficients of the cubic polynomials, we will proceed with the following computational trick. Let us denote $m_i := y''(\tau_i)$ for $i = 1,\ldots, N$.  Given derivatives of the cubic polynomials in Equation \eqref{eq:cubic_poly_derivs} we have that $P_i''(\tau_i) = m_i$
+and we have the following formulations of the polynomials parameters 
+\begin{equation*}
+\begin{cases}
+& a_{0,i} = x_i \\
+& a_{1,i} = \frac{x_{i+1} - x_i}{\tau_{i+1} - \tau_i} - \frac{\tau_{i+1} - \tau_i}{3} (2a_{2,i+1} - a_{2,i}), \\
+&a_{2,i} = \frac{m_i}{2} \\
+& a_{3,i} = \frac{a_{2,i+1} - a_{2,i}}{3(\tau_{i+1} - \tau_i)}
+\end{cases}
+\end{equation*}
+for $i = 1, \ldots, N-1$.  By recalling that $P_i''(\tau_{i+1}) = m_{i+1}$  we obtain the following formulation of $P_i''(t) $
+\begin{align*}
+ P_i''(t) = \frac{m_{i+1} (t - \tau_i) - m_i (t - \tau_{i+1})}{\tau_{i+1} - \tau_i}.
+\end{align*}
+since 
+\begin{equation*}
+P_i''(\tau_i) =  2 a_{2,i} =  m_i \text{ and } P_i''(\tau_{i+1}) = 2 a_{2,i}  + 6a_{3,i} (\tau_{i+1} -\tau_i) =  m_{i+1} 
+\end{equation*}
+The first derivative and the formulation of $P_i$ is specified using the operator of anti-derivative such that
+\begin{align*}
+& P_i'(t)  = \int P_i''(s) ds =  \frac{m_{i+1} (t - \tau_i)^2 - m_i (t - \tau_{i+1})^2}{2(\tau_{i+1} - \tau_i)} + C_i -D_i \\
+& P_i(t)  = \int P_i'(s) ds =  \frac{m_{i+1} (t - \tau_i)^3 - m_i (t - \tau_{i+1})^3}{6(\tau_{i+1} - \tau_i)} + C_i(t - \tau_{i}) -D_i (t - \tau_{i+1})
+\end{align*}
+The choice of constants at every step of the integration is arbitrary, however the introduced notation allows for easier calculation procedure as will be shown below. The condition (1) from Equation \eqref{eq:cubic_spline_cond_1_3} allows us to specified the constants $C_i$ and $D_i$ as functions of $m_i$ and $m_{i+1}$ by solving the following system of equations
+\begin{align*}
+\begin{cases}
+P_i(\tau_i) =  \frac{ - m_i (\tau_i - \tau_{i+1})^3}{6(\tau_{i+1} - \tau_i)}  -D_i (\tau_i- \tau_{i+1}) = x_i \\
+P_i(\tau_{i+1}) =   \frac{m_{i+1} (\tau_{i+1} - \tau_i)^3 }{6(\tau_{i+1} - \tau_i)} + C_i(\tau_{i+1} - \tau_{i})  = x_{i+1} 
+\end{cases} \Rightarrow 
+\begin{cases}
+& D_i = \frac{x_i}{\tau_{i+1} - \tau_i} - \frac{m_i (\tau_{i+1} - \tau_i)}{6} \\
+& C_i = \frac{x_{i+1}}{\tau_{i+1} - \tau_i} - \frac{m_{i+1} (\tau_{i+1} - \tau_i)}{6}
+\end{cases}
+\end{align*}
+and results in the formulation of the $P_i'(t)$ in terms of $m_i,m_{i+1}$ and $x_i,x_{i+1}$, that is
+\begin{equation*}
+P_i'(t) =  \frac{m_{i+1} (t - \tau_i)^2 - m_i (t - \tau_{i+1})^2}{2(\tau_{i+1} - \tau_i)} +  \frac{x_{i+1}- x_i}{\tau_{i+1} - \tau_i} - \frac{(m_{i+1} - m_i) (\tau_{i+1} - \tau_i)}{6}
+\end{equation*}
+The last step is to apply the condition (2) from Equation \ref{eq:cubic_spline_cond_1_3}, the condition of continuous first derivative, in order to specify sequence $m_1, \ldots, m_N$ by noting that
+\begin{align*}
+& P_i'(\tau_{i+1}) = P_{i+1}'(\tau_{i+1})   \\
+&\Leftrightarrow  \frac{m_{i+1} \Delta_{\tau,i}^2}{2\Delta_{\tau,i}} +  b_i - \frac{(m_{i+1} - m_i) \Delta_{\tau,i}}{6} =  \frac{ - m_{i+1} \Delta_{\tau,i+1}^2}{2\Delta_{\tau,i}} +  b_{i+1} - \frac{(m_{i+2} - m_{i+1}) \Delta_{\tau,i+1}}{6} \\
+&\Leftrightarrow 3 m_{i+1} \Delta_{\tau,i} + 6 b_i - (m_{i+1} - m_i) \Delta_{\tau,i} =   - 3 m_{i+1} \Delta_{\tau,i+1}  - (m_{i+2} - m_{i+1}) \Delta_{\tau,i+1} \\
+&\Leftrightarrow m_i \Delta_{\tau,i} +  m_{i+1} (2\Delta_{\tau,i}+ 2\Delta_{\tau,i+1} )  + m_{i+2}\Delta_{\tau,i+1} =  6 b_{i+1} -  6 b_{i} 
+\end{align*}
+where $\Delta_{\tau,i} = \tau_{i+1} - \tau_i$ and $b_i =  \frac{x_{i+1}- x_i}{\tau_{i+1} - \tau_i}$ for $i = 1, \ldots, N-1$. 
+
+\paragraph{The Clamped Spline Approach}
+Under the condition (4.2), we can obtain the boundary conditions for 
+\begin{equation*}
+P_1'(t_1) = a_{1,1} = u \text{ and } P_{N-1}' (t_{N}) =   2 a_{1,N-1}  + a_{2,N-1} (t_N - t_{N-1}) + 3a_{3,N-1} (t_N - t_{N-1})^2 = v
+\end{equation*}
+Given the introduce formulation of the derivatives of $P_i$ in terms of $m_i$ it imposes that
+\begin{align*}
+& \begin{cases}
+& P_1'(\tau_1) = \frac{m_2 (\tau_1 - \tau_1)^2 - m_1 (\tau_1 - \tau_2)^2}{2(\tau_2 - \tau_1)} +  \frac{x_2- x_1}{\tau_2 - \tau_1} - \frac{(m_2 - m_1) (\tau_2 - \tau_1)}{6} = \alpha \\
+&P_{N-1}'(\tau_N) =  \frac{m_N (\tau_N - \tau_{N-1})^2 - m_{N-1} (\tau_N - \tau_N)^2}{2(\tau_N - \tau_{N-1})} +  \frac{x_N- x_{N-1}}{\tau_N - \tau_{N-1}} - \frac{(m_N - m_{N-1}) (\tau_N - \tau_{N-1})}{6} = \beta
+\end{cases} \\
+& \begin{cases}
+& 3 m_1 (\tau_1 - \tau_2) + 6 \frac{x_2- x_1}{\tau_2 - \tau_1} - (m_2 - m_1) (\tau_2 - \tau_1) = 6\alpha \\
+& 3 m_N (\tau_N - \tau_{N-1}) + 6\frac{x_N- x_{N-1}}{\tau_N - \tau_{N-1}} - (m_N - m_{N-1}) (\tau_N - \tau_{N-1}) = 6\beta
+\end{cases}
+\end{align*}
+what given two additional equation for ()
+\begin{align*}
+& \begin{cases}
+& 2 m_1 \Delta_{\tau,1} + m_2\Delta_{\tau,1}   = 6 b_1 - 6\alpha \\
+& m_{N-1} \Delta_{\tau,N-1} + 2 m_N \Delta_{\tau,N-1} = 6\beta -  6b_{N-1}
+\end{cases}
+\end{align*}
+Then, in order to specify the values $m_i$ we need to solve the following linear system of $N$ equations
+\begin{equation}
+\mathbf{A}_{N \times N} \mathbf{m}_{N \times 1} = 6 \mathbf{b}_{N \times 1}
+\end{equation}
+given that
+\begin{equation*}
+\mathbf{m}_{N \times 1} = \begin{bmatrix}
+m_1 \\ m_2 \\ \vdots \\ m_{N-1}  \\ m_N
+\end{bmatrix} \text{ and }
+\mathbf{b}_{N \times 1} = \begin{bmatrix} 
+b_1 - \alpha\\
+b_2 - b_1 \\
+b_3 - b_2\\
+\vdots \\
+b_{N-1} - b_{N-2}\\
+\beta - b_{N-1}
+\end{bmatrix}
+\end{equation*}
+and 
+\begin{equation*}
+\mathbf{A}_{N \times N} = \begin{bmatrix}
+2 (\tau_2 - \tau_1) & \tau_2 - \tau_1 & 0 & \cdots & \cdots & 0\\
+\tau_2 - \tau_1 & 2(\tau_4 - \tau_2) & \tau_3 - \tau_2 & 0 & \cdots & \cdots  \\
+ 0 & \tau_3 - \tau_2 & 2(\tau_5 - \tau_3) & \tau_5 - \tau_4 & 0 &  \cdots \\
+ \vdots  & \vdots  & \vdots  & \vdots  & \vdots  &  \vdots   \\
+0 &  0 &  \cdots & \tau_{N-1} - \tau_{N-2} & 2(\tau_{N} - \tau_{N-2}) & \tau_{N} - \tau_{N-1}  \\
+0 &  0 & 0& \cdots & \tau_{N} - \tau_{N-2} & 2(\tau_N - \tau_{N-1})  
+\end{bmatrix}
+\end{equation*}
+
+\paragraph{The Natural Spline Approach}
+Under the condition (4.2), we obtain the boundary conditions for the $m_1$ and $m_N$ since $m_1 = m_N = 0$. Then, in order to specify the values $m_i$ we need to solve the following linear system of $N-2$ equations
+\begin{equation}
+\mathbf{A}_{(N-2) \times (N-2)} \mathbf{m}_{(N-2) \times 1} = 6 \mathbf{b}_{(N-2) \times 1}
+\end{equation}
+given that
+\begin{equation*}
+\mathbf{m}_{(N-2) \times 1} = \begin{bmatrix}
+m_2 \\ \vdots \\ m_{N-1} 
+\end{bmatrix} \text{ and }
+\mathbf{b}_{(N-2) \times 1} = \begin{bmatrix} 
+b_2 - b_1 \\
+b_3 - b_2 \\
+\vdots \\
+b_{N-1} - b_N
+\end{bmatrix}
+\end{equation*}
+and 
+\begin{equation*}
+\mathbf{A}_{N \times N} = \begin{bmatrix}
+2(\tau_3 - \tau_1) & \tau_2 - \tau_1 & 0 & \cdots & \cdots & 0\\
+\tau_2 - \tau_1 & 2(\tau_4 - \tau_2) & \tau_3 - \tau_2 & 0 & \cdots & \cdots  \\
+ 0 & \tau_3 - \tau_2 & 2(\tau_5 - \tau_3) & \tau_5 - \tau_4 & 0 &  \cdots \\
+ \vdots  & \vdots  & \vdots  & \vdots  & \vdots  &  \vdots   \\
+0 &  0 &  \cdots & \tau_{N-2} - \tau_{N-3} & 2(\tau_{N-1} - \tau_{N-3}) & \tau_{N-1} - \tau_{N-2}  \\
+0 &  0 & 0& \cdots & \tau_{N-1} - \tau_{N-2} & 2(\tau_N - \tau_{N-2})  
+\end{bmatrix}
+\end{equation*}
+
+\subsection{Solving linear system of equations with tridiagonal symmetric matrices}
+The inverse of the matrix $\tilde{\mathbf{A}}$ can be calculate given a well known recurrence for the inverse of a tridiagonal matrices. Since we can represent  $\tilde{\mathbf{A}}$ as follows
+\begin{equation*}
+\tilde{\mathbf{A}} = \begin{bmatrix}
+a_1 & b_1 & 0 & \ldots &  \\
+c_1 & a_2 & b_2 & 0 & \ldots &  \\
+0 & c_2 & a_3 & b_3 & 0 & \ldots &  \\
+&  & \ddots & \ddots & \ddots &  \\
+& \cdots &0 & c_{N-2} & a_{N-1} & b_{N-1} \\
+& & \cdots &0 & c_{N-1} & a_N \\
+\end{bmatrix}
+\end{equation*}
+the $(i,j)$ element of the matrix $\mathbf{A}^{-1}$ can be specified as
+\begin{equation}
+\mathbf{A}^{-1}_{ij} = 
+\begin{cases}
+(-1)^{i+j} \frac{\theta_{i-1} \phi_{j+1} }{\theta_N} \prod_{n = i}^{j-1} b_n & \text{for } i <j, \\ 
+\frac{\theta_{i-1} \phi_{j+1} }{\theta_N} & \text{for } \  i = j, \\ 
+(-1)^{i+j} \frac{\theta_{i-1} \phi_{j+1} }{\theta_N} \prod_{n = i-1}^{j} c_n & \text{for } i > j 
+\end{cases},
+\end{equation}  
+where $\theta_i$ and $\phi_i$ admits the following recurrence relations
+\begin{align*}
+& \theta_i = a_i \theta_{i-1} - b_{i-1} c_{i-1} \theta_{i-2} \text{ for } \theta_0 = 1 \text{ and } \theta_1 = a_1, \\
+& \phi_i = a_i \phi_{i+1} - b_i c_i \phi_{i+2} \text{ for } \phi_N = a_n \text{ and } \phi_{N+1} = 1.
+\end{align*}
+
+\paragraph{Solution to The Clamped Spline Approach }
+Given 
+\begin{equation*}
+\begin{cases}
+& a_{0,i} = x_i \\
+& a_{1,i} = \frac{x_{i+1} - x_i}{\tau_{i+1} - \tau_i} - \frac{\tau_{i+1} - \tau_i}{3} (2a_{2,i+1} - a_{2,i}), \\
+&a_{2,i} = \frac{m_i}{2} \\
+& a_{3,i} = \frac{a_{2,i+1} - a_{2,i}}{3(\tau_{i+1} - \tau_i)}
+\end{cases}
+\end{equation*}
+and $\Delta_{\tau,i} = \tau_{i+1} - \tau_i$ and $b_i =  \frac{x_{i+1}- x_i}{\tau_{i+1} - \tau_i}$ for $i = 1, \ldots, N-1$. The values of $m_i$ are given by 
+\begin{align}
+& m_1 = 6A_{11}^{-1} (b_1 - \alpha) +  6A_{12}^{-1} (b_2 -b_1) \\
+& m_i = 6
+\end{align}
+
+\subsection{Local Extrema of Cubic Polynomials}
+Given the formulation of the first and second derivatives of the cubic polynomials
+\begin{align*}
+& P_i(t) = a_{0,i} + a_{1,i} (t - \tau_i)  + a_{2,i} (t - \tau_i)^2 + a_{3,i} (t -\tau_i)^3,  \\\notag
+& P_i'(t) = a_{1,i}   + 2a_{2,i} (t - \tau_i) + 3a_{3,i} (t -\tau_i)^2, \\
+& P_i''(t) = 2 a_{2,i}  + 6a_{3,i} (t -\tau_i).
+\end{align*}
+the extrema can be found as a solutions to equations
+\begin{equation}
+P_i'(t) =  0 \Longleftrightarrow a_{1,i}   + 2a_{2,i} (t - \tau_i) + 3a_{3,i} (t -\tau_i)^2 = 0 
+\end{equation}
+and are specified as
+\begin{equation}
+t^*_{1,i} = \tau_i + \frac{a_{2,i}   + \sqrt{  a_{2,i}^2 - 3 a_{1,i} a_{3,i}   }     }{a_{1,i}} \text{ and } t^*_{2,i} = \tau_i + \frac{a_{2,i}   -  \sqrt{  a_{2,i}^2 - 3 a_{1,i} a_{3,i}  }     }{a_{1,i}}
+\end{equation}
+We are only interested in local extrema which belong to the interval $[\tau_i, \tau_{i+1}]$. Hence, the extreme points $t^*_{1,i} $ and $t^*_{2,i} $ need to satisfy 
+\begin{align*}
+& \tau_i \leq \tau_i + \frac{a_{2,i}   + \sqrt{  a_{2,i}^2 - 3 a_{1,i} a_{3,i}   }     }{a_{1,i}} \leq \tau_{i+1} \\
+& \tau_i \leq \tau_i + \frac{a_{2,i}   -  \sqrt{  a_{2,i}^2 - 3 a_{1,i} a_{3,i}  }     }{a_{1,i}} \leq \tau_{i+1} \\
+& \Longleftrightarrow \\
+& 0 \leq  \frac{a_{2,i}   + \sqrt{  a_{2,i}^2 - 3 a_{1,i} a_{3,i}   }     }{a_{1,i}} \leq \tau_{i+1} - \tau_i \\
+& 0 \leq  \frac{a_{2,i}   -  \sqrt{  a_{2,i}^2 - 3 a_{1,i} a_{3,i}  }     }{a_{1,i}} \leq \tau_{i+1} -\tau_i 
+\end{align*}
+in order to be used to calculate the upper and lover envelopes. If the points meet the above condition, we need to distinguish, whether they are a minimum or a maximum by checking if the second derivative of the polynomials at the candidate point value $P_i''(t^*_{1,i})$ and $P_i''(t^*_{2,i})$ is smaller than zero (local minimum) or greater than zero (local maximum), that is
+\begin{align*}
+& P_i''(t^*_{1,i}) =  2 a_{2,i}  + 6a_{3,i} (t^*_{1,i} -\tau_i) =  2 a_{2,i}  + 6a_{3,i} \frac{  a_{2,i}   + \sqrt{  a_{2,i}^2 - 3 a_{1,i} a_{3,i}   }} {a_{1,i}}\\
+& P_i''(t^*_{2,i}) =  2 a_{2,i}  + 6a_{3,i} (t^*_{2,i} -\tau_i) =  2 a_{2,i}  + 6a_{3,i} \frac{  a_{2,i}   - \sqrt{  a_{2,i}^2 - 3 a_{1,i} a_{3,i}   }} {a_{1,i}}
+\end{align*}
+
+%https://en.wikipedia.org/wiki/Tridiagonal_matrix
+%http://macs.citadel.edu/chenm/343.dir/09.dir/lect3_4.pdf
+%https://www.rajgunesh.com/resources/downloads/numerical/cubicsplineinterpol.pdf
+% https://www.rajgunesh.com/resources/downloads/numerical/cubicsplineinterpol.pdf
+% http://folk.uio.no/in329/nchap5.pdf
+%http://folk.uio.no/in329/nchap5.pdf
+%\bibliography{bib}
+%
+%\newpage
+%\appendix
+%\chapter{Appendix}
+
+\subsection{Recursive Estimation of IMFs}
+Check rational splines and Akima splines
+
+\section{Penalized Spline Smoothing for $x(t)$ }
+TODO: specify the loss function here
+which is given by the conditional expectation $\mathbf{E}[x(t)|y(t)]$. Under a Gaussian distribution assumption of the error term $\epsilon_t$ we obtain the optimal prediction by minimizing the some loss function.
+
+\subsection{Batch estimation}
+
+\subsection{Recursive Least Square Approach}
+
+\section{Gaussian Processes and EMD: IMFs as  Gaussian Processes with non-stationary kernels}
+Treat each IMF as a separate Gaussian process and then represent the signal using multi-kernel representation of the Gaussian Process (Gareth's code as an illustration)
+Comments:
+1. Needed estimation for multi trial setting when we repeat experiment many times and obtain IMFs from the same process many times.
+1. GP representation does not ensures itself that the predicted function from a given Gaussian process is IMF , that is, it satisfies (I1)-(I2).
+
+
+\section{Brownian Bridge Analogue to  construct IMFs}
+\subsection{Symmetric Local Extremas of IMFs} 
+On every time internal there is a Brownian bridge or constrained Brownian bridge which starts and end from local extrema which are $x^{min} (t)= -x^{max}(t)$ for $t \in [\tau_i,\tau_{i+1}$
+\subsection{Nonsymmetric}
+
+\subsection{Bayesian EMD}
+1. Construct a set of functions in Bayesian setting to have a IMF representation with restricted posterior (what needs to be satisfied on maxima and minima and how to ensure it)
+2. Analogous of Brownian Bridge IMFs in Bayesian setting
+
+Berger's optimal theory. Books on smoothing
+\section{EMD algorithm}
+
+
+
+\end{document}

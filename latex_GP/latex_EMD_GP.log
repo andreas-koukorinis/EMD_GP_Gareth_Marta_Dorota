@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.6.3)  20 JUN 2019 00:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.6.3)  5 JUN 2019 08:56
 entering extended mode
 **./latex_EMD_GP.tex
 (latex_EMD_GP.tex
@@ -270,7 +270,7 @@ Package: enumitem 2019/02/04 v3.8 Customized lists
 )
 ("C:\Users\Marta\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\mathpazo.st
 y"
-Package: mathpazo 2005/04/12 PSNFSS-v9.2a Palatino w/ Pazo Math (D.Puga, WaS) 
+Package: mathpazo 2005/04/12 PSNFSS-v9.2a Palatino w/ Pazo Math (D.Puga, WaS)
 \symupright=\mathgroup4
 )
 ("C:\Users\Marta\AppData\Local\Programs\MiKTeX 2.9\tex/latex/booktabs\booktabs.
@@ -930,7 +930,7 @@ Package caption Info: hyperref package is loaded.
 )
 ("C:\Users\Marta\AppData\Local\Programs\MiKTeX 2.9\tex/latex/algorithmicx\algps
 eudocode.sty"
-Package: algpseudocode 
+Package: algpseudocode
 
 ("C:\Users\Marta\AppData\Local\Programs\MiKTeX 2.9\tex/latex/algorithmicx\algor
 ithmicx.sty"
@@ -1106,7 +1106,7 @@ Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)+ FMi change
 Package: hhline 2014/10/28 v2.03 Table rule package (DPC)
 ) ("C:\Users\Marta\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\pifont.st
 y"
-Package: pifont 2005/04/12 PSNFSS-v9.2a Pi font support (SPQR) 
+Package: pifont 2005/04/12 PSNFSS-v9.2a Pi font support (SPQR)
 LaTeX Font Info:    Try loading font information for U+pzd on input line 63.
  ("C:\Users\Marta\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\upzd.fd"
 File: upzd.fd 2001/06/04 font definitions for U/pzd.
@@ -1121,18 +1121,6 @@ LaTeX Font Info:    Overwriting math alphabet `\mathbbm' in version `bold'
 (Font)                  U/bbm/m/n --> U/bbm/bx/n on input line 33.
 LaTeX Font Info:    Overwriting math alphabet `\mathbbmss' in version `bold'
 (Font)                  U/bbmss/m/n --> U/bbmss/bx/n on input line 35.
-)
-("C:\Users\Marta\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/frontendlaye
-r/tikz/libraries\tikzlibrarycalc.code.tex"
-File: tikzlibrarycalc.code.tex 2019/05/09 v3.1.3 (3.1.3)
-)
-("C:\Users\Marta\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/frontendlaye
-r/tikz/libraries\tikzlibraryfit.code.tex"
-File: tikzlibraryfit.code.tex 2019/05/09 v3.1.3 (3.1.3)
-)
-("C:\Users\Marta\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/frontendlaye
-r/tikz/libraries\tikzlibrarypositioning.code.tex"
-File: tikzlibrarypositioning.code.tex 2019/05/09 v3.1.3 (3.1.3)
 )
 ("C:\Users\Marta\AppData\Local\Programs\MiKTeX 2.9\tex/latex/colortbl\colortbl.
 sty"
@@ -1160,9 +1148,6 @@ LaTeX Warning: Unused global option(s):
 LaTeX Warning: Label `cubic_spl' multiply defined.
 
 
-LaTeX Warning: Label `IF' multiply defined.
-
-
 LaTeX Warning: Label `fig:' multiply defined.
 
 
@@ -1171,23 +1156,23 @@ LaTeX Warning: Label `fig:' multiply defined.
 )
 \openout1 = `latex_EMD_GP.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Try loading font information for T1+ppl on input line 73.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Try loading font information for T1+ppl on input line 70.
  ("C:\Users\Marta\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\t1ppl.fd"
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
@@ -1225,7 +1210,7 @@ fg"
 File: mt-ppl.cfg 2005/11/16 v1.6 microtype config. file: Palatino (RS)
 ) ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box87
-Package hyperref Info: Link coloring ON on input line 73.
+Package hyperref Info: Link coloring ON on input line 70.
 
 ("C:\Users\Marta\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\nameref.s
 ty"
@@ -1237,9 +1222,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count274
 )
-LaTeX Info: Redefining \ref on input line 73.
-LaTeX Info: Redefining \pageref on input line 73.
-LaTeX Info: Redefining \nameref on input line 73.
+LaTeX Info: Redefining \ref on input line 70.
+LaTeX Info: Redefining \pageref on input line 70.
+LaTeX Info: Redefining \nameref on input line 70.
  (latex_EMD_GP.out) (latex_EMD_GP.out)
 \@outlinefile=\write4
 \openout4 = `latex_EMD_GP.out'.
@@ -1252,7 +1237,7 @@ LaTeX Info: Redefining \nameref on input line 73.
 * paper: a4paper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: includehead includefoot 
+* modes: includehead includefoot
 * h-part:(L,W,R)=(59.75095pt, 478.00598pt, 59.75095pt)
 * v-part:(T,H,B)=(51.21504pt, 751.15268pt, 42.67912pt)
 * \paperwidth=597.50787pt
@@ -1339,7 +1324,7 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <9> not available
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
 (Font)              scaled to size 5.21004pt on input line 73.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 79.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 76.
  (latex_EMD_GP.toc)
 \tf@toc=\write5
 \openout5 = `latex_EMD_GP.toc'.
@@ -1349,43 +1334,7 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 1.
  [1
 
-{C:/Users/Marta/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-
-LaTeX Warning: Reference `ssec:EMD_background' on page 2 undefined on input lin
-e 8.
-
-
-LaTeX Warning: Reference `EMD_background' on page 2 undefined on input line 8.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 16.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 16.
-
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 8.33606pt on input line 86.
-
-Overfull \hbox (57.68796pt too wide) in paragraph at lines 93--97
-[][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 93--97
-
- []
-
-[2] [3]) (multiple_trials_denoising.tex
-LaTeX Font Info:    Calculating math sizes for size <14> on input line 1.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 14.5881pt on input line 1.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 11.08687pt on input line 1.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 8.75294pt on input line 1.
-
+{C:/Users/Marta/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1.
@@ -1394,162 +1343,91 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1.
 
-[4]) (GP_formulation_splines.tex
+) (./GP_formulation_splines.tex
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1.
-
-
-LaTeX Warning: Reference `' on page 5 undefined on input line 2.
-
-LaTeX Font Info:    Try loading font information for U+bbm on input line 8.
+LaTeX Font Info:    Try loading font information for U+bbm on input line 65.
 ("C:\Users\Marta\AppData\Local\Programs\MiKTeX 2.9\tex/latex/bbm\ubbm.fd"
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 )
-[5]
-
-Package natbib Warning: Citation `Machine' on page 6 undefined on input line 72
-.
-
-[6]
-LaTeX Font Info:    Try loading font information for OMS+ppl on input line 85.
+[3]
+LaTeX Font Info:    Try loading font information for OMS+ppl on input line 89.
 
 ("C:\Users\Marta\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\omsppl.fd"
-File: omsppl.fd 
+File: omsppl.fd
 )
 LaTeX Font Info:    Font shape `OMS/ppl/m/it' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 85.
 
-LaTeX Warning: Reference `sifting_algorithm' on page 7 undefined on input line 
+
+LaTeX Warning: Reference `sifting_algorithm' on page 6 undefined on input line
 93.
 
 
-LaTeX Warning: Reference `appendix_IMFS-coeff_no_sifting' on page 7 undefined o
-n input line 93.
-
-) (EMD_background.tex
-LaTeX Font Info:    Font shape `T1/ppl/bx/it' in size <10> not available
-(Font)              Font shape `T1/ppl/b/it' tried instead on input line 15.
- [7]
-
-Package natbib Warning: Citation `Cohen1995' on page 8 undefined on input line 
-49.
-
-
-Package natbib Warning: Citation `Huang1998' on page 8 undefined on input line 
-49.
-
-
-Package natbib Warning: Citation `Brigham' on page 8 undefined on input line 49
-.
-
-
-Package natbib Warning: Citation `Cohen1995' on page 8 undefined on input line 
-49.
-
-
-Package natbib Warning: Citation `Huang1998' on page 8 undefined on input line 
-63.
-
-
-Underfull \hbox (badness 1394) in paragraph at lines 63--66
-\T1/ppl/m/n/10 (+20) The in-stan-ta-neous fre-quen-cies de-rived from each IMF 
-through the Hilbert Trans-form of-fer a full
- []
-
-
-Package natbib Warning: Citation `Huang1998' on page 8 undefined on input line 
-69.
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 96--97
-
- []
-
-) (EMD_Feature_Extraction.tex
-LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <7> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 30.
- [9]) (kernel_choice.tex
-<figs/GP_illustrations/kernel_stationary.png, id=195, 722.7pt x 578.16pt>
+[5]
+<figs/GP_illustrations/kernel_stationary.png, id=152, 3011.25pt x 2409.0pt>
 File: figs/GP_illustrations/kernel_stationary.png Graphic file (type png)
 <use figs/GP_illustrations/kernel_stationary.png>
 Package pdftex.def Info: figs/GP_illustrations/kernel_stationary.png  used on i
-nput line 14.
-(pdftex.def)             Requested size: 108.40031pt x 86.72025pt.
-<figs/GP_illustrations/y_sim_stationary.png, id=196, 722.7pt x 578.16pt>
+nput line 242.
+(pdftex.def)             Requested size: 451.66801pt x 361.33441pt.
+ [6]
+<figs/GP_illustrations/y_sim_stationary.png, id=161, 3011.25pt x 2409.0pt>
 File: figs/GP_illustrations/y_sim_stationary.png Graphic file (type png)
 <use figs/GP_illustrations/y_sim_stationary.png>
 Package pdftex.def Info: figs/GP_illustrations/y_sim_stationary.png  used on in
-put line 20.
-(pdftex.def)             Requested size: 108.40031pt x 86.72025pt.
-<figs/GP_illustrations/y_pred_stationary.png, id=199, 3011.25pt x 2409.0pt>
+put line 248.
+(pdftex.def)             Requested size: 451.66801pt x 361.33441pt.
+ [7 <./figs/GP_illustrations/kernel_stationary.png>]
+<figs/GP_illustrations/y_pred_stationary.png, id=171, 3011.25pt x 2409.0pt>
 File: figs/GP_illustrations/y_pred_stationary.png Graphic file (type png)
 <use figs/GP_illustrations/y_pred_stationary.png>
 Package pdftex.def Info: figs/GP_illustrations/y_pred_stationary.png  used on i
 nput line 26.
 (pdftex.def)             Requested size: 451.66801pt x 361.33441pt.
- [10 <./figs/GP_illustrations/kernel_stationary.png (PNG copy)> <./figs/GP_illu
-strations/y_sim_stationary.png>]
+)
+(estimation_params.tex [8 <./figs/GP_illustrations/y_sim_stationary.png>]
+[9 <./figs/GP_illustrations/y_pred_stationary.png>]
 
-Package natbib Warning: Citation `Remes2017' on page 11 undefined on input line
- 50.
-
-[11 <./figs/GP_illustrations/y_pred_stationary.png>]
-
-Package natbib Warning: Citation `Remes2017' on page 12 undefined on input line
- 72.
+Package natbib Warning: Citation `Remes2017' on page 9 undefined on input line
+50.
 
 
-Package natbib Warning: Citation `LazaroGredilla2010' on page 12 undefined on i
-nput line 89.
-
-) (IMF_Brownian_Bridge.tex [12]
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 40.
+Package natbib Warning: Citation `Remes2017' on page 9 undefined on input line
+72.
 
 
-LaTeX Warning: Command \k invalid in math mode on input line 56.
+Package natbib Warning: Citation `LazaroGredilla2010' on page 9 undefined on in
+put line 89.
 
-[13]) (Kernel_Target_Alignment.tex [14]
-Overfull \hbox (43.66908pt too wide) detected at line 14
-[][] [] \OT1/zplm/m/n/9 = [] = []\OT1/ppl/m/n/9 ,  []  [][] \OT1/zplm/m/n/9 = \
-OML/zplm/m/it/9 m[]
- []
+) (./IMF_Brownian_Bridge.tex [9]
 
-) 
+) (IMF_pred_distribution.tex) (multikernel_signal.tex [10])
+(IMF_Brownian_Bridge.tex [11])
 AED: lastpage setting LastPage
-[15]
+[11]
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 100.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 100.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 94.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 94.
 (latex_EMD_GP.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 100.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 100.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 94.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 94.
 Package rerunfilecheck Info: File `latex_EMD_GP.out' has not changed.
-(rerunfilecheck)             Checksum: 02E7FC06AF3BA8274EBD7E895A6B3AD5;4371.
-
-
-LaTeX Warning: There were undefined references.
+(rerunfilecheck)             Checksum: 335DEA767374DE2040044F5919B4B048;4653.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
- ) 
+ )
 Here is how much of TeX's memory you used:
- 27877 strings out of 492895
- 489487 string characters out of 3123736
- 613421 words of memory out of 3000000
- 30911 multiletter control sequences out of 15000+200000
- 86075 words of font info for 304 fonts, out of 3000000 for 9000
+ 27224 strings out of 492895
+ 476700 string characters out of 3123736
+ 585806 words of memory out of 3000000
+ 30329 multiletter control sequences out of 15000+200000
+ 60641 words of font info for 232 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,18n,53p,2602b,766s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 62i,17n,50p,1477b,522s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/Marta/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc
 } <C:\Users\Marta\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/bbm/dpi600\bb
 m9.pk><C:/Users/Marta/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsf
@@ -1557,19 +1435,17 @@ onts/cm/cmex10.pfb><C:/Users/Marta/AppData/Local/Programs/MiKTeX 2.9/fonts/type
 1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Marta/AppData/Local/Programs/MiKTeX 2
 .9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Marta/AppData/Local/Progr
 ams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Marta/AppDat
-a/Local/Programs/MiKTeX 2.9/fonts/type1/public/mathpazo/fplmb.pfb><C:/Users/Mar
-ta/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/mathpazo/fplmbi.pfb><C:
+a/Local/Programs/MiKTeX 2.9/fonts/type1/public/mathpazo/fplmbi.pfb><C:/Users/Ma
+rta/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/mathpazo/fplmr.pfb><C:
 /Users/Marta/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/mathpazo/fplm
-r.pfb><C:/Users/Marta/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/math
-pazo/fplmri.pfb><C:/Users/Marta/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/symbols/msbm10.pfb><C:/Users/Marta/AppData/Local/Programs/MiKTeX
- 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Users/Marta/AppData/Local/Programs
-/MiKTeX 2.9/fonts/type1/urw/palatino/uplbi8a.pfb><C:/Users/Marta/AppData/Local/
-Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users/Marta/AppData
-/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on latex_EMD_GP.pdf (15 pages, 880364 bytes).
+ri.pfb><C:/Users/Marta/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/ams
+fonts/symbols/msbm10.pfb><C:/Users/Marta/AppData/Local/Programs/MiKTeX 2.9/font
+s/type1/urw/palatino/uplb8a.pfb><C:/Users/Marta/AppData/Local/Programs/MiKTeX 2
+.9/fonts/type1/urw/palatino/uplbi8a.pfb><C:/Users/Marta/AppData/Local/Programs/
+MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users/Marta/AppData/Local/Pr
+ograms/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on latex_EMD_GP.pdf (12 pages, 1411358 bytes).
 PDF statistics:
- 325 PDF objects out of 1000 (max. 8388607)
- 92 named destinations out of 1000 (max. 500000)
- 44196 words of extra memory for PDF output out of 51595 (max. 10000000)
-
+ 271 PDF objects out of 1000 (max. 8388607)
+ 69 named destinations out of 1000 (max. 500000)
+ 37540 words of extra memory for PDF output out of 42996 (max. 10000000)
