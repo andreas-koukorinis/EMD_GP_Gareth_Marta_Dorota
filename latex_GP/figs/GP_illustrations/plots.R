@@ -33,7 +33,7 @@ nla = nrow(l_alpha_list)
 function_Sigma_SE = function(l) matrix( apply(expand.grid(t,t),1, function(s) K_SE(x1=s[1],x2=s[2],l = l)),nrow = n)
 Sigma_SE = lapply(l_list, function(l) function_Sigma_SE (l) )
 Sigme_SE_melted = do.call('rbind',lapply(1:nl, function(i){df = melt(Sigma_SE[[i]]); df$parm = i;df$label ='SE';return(df) } ))
-               
+
 function_Sigma_RQ = function(l,a) matrix( apply(expand.grid(t,t),1, function(s) K_RQ(x1=s[1],x2=s[2],l = l, alpha = a)),nrow = n)
 Sigma_RQ = lapply(1:nla, function(i) function_Sigma_RQ(l_alpha_list[i,1],l_alpha_list[i,2] ) )
 Sigme_RQ_melted = do.call('rbind',lapply(1:nl, function(i){df = melt(Sigma_RQ[[i]]); df$parm = i;df$label ='RQ';return(df) } ))
@@ -92,7 +92,7 @@ x = seq(-3,3,0.1)
 XY = expand.grid(x,x)
 
 df_SE  = apply( params_list[params_list $label =='SE',],1 ,function(rr){ do.call('rbind',
-                                                                                 lapply(1:ncases, function(ss){ df = data.frame( label ='SE', parm = rr[1],  Y1 = XY[,1] ,Y2 = XY[,2], 
+                                                                                 lapply(1:ncases, function(ss){ df = data.frame( label ='SE', parm = rr[1],  Y1 = XY[,1] ,Y2 = XY[,2],
                                                                                                                                 prob = dmvnorm(XY, mean = rep(0,2), sigma = Sigma_SE[[as.numeric(rr[1])]][c(1,ind_list[ss,3]),c(1,ind_list[ss,3])] ),
                                                                                                                                 point_label = paste('t=',format(ind_list[ss,1:2], digits = 2), sep='', collapse=', ' )     )}    )   )}  )
 df_SE = do.call('rbind',df_SE)
@@ -101,8 +101,8 @@ l_labels = paste('l=',l_list)
 l_alpha_labels = apply(l_alpha_list,1,function(rr) paste(c('l=','a='),format(rr, digits = 2), sep='', collapse=', ' ))
 
 df_SE$parm = factor(df_SE$parm)
-levels(df_SE$parm) = l_labels 
-gg = ggplot(data=df_SE,aes(x=Y1,y=Y2,z=prob,colour = parm)) 
+levels(df_SE$parm) = l_labels
+gg = ggplot(data=df_SE,aes(x=Y1,y=Y2,z=prob,colour = parm))
 gg = gg + facet_grid(point_label~label + parm, scales = 'fixed' )
 gg = gg + geom_contour()
 gg = gg + theme_minimal()
@@ -114,14 +114,14 @@ ggsave(paste(dir,'/y_cont_stationary_SE.eps',sep = ''),width =10,height = 8)
 
 
 df_RQ  = apply( params_list[params_list $label =='RQ',],1 ,function(rr){ do.call('rbind',
-                                                                                 lapply(1:ncases, function(ss){ df = data.frame( label ='RQ', parm = rr[1],  Y1 = XY[,1] ,Y2 = XY[,2], 
+                                                                                 lapply(1:ncases, function(ss){ df = data.frame( label ='RQ', parm = rr[1],  Y1 = XY[,1] ,Y2 = XY[,2],
                                                                                                                                  prob = dmvnorm(XY, mean = rep(0,2), sigma = Sigma_RQ[[as.numeric(rr[1])]][c(1,ind_list[ss,3]),c(1,ind_list[ss,3])] ),
                                                                                                                                  point_label = paste('t=',format(ind_list[ss,1:2], digits = 2), sep='', collapse=', ' )     )}    )   )}  )
 df_RQ = do.call('rbind',df_RQ)
 
 df_RQ$parm = factor(df_RQ$parm)
 levels(df_RQ$parm) = l_alpha_labels
-gg = ggplot(data=df_RQ,aes(x=Y1,y=Y2,z=prob,colour = parm)) 
+gg = ggplot(data=df_RQ,aes(x=Y1,y=Y2,z=prob,colour = parm))
 gg = gg + facet_grid(point_label~label + parm, scales = 'fixed' )
 gg = gg + geom_contour()
 gg = gg + theme_minimal()
@@ -134,13 +134,13 @@ ggsave(paste(dir,'/y_cont_stationary_RQ.eps',sep = ''),width =10,height = 8)
 l_alpha_labels = apply(l_alpha_list,1,function(rr) paste(c('l=','a='),format(rr*c(1,1/5), digits = 2), sep='', collapse=', ' ))
 
 df_PR  = apply( params_list[params_list $label =='PR',],1 ,function(rr){ do.call('rbind',
-                                                                                 lapply(1:ncases, function(ss){ df = data.frame( label ='PR', parm = rr[1],  Y1 = XY[,1] ,Y2 = XY[,2], 
+                                                                                 lapply(1:ncases, function(ss){ df = data.frame( label ='PR', parm = rr[1],  Y1 = XY[,1] ,Y2 = XY[,2],
                                                                                                                                  prob = dmvnorm(XY, mean = rep(0,2), sigma = Sigma_PR[[as.numeric(rr[1])]][c(1,ind_list[ss,3]),c(1,ind_list[ss,3])] ),
                                                                                                                                  point_label = paste('t=',format(ind_list[ss,1:2], digits = 2), sep='', collapse=', ' )     )}    )   )}  )
 df_PR = do.call('rbind',df_PR)
 df_PR$parm = factor(df_PR$parm)
 levels(df_PR$parm) = l_alpha_labels
-gg = ggplot(data=df_PR,aes(x=Y1,y=Y2,z=prob,colour = parm)) 
+gg = ggplot(data=df_PR,aes(x=Y1,y=Y2,z=prob,colour = parm))
 gg = gg + facet_grid(point_label~label + parm, scales = 'fixed' )
 gg = gg + geom_contour()
 gg = gg + theme_minimal()
@@ -152,13 +152,13 @@ ggsave(paste(dir,'/y_cont_stationary_PR.eps',sep = ''),width =10,height = 8)
 
 
 df_locPR  = apply( params_list[params_list $label =='locPR',],1 ,function(rr){ do.call('rbind',
-                                                                                 lapply(1:ncases, function(ss){ df = data.frame( label ='locPR', parm = rr[1],  Y1 = XY[,1] ,Y2 = XY[,2], 
+                                                                                 lapply(1:ncases, function(ss){ df = data.frame( label ='locPR', parm = rr[1],  Y1 = XY[,1] ,Y2 = XY[,2],
                                                                                                                                  prob = dmvnorm(XY, mean = rep(0,2), sigma = Sigma_locPR[[as.numeric(rr[1])]][c(1,ind_list[ss,3]),c(1,ind_list[ss,3])] ),
                                                                                                                                  point_label = paste('t=',format(ind_list[ss,1:2], digits = 2), sep='', collapse=', ' )     )}    )   )}  )
 df_locPR = do.call('rbind',df_locPR)
 df_locPR$parm = factor(df_locPR$parm)
 levels(df_locPR$parm) = l_alpha_labels
-gg = ggplot(data=df_locPR,aes(x=Y1,y=Y2,z=prob,colour = parm)) 
+gg = ggplot(data=df_locPR,aes(x=Y1,y=Y2,z=prob,colour = parm))
 gg = gg + facet_grid(point_label~label + parm, scales = 'fixed' )
 gg = gg + geom_contour()
 gg = gg + theme_minimal()
@@ -181,15 +181,15 @@ y_obs = subset(toplot_y_st, toplot_y_st$s == 1 & toplot_y_st$label=='RQ' & toplo
 mu_pred_SE = do.call('rbind',lapply(1:nl, function(i){df = data.frame(t = c(t_obs,t_pred),
                                                                       y = c(y_obs,Sigma_SE[[i]][-id_obs,id_obs] %*% solve(Sigma_SE[[i]][id_obs,id_obs]) %*% matrix(y_obs,ncol = 1)),
                                                                       conf_spread = c(rep(0,nobs), diag(Sigma_SE[[i]][-id_obs,-id_obs] - Sigma_SE[[i]][-id_obs,id_obs] %*% solve( Sigma_SE[[i]][id_obs,id_obs]) %*% Sigma_SE[[i]][id_obs,-id_obs]) ),
-                                                                      isObs = c(rep(1,nobs),rep(0,npred) ),    
-                                                                      parm =  i, 
+                                                                      isObs = c(rep(1,nobs),rep(0,npred) ),
+                                                                      parm =  i,
                                                                       label ='SE');return(df) } ))
 
 mu_pred_RQ = do.call('rbind',lapply(1:nla, function(i){df = data.frame(t = c(t_obs,t_pred),
                                                                       y = c(y_obs,Sigma_RQ[[i]][-id_obs,id_obs] %*% solve(Sigma_RQ[[i]][id_obs,id_obs]) %*% matrix(y_obs,ncol = 1)),
                                                                       conf_spread = c(rep(0,nobs), diag(Sigma_RQ[[i]][-id_obs,-id_obs] - Sigma_RQ[[i]][-id_obs,id_obs] %*% solve( Sigma_RQ[[i]][id_obs,id_obs]) %*% Sigma_RQ[[i]][id_obs,-id_obs]) ),
-                                                                      isObs = c(rep(1,nobs),rep(0,npred) ),    
-                                                                      parm =  i, 
+                                                                      isObs = c(rep(1,nobs),rep(0,npred) ),
+                                                                      parm =  i,
                                                                       label ='RQ');return(df) } ))
 
 
@@ -197,15 +197,15 @@ mu_pred_RQ = do.call('rbind',lapply(1:nla, function(i){df = data.frame(t = c(t_o
 mu_pred_PR = do.call('rbind',lapply(1:nl, function(i){df = data.frame(t = c(t_obs,t_pred),
                                                                       y = c(y_obs,Sigma_PR[[i]][-id_obs,id_obs] %*% solve(Sigma_PR[[i]][id_obs,id_obs]) %*% matrix(y_obs,ncol = 1)),
                                                                       conf_spread = c(rep(0,nobs), diag(Sigma_PR[[i]][-id_obs,-id_obs] - Sigma_PR[[i]][-id_obs,id_obs] %*% solve( Sigma_PR[[i]][id_obs,id_obs]) %*% Sigma_PR[[i]][id_obs,-id_obs]) ),
-                                                                      isObs = c(rep(1,nobs),rep(0,npred) ),    
-                                                                      parm =  i, 
+                                                                      isObs = c(rep(1,nobs),rep(0,npred) ),
+                                                                      parm =  i,
                                                                       label ='PR');return(df) } ))
 
 mu_pred_locPR = do.call('rbind',lapply(1:nl, function(i){df = data.frame(t = c(t_obs,t_pred),
                                                                       y = c(y_obs,Sigma_locPR[[i]][-id_obs,id_obs] %*% solve(Sigma_locPR[[i]][id_obs,id_obs]) %*% matrix(y_obs,ncol = 1)),
                                                                       conf_spread = c(rep(0,nobs), diag(Sigma_locPR[[i]][-id_obs,-id_obs] - Sigma_locPR[[i]][-id_obs,id_obs] %*% solve( Sigma_locPR[[i]][id_obs,id_obs]) %*% Sigma_locPR[[i]][id_obs,-id_obs]) ),
-                                                                      isObs = c(rep(1,nobs),rep(0,npred) ),    
-                                                                      parm =  i, 
+                                                                      isObs = c(rep(1,nobs),rep(0,npred) ),
+                                                                      parm =  i,
                                                                       label ='locPR');return(df) } ))
 
 toplot_y_pred_st =  do.call('rbind',list(mu_pred_SE,mu_pred_RQ,mu_pred_PR,mu_pred_locPR))
@@ -236,7 +236,7 @@ K_WP <- function(x1,x2) min(x1,x2)
 
 
 #### NN with one hidden layer (non stationary)
-K_NN <- function(x1,x2,Sigma){ 
+K_NN <- function(x1,x2,Sigma){
   A = matrix(c(1,x1),ncol = 1) %*% Sigma %*% matrix(c(1,x2),nrow = 1)
   B = 1 + matrix(c(1,x1),ncol = 1) %*% Sigma %*% matrix(c(1,x1),nrow = 1)
   C = 1 + matrix(c(1,x2),ncol = 1) %*% Sigma %*% matrix(c(1,x2),nrow = 1)
@@ -255,5 +255,3 @@ K_G <- function(x1,x2,sigma2_u, sigma2_g){
 }
 
 #### GIVEN THE 2D MAPPING TODO
-
-
