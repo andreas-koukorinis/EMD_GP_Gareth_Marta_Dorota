@@ -1,5 +1,6 @@
 \section{Background: Empirical Mode Decomposition}\label{sec:EMD_background}
 
+\subsection{Empirical Mode Decomposition}
 
 \begin{Definition}
 
@@ -38,3 +39,59 @@ S^{L_m} (t) & < \gamma_m(t) \quad  \forall t, \quad (t_1, t_N)
 \end{equation}
 \end{itemize}
 \end{Definition}
+
+
+\subsection{Instantaneous Frequency}
+\label{IF}
+
+\textcolor{red}{Need to shrink it more - Dorota and Gareth}
+
+The goal of this section is understanding the concept of instantaneous frequency strictly related to the EMD above introduced. Classical Fourier methods require stationarity, where the frequency component is static over time, see \cite{Cohen1995}, \cite{Huang1998}. Nevertherless, signals are often non-stationary and non-linear and, therefore, they carry time-varying frequency component in their IMFs basis. Though it is possible to have time-varying  coefficients Fourier methods  \cite{Brigham}, \cite{Cohen1995}, which tend to capture non-stationarity with fix basis, the EMD provides more flexibility. By being a data-driven, a posteriori method, its basis, i.e. the IMFs, are indeed more general.\\
+To find the instantaneous frequency, some steps have to be performed. The first one is to find the Hilbert Transform of each $\gamma_m(t)$, so that we can construct an analytic extension of the given IMF. The Hilbert Transform can be computed in close form only if $\gamma_m(t)$ respects the restrictions defined in \ref{cond_1_sp} and \ref{cond_2_sp}.\\
+Define $z(t) = \gamma_m(t) + \jmath \tilde{\gamma}_m(t)$ or $z(t) = a(t) e^{\jmath \theta(t)}$ the analytic extension of $\gamma_m(t)$, where  $\tilde{\gamma}_m(t)$ represents the imaginary part and forms the conjugate pairs with $\gamma_m(t)$; also, $a(t) = \sqrt{\gamma_m^2(t)  + \tilde{\gamma}_m^2(t)}$  corresponds to the amplitude of $z(t)$ and $\theta(t) = \arctan \frac{ \tilde{ \gamma}_m(t)}{\gamma_m(t)}$ to the instantaneous phase. The Hilbert Transform of an IMF $\gamma_m (t)$ is then given by:
+\begin{equation}
+ \label{H_T}
+ \tilde{\gamma}_m(t) = - \frac{1}{\pi} \lim_{\epsilon \rightarrow \infty} \int_{-\epsilon}^{+\epsilon} \frac{\gamma_m (t +\tau) - \gamma_m(t -\tau)}{t} d \tau
+ \end{equation}
+
+Once that $\tilde{\gamma}_m (t)$ is computed, the second step corresponds to find the phase of the analytical signal defined as $\theta(t)$; afterwards, by differentiating such quantity with respect to $t$, the instantaneous frequency $f(t)$ is obtained as follows:
+\begin{equation}
+\label{IF}
+f(t) = \frac{1}{2 \pi} \frac{d \theta(t)}{dt} = \frac{1}{2 \pi}  \frac{\tilde{\gamma}_m'(t) \gamma_k(t) - \tilde{\gamma}_m(t) \gamma_m'(t)}{\gamma_m^2(t) + \tilde{\gamma}_m^2(t)}
+\end{equation}
+
+The instantaneous frequency is performed per IMF so that we can understand the local frequency and how it varies over time with each basis. To provide such concept in the context of non-stationary signals, \cite{Huang1998} needed to detect local structures of the data by assuming equations \ref{cond_1_sp} and \ref{cond_2_sp}. If such conditions of the IMFs are not satisfied, the instantaneous frequency often assumes negative values which lack physical meaning. Just like in the Fourier methods where there is a natural ordering of the static frequency (phase) for each basis, in this case, although the frequencies are time-varying, the extraction of the IMFs and property of the IMFs will still preserve the ordering in time of the instantaneous frequency. \\
+The instantaneous frequencies derived from each IMF through the Hilbert Transform offer a full energy-frequency-time distribution. Such representation is known as the Hilbert Spectrum. The computation of the Hilbert Transform along with the instantaneous frequency in a closed form of a given IMF is provided below.\\
+Assume that the interpolated signal $\tilde{s}(t)$ can be decomposed into components respecting \ref{cond_1_sp} and \ref{cond_2_sp}. After the EMD and the Hilbert Transform of the IMFs are computed, $\tilde{s}(t)$ can be expressed in a Fourier-like expansion as:
+ \[
+ \tilde{s}(t) = Re\left\{ \sum_{k=1}^{\textcolor{red}{K+1}}  a_m(t)  \exp\{\jmath \int_{t_1}^{t_N} 2 \pi f_m(t) d t\} \right\}
+ \]
+ \noindent  in which the residual  $r(t)$  is included ($K+1$). The index $k$ refers to each IMF and $Re\{.\}$  denotes the real part of a complex quantity. This expansion, proposed in \cite{Huang1998},  is known as the Hilbert- Huang  transform (HHT). Note that the differences with the classical Fourier expansion are the amplitude $a_k$ and the frequency $f_k$ which are time-varying. The classical Fourier expansion is given by:
+  \[
+ \tilde{s}(t) = Re\left\{ \sum_{k=1}^{\textcolor{red}{K+1}}  a_m  \exp\{\jmath \int_{t_1}^{t_N} 2 \pi f_m d t\} \right\}
+ \]
+ 
+ To compute the instantaneous frequency of a given IMF, we firstly compute its Hilbert Transform. This is provided within the next proposition.
+
+\begin{Proposition}
+Consider the $m$-$th$ IMF $\gamma_m(t)$ defined in \ref{prop_cs} and remark that the form of its analytic signal is $z(t) = \gamma_m(t) + \jmath \tilde{\gamma}_m (t)$. The Hilbert Transform $\tilde{\gamma}_m (t)$ of $\gamma_m (t)$, defined at time points $S=\tau_1, \dots, \tau_m=T$, is given in the the following equation:
+
+\begin{equation}
+\tilde{\gamma}_m (t) = -\frac{1}{\pi} \lim_{\epsilon \rightarrow \infty} \int_{S- \epsilon}^{T+\epsilon} \frac{\gamma_m \left( t + \tau \right) - \gamma_m \left( t - \tau \right)}{t} d \tau
+\end{equation}
+
+Such equation corresponds to:
+
+\begin{equation}
+\begin{split}
+\tilde{\gamma}_m (t) = \sum_{i = 1}^m \left[ a_i \frac{ \left( \tau_{i-1} - \tau_i \right)^4 }{4t} + b_i \frac{ \left( \tau_{i-1} - \tau_i \right)^3 }{3t} + c_i \frac{ \left( \tau_{i-1} - \tau_i \right)^2 }{2t} + d_i \left( \tau_{i-1} - \tau_{i} \right) \frac{1}{t}  \right] - \\
+ \sum_{i=1}^m \left[  a_i \frac{ \left( \tau_{i-1} - \tau_i \right)^4 }{4t} + b_i \frac{ \left( \tau_{i-1} - \tau_i \right)^3 }{3t} + c_i \frac{ \left( \tau_{i-1} - \tau_i \right)^2 }{2t} + d_i \left( \tau_{i-1} - \tau_{i} \right) \frac{1}{t} \right]
+\end{split} 
+\end{equation}
+
+\end{Proposition} 
+
+%The proof is within the appendix \ref{appendix_integral}.\\
+%
+The above results shows that the Hilbert transform of an IMF (which is represented by a cubic spline) is finite and exists. It is now possible to compute the instantaneous frequency of each IMF as the derivative with respect to the time as defined within \ref{IF}.\\
+
